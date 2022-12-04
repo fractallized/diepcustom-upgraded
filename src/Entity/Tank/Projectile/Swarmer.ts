@@ -29,10 +29,10 @@ import { BarrelBase } from "../TankBody";
  * Barrel definition for the skimmer skimmer's barrel.
  */
 const SwarmerBarrelDefinition: BarrelDefinition = {
-    angle: Math.PI / 2,
+    angle: 0,
     offset: 0,
     size: 70,
-    width: 42,
+    width: 29.4,
     delay: 0,
     reload: 1.5,
     recoil: 0,
@@ -94,7 +94,8 @@ export default class Swarmer extends Bullet implements BarrelBase {
             }
         }(this, {...SwarmerBarrelDefinition});
         const s2Definition = {...SwarmerBarrelDefinition};
-        s2Definition.angle += Math.PI
+        s2Definition.angle += Math.PI * 2 / 3;
+        s2Definition.delay += 1 / 3;
         const s2 = new class extends Barrel {
             // Keep the width constant
             protected resize() {
@@ -102,11 +103,21 @@ export default class Swarmer extends Bullet implements BarrelBase {
                 this.physicsData.width = this.definition.width
             }
         }(this, s2Definition);
-
+        const s3Definition = {...SwarmerBarrelDefinition};
+        s3Definition.angle += Math.PI * 4 / 3;
+        s3Definition.delay += 2 / 3;
+        const s3 = new class extends Barrel {
+            // Keep the width constant
+            protected resize() {
+                super.resize();
+                this.physicsData.width = this.definition.width
+            }
+        }(this, s2Definition);
         s1.styleData.values.color = this.styleData.values.color;
         s2.styleData.values.color = this.styleData.values.color;
+        s3.styleData.values.color = this.styleData.values.color;
 
-        skimmerBarrels.push(s1, s2);
+        skimmerBarrels.push(s1, s2, s3);
 
         this.inputs = new Inputs();
         this.inputs.flags |= InputFlags.leftclick;
