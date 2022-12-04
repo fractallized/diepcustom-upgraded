@@ -412,6 +412,7 @@ export interface TankDefinition {
             "Tri-Angle",
             "Auto 3",
             "Flank Trapper",
+            "Trap Guard",
             "Quad Tank"
         ],
         "flags": {
@@ -1531,6 +1532,7 @@ export interface TankDefinition {
         "levelRequirement": 30,
         "upgrades": [
             "Sniper Guard",
+            "Bomber",
             "Infiltrator"
         ],
         "flags": {
@@ -2171,7 +2173,8 @@ export interface TankDefinition {
         "levelRequirement": 30,
         "upgrades": [
             "Infiltrator",
-            "Mechanic"
+            "Mechanic",
+            "Ambusher"
         ],
         "flags": {
             "invisibility": false,
@@ -5263,7 +5266,7 @@ export interface TankDefinition {
         "speed": 1,
         "maxHealth": 50,
         "preAddon": null,
-        "postAddon": null,
+        "postAddon": "overdrive",
         "sides": 4,
         "borderWidth": 15,
         "barrels": [
@@ -5497,7 +5500,7 @@ export interface TankDefinition {
                 "addon": "trapLauncher",
                 "bullet": {
                     "type": "engineer",
-                    "sizeRatio": 1.2,
+                    "sizeRatio": 2,
                     "health": 2,
                     "damage": 1,
                     "speed": 3,
@@ -5750,9 +5753,9 @@ export interface TankDefinition {
                 "bullet": {
                     "type": "trap",
                     "sizeRatio": 1,
-                    "health": 1,
-                    "damage": 0.5,
-                    "speed": 0.5,
+                    "health": 0.6,
+                    "damage": 0.6,
+                    "speed": 0.3,
                     "scatterRate": 1,
                     "lifeLength": 1,
                     "absorbtionFactor": 0.2
