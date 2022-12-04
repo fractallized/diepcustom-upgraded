@@ -88,11 +88,12 @@ export default class InceptionTank extends Bullet implements BarrelBase {
 
         barrels.push(s1);
 
-        this.inputs = new Inputs();
+        this.inputs = tank.inputs;
         this.inputs.flags |= InputFlags.leftclick;
     }
 
     public tick(tick: number) {
+        this.inputs.flags |= InputFlags.leftclick;
         this.sizeFactor = this.physicsData.values.size / 50;
         this.reloadTime = this.tank.reloadTime;
         this.positionData.angle = Math.atan2(this.inputs.mouse.y - this.positionData.values.y, this.inputs.mouse.x - this.positionData.values.x);       
