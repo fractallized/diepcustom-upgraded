@@ -5025,7 +5025,7 @@ export interface TankDefinition {
                 "canControlDrones": true,
                 "bullet": {
                     "type": "autodrone",
-                    "sizeRatio": 1,
+                    "sizeRatio": 1.2,
                     "health": 3,
                     "damage": 1,
                     "speed": 0.56,
@@ -5047,7 +5047,7 @@ export interface TankDefinition {
                         "bullet": {
                             "type": "bullet",
                             "health": 0.5,
-                            "damage": 0.3,
+                            "damage": 0.5,
                             "speed": 0.8,
                             "scatterRate": 1,
                             "lifeLength": 1,
