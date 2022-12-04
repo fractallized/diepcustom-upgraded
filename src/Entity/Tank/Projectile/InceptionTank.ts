@@ -75,11 +75,7 @@ export default class InceptionTank extends Bullet implements BarrelBase {
         this.sizeFactor = this.physicsData.values.size / 50;
 
         const barrels: Barrel[] = this.barrels = [];
-
-        const s1 = new Barrel(this, {...BarrelDefinition});
-        s1.styleData.values.color = this.styleData.values.color;
-
-        barrels.push(s1);
+        barrels.push(new Barrel(this, {...BarrelDefinition}));
 
         this.inputs = tank.inputs;
     }
