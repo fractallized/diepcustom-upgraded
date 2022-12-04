@@ -95,54 +95,6 @@ const DevTankDefinitions: TankDefinition[] = [
                 width: 50,
                 isTrapezoid: true,
                 trapezoidDirection: Math.PI
-            },
-            {
-                "angle": 2.0943951023931953,
-                "offset": 0,
-                "size": 70,
-                "width": 42,
-                "delay": 0,
-                "reload": 6,
-                "recoil": 1,
-                "isTrapezoid": true,
-                "trapezoidDirection": 0,
-                "addon": null,
-                "droneCount": 3,
-                "canControlDrones": true,
-                "bullet": {
-                    "type": "autodrone",
-                    "sizeRatio": 1,
-                    "health": 2,
-                    "damage": 10,
-                    "speed": 2,
-                    "scatterRate": 1,
-                    "lifeLength": -1,
-                    "absorbtionFactor": 1
-                }
-            },
-            {
-                "angle": 4.1887902047863905,
-                "offset": 0,
-                "size": 70,
-                "width": 42,
-                "delay": 0,
-                "reload": 6,
-                "recoil": 1,
-                "isTrapezoid": true,
-                "trapezoidDirection": 0,
-                "addon": null,
-                "droneCount": 3,
-                "canControlDrones": true,
-                "bullet": {
-                    "type": "autodrone",
-                    "sizeRatio": 1,
-                    "health": 2,
-                    "damage": 10,
-                    "speed": 2,
-                    "scatterRate": 1,
-                    "lifeLength": -1,
-                    "absorbtionFactor": 1
-                }
             }
         ],
         levelRequirement: 45,
@@ -154,8 +106,8 @@ const DevTankDefinitions: TankDefinition[] = [
             zoomAbility: false,
             devOnly: true
         },
-        visibilityRateShooting: 0.3,
-        visibilityRateMoving: 0.3,
+        visibilityRateShooting: 0,
+        visibilityRateMoving: 0.5,
         invisibilityRate: 0.2,
         preAddon: null,
         postAddon: "overdrive",
