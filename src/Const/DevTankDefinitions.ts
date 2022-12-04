@@ -67,7 +67,29 @@ const DevTankDefinitions: TankDefinition[] = [
                     scatterRate: 0.01,
                     lifeLength: 8,
                     absorbtionFactor: 1,
-                    sizeRatio: 1
+                    sizeRatio: 2,
+                    autoCannon: {
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0,
+                        "reload": 2,
+                        "recoil": 0,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "sizeRatio": 1,
+                            "health": 2,
+                            "damage": 1,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 0.6,
+                            "absorbtionFactor": 1
+                        }
+                    }
                 },
                 reload: 0.5,
                 width: 50,
