@@ -42,6 +42,7 @@ export default class MazeArena extends ArenaEntity {
     private WALLS: (VectorAbstract & {width: number, height: number})[] = [];
     /** Rolled out matrix of the grid */
     private MAZE: Uint8Array = new Uint8Array(GRID_SIZE * GRID_SIZE);
+    public allowBoss: boolean = false;
 
     public constructor(a: any) {
         super(a);
