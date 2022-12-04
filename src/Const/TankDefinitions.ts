@@ -875,7 +875,8 @@ export interface TankDefinition {
         "levelRequirement": 30,
         "upgrades": [
             "Ranger",
-            "Stalker"
+            "Stalker",
+            "Ambusher"
         ],
         "flags": {
             "invisibility": false,
@@ -2207,7 +2208,11 @@ export interface TankDefinition {
         "name": "Destroyer",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Hybrid",
+            "Annihilator",
+            "Ambusher"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -2256,7 +2261,11 @@ export interface TankDefinition {
         "name": "Launcher",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Cyclone",
+            "Rocketeer",
+            "Skimmer"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -3297,7 +3306,7 @@ export interface TankDefinition {
                 "reload": 2,
                 "recoil": 3,
                 "isTrapezoid": true,
-                "trapezoidDirection": 3.1415926,
+                "trapezoidDirection": 0,
                 "addon": "trapLauncher",
                 "bullet": {
                     "type": "trap",
@@ -5232,8 +5241,8 @@ export interface TankDefinition {
         "absorbtionFactor": 1,
         "speed": 1,
         "maxHealth": 50,
-        "preAddon": "pronounced",
-        "postAddon": null,
+        "preAddon": null,
+        "postAddon": "pronounced",
         "sides": 1,
         "borderWidth": 15,
         "barrels": [
@@ -5243,7 +5252,7 @@ export interface TankDefinition {
                 "size": 80,
                 "width": 56,
                 "delay": 0,
-                "reload": 2,
+                "reload": 3,
                 "recoil": 1,
                 "isTrapezoid": false,
                 "trapezoidDirection": 0,
@@ -5446,7 +5455,7 @@ export interface TankDefinition {
                 }
             },
             {
-                "angle": 3.665191429188092,
+                "angle": 3.9269908169872414,
                 "offset": 0,
                 "size": 80,
                 "width": 42,
@@ -5468,7 +5477,7 @@ export interface TankDefinition {
                 }
             },
             {
-                "angle": 2.6179938779914944,
+                "angle": 2.356194490192345,
                 "offset": 0,
                 "size": 80,
                 "width": 42,
@@ -5783,6 +5792,275 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 0.5,
                     "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 59,
+        "name": "Hybrid",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 95,
+                "width": 71.39999999999999,
+                "delay": 0,
+                "reload": 4,
+                "recoil": 12,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 2,
+                    "damage": 3,
+                    "speed": 0.7,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 0.1
+                }
+            },
+            {
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "size": 70,
+                "width": 42,
+                "delay": 0,
+                "reload": 6,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 3,
+                "canControlDrones": false,
+                "bullet": {
+                    "type": "drone",
+                    "sizeRatio": 1,
+                    "health": 1.8,
+                    "damage": 0.7,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 60,
+        "name": "Annihilator",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 95,
+                "width": 96.6,
+                "delay": 0,
+                "reload": 4,
+                "recoil": 18,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 2,
+                    "damage": 3,
+                    "speed": 0.7,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 0.05
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 61,
+        "name": "Cyclone",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": "launcher",
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 80,
+                "width": 71.39999999999999,
+                "delay": 0,
+                "reload": 3,
+                "recoil": 3,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "skimmer",
+                    "sizeRatio": 1,
+                    "health": 3,
+                    "damage": 1.6,
+                    "speed": 0.6,
+                    "scatterRate": 1,
+                    "lifeLength": 1.3,
+                    "absorbtionFactor": 0.1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 62,
+        "name": "Rocketeer",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": "launcher",
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 80,
+                "width": 52.5,
+                "delay": 0,
+                "reload": 4,
+                "recoil": 2,
+                "isTrapezoid": true,
+                "trapezoidDirection": 3.141592653589793,
+                "addon": null,
+                "bullet": {
+                    "type": "rocket",
+                    "sizeRatio": 1,
+                    "health": 4,
+                    "damage": 1.5,
+                    "speed": 0.3,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 0.1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 63,
+        "name": "Skimmer",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": "launcher",
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 80,
+                "width": 71.39999999999999,
+                "delay": 0,
+                "reload": 4,
+                "recoil": 3,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "oldskimmer",
+                    "sizeRatio": 1,
+                    "health": 4,
+                    "damage": 1,
+                    "speed": 0.6,
+                    "scatterRate": 1,
+                    "lifeLength": 1.3,
+                    "absorbtionFactor": 0.1
                 }
             }
         ],
