@@ -63,7 +63,7 @@ export class TrapLauncher extends ObjectEntity {
         this.physicsData.values.sides = 2;
         this.physicsData.values.width = barrel.physicsData.values.width;
         this.physicsData.values.size = barrel.physicsData.values.width * (20 / 42);
-        this.positionData.values.x = (barrel.physicsData.values.size + this.physicsData.values.size) / 2;
+        this.positionData.values.x = Math.cos(barrel.definition.trapezoidDirection) * (barrel.physicsData.values.size + this.physicsData.values.size) / 2;
     }
 
     public resize() {
