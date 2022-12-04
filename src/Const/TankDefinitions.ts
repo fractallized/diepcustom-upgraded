@@ -1625,8 +1625,7 @@ export interface TankDefinition {
         "sides": 1,
         "borderWidth": 15,
         "barrels": [],
-        "barrelDef": [
-            {
+        "barrelDef": {
                 "angle": 0,
                 "offset": 0,
                 "size": 55,
@@ -1647,8 +1646,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "absorbtionFactor": 1
                 }
-            }
-        ],
+            },
         "stats": []
     },
     {
@@ -6585,8 +6583,7 @@ export interface TankDefinition {
         "sides": 1,
         "borderWidth": 15,
         "barrels": [],
-        "barrelDef": [
-            {
+        "barrelDef": {
                 "angle": 0,
                 "offset": 0,
                 "size": 55,
@@ -6607,8 +6604,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "absorbtionFactor": 1
                 }
-            }
-        ],
+            },
         "stats": []
     }
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;

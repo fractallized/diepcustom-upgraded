@@ -383,13 +383,13 @@ class WeirdSpikeAddon extends Addon {
 }
 /** 2 Auto Turrets */
 class Auto2Addon extends AutoTankTurretAddon {
-    public constructor(owner: BarrelBase & TankBody, def?: BarrelDefinition) {
+    public constructor(owner: BarrelBase & TankBody) {
         super(owner, 2);
     }
 }
 /** 7 Auto Turrets */
 class Auto7Addon extends AutoTankTurretAddon {
-    public constructor(owner: BarrelBase & TankBody, def?: BarrelDefinition) {
+    public constructor(owner: BarrelBase & TankBody) {
         super(owner, 7);
     }
 }
