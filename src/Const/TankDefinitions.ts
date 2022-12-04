@@ -1624,25 +1624,25 @@ export interface TankDefinition {
         "borderWidth": 15,
         "barrels": [
             {
-                angle: 0,
-                offset: 0,
-                size: 55,
-                width: 29.4,
-                delay: 0.01,
-                reload: 1,
-                recoil: 0.3,
-                isTrapezoid: false,
-                trapezoidDirection: 0,
-                addon: null,
-                bullet: {
-                    type: "bullet",
-                    health: 1,
-                    damage: 0.6,
-                    speed: 1.2,
-                    scatterRate: 1,
-                    lifeLength: 1,
-                    sizeRatio: 1,
-                    absorbtionFactor: 1
+                "angle": 0,
+                "offset": 0,
+                "size": 55,
+                "width": 29.4,
+                "delay": 0.01,
+                "reload": 1,
+                "recoil": 0.3,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "health": 1,
+                    "damage": 0.6,
+                    "speed": 1.2,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "sizeRatio": 1,
+                    "absorbtionFactor": 1
                 }
             }
         ],
@@ -6583,25 +6583,25 @@ export interface TankDefinition {
         "borderWidth": 15,
         "barrels": [
             {
-                angle: 0,
-                offset: 0,
-                size: 55,
-                width: 29.4,
-                delay: 0.01,
-                reload: 1,
-                recoil: 0.3,
-                isTrapezoid: false,
-                trapezoidDirection: 0,
-                addon: null,
-                bullet: {
-                    type: "bullet",
-                    health: 1,
-                    damage: 0.5,
-                    speed: 1.2,
-                    scatterRate: 1,
-                    lifeLength: 1,
-                    sizeRatio: 1,
-                    absorbtionFactor: 1
+                "angle": 0,
+                "offset": 0,
+                "size": 55,
+                "width": 29.4,
+                "delay": 0.01,
+                "reload": 1,
+                "recoil": 0.3,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "health": 1,
+                    "damage": 0.5,
+                    "speed": 1.2,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "sizeRatio": 1,
+                    "absorbtionFactor": 1
                 }
             }
         ],
