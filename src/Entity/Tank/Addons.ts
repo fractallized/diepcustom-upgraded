@@ -437,7 +437,35 @@ class SpieskAddon extends Addon {
         this.createGuard(4, 1.3, 2 * Math.PI / 6, 0.17);
     }
 }
+class OverdriveAddon extends Addon {
+    public constructor(owner: BarrelBase) {
+        super(owner);
 
+        const oversquare = new ObjectEntity(this.game);
+        const sizeRatio = 22 / 50;
+        const offsetRatio = 0;
+        const size = this.owner.physicsData.values.size;
+
+        oversquare.setParent(this.owner);
+        oversquare.relationsData.values.owner = this.owner;
+        oversquare.relationsData.values.team = this.owner.relationsData.values.team
+
+        oversquare.physicsData.values.size = sizeRatio * size;
+        oversquare.positionData.values.x = offsetRatio * size;
+        oversquare.positionData.values.angle = 0;
+        
+        oversquare.styleData.values.color = Color.Barrel;
+        oversquare.styleData.values.flags |= StyleFlags.showsAboveParent;
+        oversquare.physicsData.values.sides = 4;
+
+        oversquare.tick = () => {
+            const size = this.owner.physicsData.values.size;
+
+            oversquare.physicsData.size = sizeRatio * size;
+            oversquare.positionData.x = offsetRatio * size;
+        }
+    }
+}
 
 /**
  * All addons in the game by their ID.
@@ -459,5 +487,6 @@ export const AddonById: Record<addonId, typeof Addon | null> = {
     auto7: Auto7Addon,
     auto2: Auto2Addon,
     autorocket: AutoRocketAddon,
-    spiesk: SpieskAddon
+    spiesk: SpieskAddon,
+    overdrive: OverdriveAddon
 }

@@ -20,7 +20,7 @@ import DevTankDefinitions, { DevTank } from "./DevTankDefinitions";
 import { Tank, Color } from "./Enums";
 
 /** The types of post addons that exist in the game, by their id. */
-export type postAddonId = "dompronounced" | "auto5" | "auto3" | "autosmasher" | "spike" | "pronounced" | "smasher" | "landmine" | "autoturret" | "weirdspike" | "auto2" | "auto7" | "autorocket" | "spiesk"
+export type postAddonId = "overdrive" | "dompronounced" | "auto5" | "auto3" | "autosmasher" | "spike" | "pronounced" | "smasher" | "landmine" | "autoturret" | "weirdspike" | "auto2" | "auto7" | "autorocket" | "spiesk"
 
 /** The types of post addons that exist in the game, by their id. */
 export type preAddonId = "dombase" | "launcher"
@@ -4683,7 +4683,7 @@ export interface TankDefinition {
         "speed": 1,
         "maxHealth": 50,
         "preAddon": null,
-        "postAddon": null,
+        "postAddon": "overdrive",
         "sides": 1,
         "borderWidth": 15,
         "barrels": [
