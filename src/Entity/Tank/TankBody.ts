@@ -183,7 +183,7 @@ export default class TankBody extends LivingEntity implements BarrelBase {
         // This is actually not how necromancers claim squares.
         if (entity instanceof Square && this.definition.flags.canClaimSquares && this.barrels.length) {
             // If can claim, pick a random barrel that has drones it can still shoot, then shoot
-            const MAX_DRONES_PER_BARREL = 11 + this.cameraEntity.cameraData.values.statLevels.values[Stat.Reload];
+            const MAX_DRONES_PER_BARREL = (this.barrels[0].definition.necroDroneCount ?? 11) + this.cameraEntity.cameraData.values.statLevels.values[Stat.Reload];
             const barrelsToShoot = this.barrels.filter((e) => e.definition.bullet.type === "necrodrone" && e.droneCount < MAX_DRONES_PER_BARREL);
 
             if (barrelsToShoot.length) {

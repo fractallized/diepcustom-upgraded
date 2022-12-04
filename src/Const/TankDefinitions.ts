@@ -89,6 +89,7 @@ export interface BarrelDefinition {
     addon: barrelAddonId | null;
     /** The maximum numbers of drones the barrel can spawn - only present if `bullet.type` === 'drone'. */
     droneCount?: number;
+    necroDroneCount?: number;
     /** Whether or not the drones are controllable - only present if `bullet.type` === 'drone'. */
     canControlDrones?: boolean;
     /** Whether or not the barrel should always shoot (Trapper Dominator, Defender). */
@@ -1425,7 +1426,9 @@ export interface TankDefinition {
         "name": "Tri-Angle",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Bomber"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -1819,7 +1822,9 @@ export interface TankDefinition {
         "name": "Converter",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Necromancer"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -1979,7 +1984,10 @@ export interface TankDefinition {
         "name": "Flank Trapper",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Quad Trapper",
+            "Bomber"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -4563,7 +4571,7 @@ export interface TankDefinition {
             {
                 "angle": 0,
                 "offset": -16,
-                "size": 75,
+                "size": 90,
                 "width": 21,
                 "delay": 0,
                 "reload": 1,
@@ -4585,7 +4593,7 @@ export interface TankDefinition {
             {
                 "angle": 0,
                 "offset": 16,
-                "size": 75,
+                "size": 90,
                 "width": 21,
                 "delay": 0.33,
                 "reload": 1,
@@ -4607,7 +4615,7 @@ export interface TankDefinition {
             {
                 "angle": 2.0943951023931953,
                 "offset": 0,
-                "size": 80,
+                "size": 70,
                 "width": 42,
                 "delay": 0,
                 "reload": 6,
@@ -4631,7 +4639,7 @@ export interface TankDefinition {
             {
                 "angle": 4.1887902047863905,
                 "offset": 0,
-                "size": 80,
+                "size": 70,
                 "width": 42,
                 "delay": 0,
                 "reload": 6,
@@ -4936,7 +4944,7 @@ export interface TankDefinition {
                 "recoil": 1,
                 "isTrapezoid": true,
                 "trapezoidDirection": 0,
-                "addon": null,
+                "addon": "spawner",
                 "droneCount": 8,
                 "canControlDrones": true,
                 "bullet": {
@@ -5013,14 +5021,14 @@ export interface TankDefinition {
             {
                 "angle": 0,
                 "offset": 0,
-                "size": 70,
-                "width": 42,
+                "size": 60,
+                "width": 56,
                 "delay": 0,
                 "reload": 3,
                 "recoil": 1,
-                "isTrapezoid": true,
+                "isTrapezoid": false,
                 "trapezoidDirection": 0,
-                "addon": null,
+                "addon": "spawner",
                 "droneCount": 6,
                 "canControlDrones": true,
                 "bullet": {
@@ -5092,7 +5100,418 @@ export interface TankDefinition {
                 "max": 7
             }
         ]
-    }
+    },
+    {
+        "id": 53,
+        "name": "Necromancer",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": true,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 4,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "size": 70,
+                "width": 42,
+                "delay": 0,
+                "reload": 6,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 0,
+                "necroDroneCount": 11,
+                "canControlDrones": true,
+                "bullet": {
+                    "type": "necrodrone",
+                    "sizeRatio": 1,
+                    "health": 0.5,
+                    "damage": 3,
+                    "speed": 0.9,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": -1.5707963267948966,
+                "offset": 0,
+                "size": 70,
+                "width": 42,
+                "delay": 0,
+                "reload": 6,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 0,
+                "necroDroneCount": 11,
+                "canControlDrones": true,
+                "bullet": {
+                    "type": "necrodrone",
+                    "sizeRatio": 1,
+                    "health": 0.5,
+                    "damage": 3,
+                    "speed": 0.9,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": [
+            {
+                "name": "Movement Speed",
+                "max": 7
+            },
+            {
+                "name": "Drone Count",
+                "max": 7
+            },
+            {
+                "name": "Drone Damage",
+                "max": 7
+            },
+            {
+                "name": "Drone Health",
+                "max": 7
+            },
+            {
+                "name": "Drone Speed",
+                "max": 7
+            },
+            {
+                "name": "Body Damage",
+                "max": 7
+            },
+            {
+                "name": "Max Health",
+                "max": 7
+            },
+            {
+                "name": "Health Regen",
+                "max": 7
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "name": "Mechanic",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": "pronounced",
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 80,
+                "width": 56,
+                "delay": 0,
+                "reload": 2,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "engineer",
+                    "sizeRatio": 1.2,
+                    "health": 2,
+                    "damage": 1,
+                    "speed": 3,
+                    "scatterRate": 1,
+                    "lifeLength": 3,
+                    "absorbtionFactor": 0.2,
+                    "autoCannon": {
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0,
+                        "reload": 2,
+                        "recoil": 0,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "sizeRatio": 1,
+                            "health": 0.5,
+                            "damage": 0.5,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 0.6,
+                            "absorbtionFactor": 1
+                        }
+                    }
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 55,
+        "name": "Quad Trapper",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 60,
+                "width": 42,
+                "delay": 0,
+                "reload": 1.5,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "trap",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1.5,
+                    "speed": 3,
+                    "scatterRate": 1,
+                    "lifeLength": 2,
+                    "absorbtionFactor": 0.2
+                }
+            },
+            {
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "size": 60,
+                "width": 42,
+                "delay": 0,
+                "reload": 1.5,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "trap",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1.5,
+                    "speed": 3,
+                    "scatterRate": 1,
+                    "lifeLength": 2,
+                    "absorbtionFactor": 0.2
+                }
+            },
+            {
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "size": 60,
+                "width": 42,
+                "delay": 0,
+                "reload": 1.5,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "trap",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1.5,
+                    "speed": 3,
+                    "scatterRate": 1,
+                    "lifeLength": 3,
+                    "absorbtionFactor": 0.2
+                }
+            },
+            {
+                "angle": -1.5707963267948966,
+                "offset": 0,
+                "size": 60,
+                "width": 42,
+                "delay": 0,
+                "reload": 1.5,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "trap",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1.5,
+                    "speed": 3,
+                    "scatterRate": 1,
+                    "lifeLength": 2,
+                    "absorbtionFactor": 0.2
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 56,
+        "name": "Bomber",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 0.1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 3.665191429188092,
+                "offset": 0,
+                "size": 80,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1,
+                "recoil": 2,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.2,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 0.5,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 2.6179938779914944,
+                "offset": 0,
+                "size": 80,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1,
+                "recoil": 2,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.2,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 0.5,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "size": 60,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1.5,
+                "recoil": 0,1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "trap",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.5,
+                    "speed": 0.5,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 0.2
+                }
+            },
+        ],
+        "stats": []
+    },
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;
 
 /**
