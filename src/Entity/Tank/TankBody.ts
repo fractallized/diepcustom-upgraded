@@ -29,7 +29,7 @@ import Barrel from "./Barrel";
 import { Color, StyleFlags, StatCount, Tank, CameraFlags, Stat, InputFlags, PhysicsFlags, PositionFlags } from "../../Const/Enums";
 import { Entity } from "../../Native/Entity";
 import { NameGroup, ScoreGroup } from "../../Native/FieldGroups";
-import { Addon, AddonById } from "./Addons";
+import { Addon, AddonById, AutoTankTurretAddon } from "./Addons";
 import { getTankById, TankDefinition } from "../../Const/TankDefinitions";
 import { DevTank } from "../../Const/DevTankDefinitions";
 import { Inputs } from "../AI";
@@ -149,18 +149,18 @@ export default class TankBody extends LivingEntity implements BarrelBase {
 
         camera.cameraData.tank = this._currentTank = id;
         if (tank.upgradeMessage && camera instanceof ClientCamera) camera.client.notify(tank.upgradeMessage);
-
         // Build addons, then tanks, then addons.
         const preAddon = tank.preAddon;
         if (preAddon) {
             const AddonConstructor = AddonById[preAddon];
-            if (AddonConstructor) this.addons.push(new AddonConstructor(this));
+            if (AddonConstructor) {
+                this.addons.push(new AddonConstructor(this));
+            }
         }
 
         for (const barrel of tank.barrels) {
             this.barrels.push(new Barrel(this, barrel));
         }
-
         const postAddon = tank.postAddon;
         if (postAddon) {
             const AddonConstructor = AddonById[postAddon];

@@ -164,7 +164,7 @@ export interface TankDefinition {
  */
  const TankDefinitions = JSON.parse(`[
     {
-        "id": 0,
+        "id": 1,
         "name": "Tank",
         "upgradeMessage": "",
         "levelRequirement": 0,
@@ -221,7 +221,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "Twin",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -296,7 +296,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "Sniper",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -348,7 +348,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "Machine Gun",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -401,7 +401,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "Flank Guard",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -478,7 +478,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 5,
+        "id": 6,
         "name": "Director",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -567,7 +567,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 6,
+        "id": 7,
         "name": "Trapper",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -623,7 +623,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 7,
+        "id": 8,
         "name": "Pounder",
         "upgradeMessage": "",
         "levelRequirement": 15,
@@ -675,7 +675,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 8,
+        "id": 9,
         "name": "Triple Shot",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -772,7 +772,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 9,
+        "id": 10,
         "name": "Triplet",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -869,7 +869,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 10,
+        "id": 11,
         "name": "Assassin",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -922,7 +922,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 11,
+        "id": 12,
         "name": "Hunter",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -996,7 +996,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "Gunner",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1117,7 +1117,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 13,
+        "id": 14,
         "name": "Trap Gunner",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1190,7 +1190,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 14,
+        "id": 15,
         "name": "Twin Flank",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1308,11 +1308,14 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 15,
+        "id": 16,
         "name": "Quad Tank",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Octo Tank",
+            "Auto 5"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -1423,7 +1426,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 16,
+        "id": 17,
         "name": "Tri-Angle",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1520,7 +1523,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 17,
+        "id": 18,
         "name": "Trap Guard",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1594,11 +1597,14 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 18,
+        "id": 19,
         "name": "Auto 3",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Auto 5",
+            "Auto Gunner"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -1620,7 +1626,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 19,
+        "id": 20,
         "name": "Overseer",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1734,7 +1740,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 20,
+        "id": 21,
         "name": "Spawner",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1821,7 +1827,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 21,
+        "id": 22,
         "name": "Converter",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1908,7 +1914,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 22,
+        "id": 23,
         "name": "Cruiser",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1986,7 +1992,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 23,
+        "id": 24,
         "name": "Flank Trapper",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2060,7 +2066,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 24,
+        "id": 25,
         "name": "Hybrid Trapper",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2135,7 +2141,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 25,
+        "id": 26,
         "name": "Engineer",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2209,7 +2215,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 26,
+        "id": 27,
         "name": "Destroyer",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2262,7 +2268,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 27,
+        "id": 28,
         "name": "Launcher",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2315,7 +2321,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 28,
+        "id": 29,
         "name": "Focus Fire",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2452,7 +2458,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 29,
+        "id": 30,
         "name": "Auto Triplet",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2545,7 +2551,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 30,
+        "id": 31,
         "name": "Streamliner",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2682,7 +2688,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 31,
+        "id": 32,
         "name": "Penta Shot",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2819,7 +2825,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 32,
+        "id": 33,
         "name": "Spread Shot",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3088,7 +3094,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 33,
+        "id": 34,
         "name": "The Wall",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3181,7 +3187,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 34,
+        "id": 35,
         "name": "Stalker",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3230,7 +3236,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 35,
+        "id": 36,
         "name": "Ranger",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3279,7 +3285,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 36,
+        "id": 37,
         "name": "Ambusher",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3328,7 +3334,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 37,
+        "id": 38,
         "name": "Predator",
         "upgradeMessage": "Use your right mouse button to look further in the direction you're facing",
         "levelRequirement": 45,
@@ -3421,7 +3427,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 38,
+        "id": 39,
         "name": "Sprayer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3492,7 +3498,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 39,
+        "id": 40,
         "name": "Gunner Trapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3585,7 +3591,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 40,
+        "id": 41,
         "name": "Auto Gunner",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3700,7 +3706,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 41,
+        "id": 42,
         "name": "Barricade",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3793,7 +3799,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 42,
+        "id": 43,
         "name": "Triple Twin",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3952,7 +3958,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 43,
+        "id": 44,
         "name": "Twin Triplet",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4111,7 +4117,210 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 44,
+        "id": 45,
+        "name": "Octo Tank",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": -0.7853981633974483,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 0.7853981633974483,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": -2.356194490192345,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 2.356194490192345,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0.5,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": -1.5707963267948966,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "bullet",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 0.65,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 46,
         "name": "Sniper Guard",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4182,7 +4391,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 45,
+        "id": 47,
         "name": "Infiltrator",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4275,7 +4484,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 46,
+        "id": 48,
         "name": "Overlord",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4431,7 +4640,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 47,
+        "id": 49,
         "name": "Overdrive",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4561,7 +4770,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 48,
+        "id": 50,
         "name": "Overgunner",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4713,7 +4922,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 49,
+        "id": 51,
         "name": "Overtrapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4843,7 +5052,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 50,
+        "id": 52,
         "name": "Manager",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4927,7 +5136,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 51,
+        "id": 53,
         "name": "Factory",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5011,7 +5220,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 52,
+        "id": 54,
         "name": "Wait What",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5118,7 +5327,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 53,
+        "id": 55,
         "name": "Necromancer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5228,7 +5437,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 54,
+        "id": 56,
         "name": "Mechanic",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5299,7 +5508,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 55,
+        "id": 57,
         "name": "Quad Trapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5414,7 +5623,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 56,
+        "id": 58,
         "name": "Bomber",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5529,7 +5738,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 57,
+        "id": 59,
         "name": "Fighter",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5666,7 +5875,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 58,
+        "id": 60,
         "name": "Booster",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5803,7 +6012,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 59,
+        "id": 61,
         "name": "Hybrid",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5876,7 +6085,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 60,
+        "id": 62,
         "name": "Annihilator",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5925,7 +6134,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 61,
+        "id": 63,
         "name": "Cyclone",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5974,7 +6183,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 62,
+        "id": 64,
         "name": "Rocketeer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6023,7 +6232,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 63,
+        "id": 65,
         "name": "Skimmer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6072,7 +6281,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 64,
+        "id": 66,
         "name": "Battleship",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6228,7 +6437,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 65,
+        "id": 67,
         "name": "Carrier",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6324,40 +6533,7 @@ export interface TankDefinition {
                 }
             }
         ],
-        "stats": [
-            {
-                "name": "Movement Speed",
-                "max": 7
-            },
-            {
-                "name": "Reload",
-                "max": 7
-            },
-            {
-                "name": "Bullet Damage",
-                "max": 7
-            },
-            {
-                "name": "Bullet Penetration",
-                "max": 7
-            },
-            {
-                "name": "Bullet Speed",
-                "max": 7
-            },
-            {
-                "name": "Body Damage",
-                "max": 7
-            },
-            {
-                "name": "Max Health",
-                "max": 7
-            },
-            {
-                "name": "Health Regen",
-                "max": 7
-            }
-        ]
+        "stats": []
     }
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;
 

@@ -21,7 +21,7 @@ import ObjectEntity from "../Object";
 import AutoTurret from "./AutoTurret";
 
 import { Color, PositionFlags, PhysicsFlags, StyleFlags } from "../../Const/Enums";
-import { BarrelBase } from "./TankBody";
+import TankBody, { BarrelBase } from "./TankBody";
 import { addonId, BarrelDefinition } from "../../Const/TankDefinitions";
 import { AI, AIState, Inputs } from "../AI";
 import { Entity } from "../../Native/Entity";
@@ -63,7 +63,7 @@ export class Addon {
      * `createAutoTurrets` method builds `count` auto turrets around the current
      * tank's body. 
      */
-    protected createAutoTurrets(count: number) {
+    protected createAutoTurrets(count: number, def: BarrelDefinition) {
         const rotPerTick = AI.PASSIVE_ROTATION;
         const MAX_ANGLE_RANGE = PI2 / 4; // keep within 90º each side
 
@@ -75,7 +75,7 @@ export class Addon {
         if (rotator.styleData.values.flags & StyleFlags.isVisible) rotator.styleData.values.flags ^= StyleFlags.isVisible;
 
         for (let i = 0; i < count; ++i) {
-            const base = new AutoTurret(rotator, AutoTurretMiniDefinition);
+            const base = new AutoTurret(rotator, def);
             base.influencedByOwnerInputs = true;
 
             const angle = base.ai.inputs.mouse.angle = PI2 * (i / count);
@@ -288,24 +288,27 @@ class AutoSmasherAddon extends Addon {
     }
 }
 /** 5 Auto Turrets */
-class Auto5Addon extends Addon {
-    public constructor(owner: BarrelBase) {
+export class AutoTankTurretAddon extends Addon {
+    public constructor(owner: BarrelBase & TankBody, num?: number) {
         super(owner);
-
-        this.createAutoTurrets(5);
+        const autoDef = owner.barrels[0]?.definition ?? AutoTurretMiniDefinition;
+        this.createAutoTurrets(num ?? 1, autoDef);
+    }
+}
+class Auto5Addon extends AutoTankTurretAddon {
+    public constructor(owner: BarrelBase & TankBody) {
+        super(owner, 5);
     }
 }
 /** 3 Auto Turrets */
-class Auto3Addon extends Addon {
-    public constructor(owner: BarrelBase) {
-        super(owner);
-
-        this.createAutoTurrets(3);
+class Auto3Addon extends AutoTankTurretAddon {
+    public constructor(owner: BarrelBase & TankBody) {
+        super(owner, 3);
     }
 }
 /** The thing above ranger's barrel. */
 class PronouncedAddon extends Addon {
-    public constructor(owner: BarrelBase) {
+    public constructor(owner: BarrelBase & TankBody) {
         super(owner);
 
         const pronounce = new ObjectEntity(this.game);
@@ -379,19 +382,15 @@ class WeirdSpikeAddon extends Addon {
     }
 }
 /** 2 Auto Turrets */
-class Auto2Addon extends Addon {
-    public constructor(owner: BarrelBase) {
-        super(owner);
-
-        this.createAutoTurrets(2);
+class Auto2Addon extends AutoTankTurretAddon {
+    public constructor(owner: BarrelBase & TankBody, def?: BarrelDefinition) {
+        super(owner, 2);
     }
 }
 /** 7 Auto Turrets */
-class Auto7Addon extends Addon {
-    public constructor(owner: BarrelBase) {
-        super(owner);
-
-        this.createAutoTurrets(7);
+class Auto7Addon extends AutoTankTurretAddon {
+    public constructor(owner: BarrelBase & TankBody, def?: BarrelDefinition) {
+        super(owner, 7);
     }
 }
 

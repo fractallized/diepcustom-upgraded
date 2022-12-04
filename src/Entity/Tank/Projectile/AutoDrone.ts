@@ -34,7 +34,7 @@ export default class AutoDrone extends Bullet implements BarrelBase {
     public sizeFactor: number;
     public cameraEntity: Entity;
     public inputs = new Inputs();    
-    public reloadTime = 1;
+    public reloadTime = 15;
     /** The AI of the drone (for AI mode) */
     public ai: AI;
 
