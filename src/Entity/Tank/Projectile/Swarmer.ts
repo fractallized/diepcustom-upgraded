@@ -71,7 +71,7 @@ export default class Swarmer extends Bullet implements BarrelBase {
     public inputs: Inputs;
 
     /** The direction the bullet will rotating in. */
-    private rotationPerTick = Skimmer.BASE_ROTATION;
+    private rotationPerTick = Swarmer.BASE_ROTATION;
 
 
     public constructor(barrel: Barrel, tank: BarrelBase, tankDefinition: TankDefinition | null, shootAngle: number, direction: number) {
