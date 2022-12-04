@@ -35,7 +35,7 @@ const BarrelDefinition: BarrelDefinition = {
     width: 42,
     delay: 0,
     reload: 1,
-    recoil: 0.1,
+    recoil: 0,
     isTrapezoid: false,
     trapezoidDirection: 0,
     addon: null,

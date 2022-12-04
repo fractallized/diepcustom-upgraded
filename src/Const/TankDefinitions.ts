@@ -685,7 +685,8 @@ export interface TankDefinition {
         "upgrades": [
             "Penta Shot",
             "Spread Shot",
-            "The Wall"
+            "The Wall",
+            "Flank Attack"
         ],
         "flags": {
             "invisibility": false,
@@ -6803,7 +6804,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 24,
+        "id": 71,
         "name": "Swarm Trapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6834,7 +6835,7 @@ export interface TankDefinition {
                 "delay": 0,
                 "reload": 1.5,
                 "recoil": 1,
-                "isTrapezoid": true,
+                "isTrapezoid": false,
                 "trapezoidDirection": 0,
                 "addon": "trapLauncher",
                 "bullet": {
@@ -6871,6 +6872,77 @@ export interface TankDefinition {
                     "absorbtionFactor": 1
                 }
             }
+        ],
+        "stats": []
+    },
+    {
+        "id": 72,
+        "name": "Flank Attack",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": -0.7853981633974483,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "inception",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 0.7853981633974483,
+                "offset": 0,
+                "size": 95,
+                "width": 42,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "inception",
+                    "sizeRatio": 1,
+                    "health": 1,
+                    "damage": 1,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
         ],
         "stats": []
     }
