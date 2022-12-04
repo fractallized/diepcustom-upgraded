@@ -85,33 +85,15 @@ export default class Swarmer extends Bullet implements BarrelBase {
 
         const skimmerBarrels: Barrel[] = this.skimmerBarrels = [];
 
-        const s1 = new class extends Barrel {
-            // Keep the width constant
-            protected resize() {
-                super.resize();
-                this.physicsData.values.width = this.definition.width
-                // this.physicsData.state.width = 0;
-            }
-        }(this, {...SwarmerBarrelDefinition});
+        const s1 = new Barrel(this, {...SwarmerBarrelDefinition});
         const s2Definition = {...SwarmerBarrelDefinition};
         s2Definition.angle += Math.PI * 2 / 3;
         s2Definition.delay += 1 / 3;
-        const s2 = new class extends Barrel {
-            // Keep the width constant
-            protected resize() {
-                super.resize();
-                this.physicsData.width = this.definition.width
-            }
-        }(this, s2Definition);
-        s2Definition.angle += Math.PI * 2 / 3;
-        s2Definition.delay += 1 / 3;
-        const s3 = new class extends Barrel {
-            // Keep the width constant
-            protected resize() {
-                super.resize();
-                this.physicsData.width = this.definition.width
-            }
-        }(this, s2Definition);
+        const s2 = new Barrel(this, s2Definition);
+        const s3Definition = {...SwarmerBarrelDefinition};
+        s3Definition.angle += Math.PI * 4 / 3;
+        s3Definition.delay += 2 / 3;
+        const s3 = new Barrel(this, s3Definition);
         s1.styleData.values.color = this.styleData.values.color;
         s2.styleData.values.color = this.styleData.values.color;
         s3.styleData.values.color = this.styleData.values.color;
