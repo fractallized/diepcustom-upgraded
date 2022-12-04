@@ -6708,7 +6708,7 @@ export interface TankDefinition {
                 "isTrapezoid": true,
                 "trapezoidDirection": 0,
                 "addon": null,
-                "droneCount": 4,
+                "droneCount": 3,
                 "canControlDrones": false,
                 "bullet": {
                     "type": "drone",

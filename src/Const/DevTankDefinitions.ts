@@ -58,7 +58,7 @@ const DevTankDefinitions: TankDefinition[] = [
                 size: 85,
                 offset: 0,
                 recoil: 0,
-                addon: null,
+                addon: "trapLauncher",
                 bullet: {
                     type: "engineer",
                     speed: 10,
