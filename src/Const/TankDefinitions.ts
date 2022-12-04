@@ -6861,11 +6861,11 @@ export interface TankDefinition {
                 "addon": null,
                 "canControlDrones": false,
                 "bullet": {
-                    "type": "drone",
-                    "sizeRatio": 1,
+                    "type": "swarm",
+                    "sizeRatio": 0.5,
                     "health": 1,
                     "damage": 0.25,
-                    "speed": 1,
+                    "speed": 1.1,
                     "scatterRate": 1,
                     "lifeLength": 1.3,
                     "absorbtionFactor": 1
