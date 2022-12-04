@@ -34,18 +34,18 @@ const BarrelDefinition: BarrelDefinition = {
     size: 70,
     width: 42,
     delay: 0,
-    reload: 0.6,
-    recoil: 4.5,
+    reload: 1,
+    recoil: 0.1,
     isTrapezoid: false,
     trapezoidDirection: 0,
     addon: null,
     bullet: {
         type: "bullet",
-        health: 0.3,
+        health: 0.6,
         damage: 0.6,
-        speed: 0.8,
+        speed: 1,
         scatterRate: 1,
-        lifeLength: 0.25,
+        lifeLength: 0.8,
         sizeRatio: 1,
         absorbtionFactor: 1
     }
@@ -76,27 +76,19 @@ export default class InceptionTank extends Bullet implements BarrelBase {
 
         const barrels: Barrel[] = this.barrels = [];
 
-        const s1 = new class extends Barrel {
-            // Keep the width constant
-            protected resize() {
-                super.resize();
-                this.physicsData.values.width = this.definition.width
-                // this.physicsData.state.width = 0;
-            }
-        }(this, {...BarrelDefinition});
+        const s1 = new Barrel(this, {...BarrelDefinition});
         s1.styleData.values.color = this.styleData.values.color;
 
         barrels.push(s1);
 
         this.inputs = tank.inputs;
-        this.inputs.flags |= InputFlags.leftclick;
     }
 
     public tick(tick: number) {
-        this.inputs.flags |= InputFlags.leftclick;
         this.sizeFactor = this.physicsData.values.size / 50;
         this.reloadTime = this.tank.reloadTime;
-        this.positionData.angle = Math.atan2(this.inputs.mouse.y - this.positionData.values.y, this.inputs.mouse.x - this.positionData.values.x);       
+        if ((this.inputs.flags & InputFlags.leftclick)) this.positionData.angle = Math.atan2(this.inputs.mouse.y - this.positionData.values.y, this.inputs.mouse.x - this.positionData.values.x);       
+        else this.positionData.angle += 0.1;
         super.tick(tick);
         if (this.deletionAnimation) return;
         // Only accurate on current version, but we dont want that
