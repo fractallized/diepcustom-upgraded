@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "module": "CommonJS",
+        "outDir": "./lib",
+        "strict": true,
+        "removeComments": true
+    },
+    "include": [
+        "src",
+        "thirdparty"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib"
+    ]
+}
