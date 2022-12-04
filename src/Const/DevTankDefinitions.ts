@@ -150,9 +150,9 @@ const DevTankDefinitions: TankDefinition[] = [
         speed: 1.5,
         absorbtionFactor: 1,
         flags: {
-            invisibility: false,
+            invisibility: true,
             zoomAbility: false,
-            devOnly: false
+            devOnly: true
         },
         visibilityRateShooting: 0.1,
         visibilityRateMoving: 0,
