@@ -6942,7 +6942,7 @@ export interface TankDefinition {
                     "lifeLength": 1,
                     "absorbtionFactor": 1
                 }
-            },
+            }
         ],
         "stats": []
     }
