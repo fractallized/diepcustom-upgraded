@@ -3305,7 +3305,7 @@ export interface TankDefinition {
                 "delay": 0,
                 "reload": 2,
                 "recoil": 3,
-                "isTrapezoid": true,
+                "isTrapezoid": false,
                 "trapezoidDirection": 0,
                 "addon": "trapLauncher",
                 "bullet": {
@@ -5250,7 +5250,7 @@ export interface TankDefinition {
                 "angle": 0,
                 "offset": 0,
                 "size": 80,
-                "width": 56,
+                "width": 42,
                 "delay": 0,
                 "reload": 3,
                 "recoil": 1,
