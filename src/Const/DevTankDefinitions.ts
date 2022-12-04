@@ -61,7 +61,7 @@ const DevTankDefinitions: TankDefinition[] = [
                 addon: "trapLauncher",
                 bullet: {
                     type: "inception",
-                    speed: 10,
+                    speed: 1,
                     damage: 4,
                     health: 10,
                     scatterRate: 0.01,
