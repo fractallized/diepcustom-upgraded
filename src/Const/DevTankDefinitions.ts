@@ -155,7 +155,7 @@ const DevTankDefinitions: TankDefinition[] = [
             devOnly: true
         },
         visibilityRateShooting: 0.1,
-        visibilityRateMoving: 0,
+        visibilityRateMoving: 0.1,
         invisibilityRate: 0.2,
         preAddon: null,
         postAddon: "overdrive",

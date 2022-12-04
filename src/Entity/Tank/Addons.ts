@@ -460,7 +460,7 @@ class OverdriveAddon extends Addon {
 
         oversquare.tick = () => {
             const size = this.owner.physicsData.values.size;
-
+            oversquare.styleData.opacity = this.owner.styleData.opacity;
             oversquare.physicsData.size = sizeRatio * size;
             oversquare.positionData.x = offsetRatio * size;
         }
