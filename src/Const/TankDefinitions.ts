@@ -1661,7 +1661,8 @@ export interface TankDefinition {
             "Overdrive",
             "Overtrapper",
             "Overgunner",
-            "Manager"
+            "Manager",
+            "Overengineerer"
         ],
         "flags": {
             "invisibility": false,
@@ -2174,7 +2175,8 @@ export interface TankDefinition {
         "upgrades": [
             "Infiltrator",
             "Mechanic",
-            "Ambusher"
+            "Ambusher",
+            "Overengineerer"
         ],
         "flags": {
             "invisibility": false,
@@ -2302,7 +2304,8 @@ export interface TankDefinition {
         "upgrades": [
             "Cyclone",
             "Rocketeer",
-            "Skimmer"
+            "Skimmer",
+            "Swarmer"
         ],
         "flags": {
             "invisibility": false,
@@ -4725,8 +4728,8 @@ export interface TankDefinition {
                         "addon": null,
                         "bullet": {
                             "type": "bullet",
-                            "health": 0.5,
-                            "damage": 0.5,
+                            "health": 0.4,
+                            "damage": 0.4,
                             "speed": 1.2,
                             "scatterRate": 1,
                             "lifeLength": 1,
@@ -4906,7 +4909,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "health": 2,
                     "damage": 0.6,
-                    "speed": 1,
+                    "speed": 0.8,
                     "scatterRate": 1,
                     "lifeLength": -1,
                     "absorbtionFactor": 1
@@ -6621,6 +6624,101 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 1,
                     "absorbtionFactor": 0.1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 69,
+        "name": "Overengineerer",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 70,
+                "width": 56,
+                "delay": 0,
+                "reload": 2.5,
+                "recoil": 1,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": "trapLauncher",
+                "bullet": {
+                    "type": "engineer",
+                    "sizeRatio": 1,
+                    "health": 2,
+                    "damage": 1.5,
+                    "speed": 3,
+                    "scatterRate": 1,
+                    "lifeLength": 3,
+                    "absorbtionFactor": 0.2,
+                    "autoCannon": {
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0,
+                        "reload": 2,
+                        "recoil": 0,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "sizeRatio": 1,
+                            "health": 0.5,
+                            "damage": 0.5,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 0.6,
+                            "absorbtionFactor": 1
+                        }
+                    }
+                }
+            },
+            {
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "size": 70,
+                "width": 42,
+                "delay": 0,
+                "reload": 3,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 4,
+                "canControlDrones": false,
+                "bullet": {
+                    "type": "drone",
+                    "sizeRatio": 1,
+                    "health": 2,
+                    "damage": 0.6,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1
                 }
             }
         ],
