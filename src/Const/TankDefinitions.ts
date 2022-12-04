@@ -1622,7 +1622,30 @@ export interface TankDefinition {
         "postAddon": "auto3",
         "sides": 1,
         "borderWidth": 15,
-        "barrels": [],
+        "barrels": [
+            {
+                angle: 0,
+                offset: 0,
+                size: 55,
+                width: 29.4,
+                delay: 0.01,
+                reload: 1,
+                recoil: 0.3,
+                isTrapezoid: false,
+                trapezoidDirection: 0,
+                addon: null,
+                bullet: {
+                    type: "bullet",
+                    health: 1,
+                    damage: 0.6,
+                    speed: 1.2,
+                    scatterRate: 1,
+                    lifeLength: 1,
+                    sizeRatio: 1,
+                    absorbtionFactor: 1
+                }
+            }
+        ],
         "stats": []
     },
     {
@@ -6467,7 +6490,7 @@ export interface TankDefinition {
                 "width": 29.4,
                 "delay": 0,
                 "reload": 1,
-                "recoil": 1,
+                "recoil": 0.2,
                 "isTrapezoid": true,
                 "trapezoidDirection": 3.141592653589793,
                 "addon": null,
@@ -6491,7 +6514,7 @@ export interface TankDefinition {
                 "width": 29.4,
                 "delay": 0,
                 "reload": 1,
-                "recoil": 1,
+                "recoil": 0.2,
                 "isTrapezoid": true,
                 "trapezoidDirection": 3.141592653589793,
                 "addon": null,
@@ -6515,7 +6538,7 @@ export interface TankDefinition {
                 "width": 29.4,
                 "delay": 0,
                 "reload": 1,
-                "recoil": 1,
+                "recoil": 0.2,
                 "isTrapezoid": true,
                 "trapezoidDirection": 3.141592653589793,
                 "addon": null,
@@ -6530,6 +6553,55 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 1,
                     "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 68,
+        "name": "Auto 5",
+        "upgradeMessage": "",
+        "levelRequirement": 30,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 1,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": "auto5",
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                angle: 0,
+                offset: 0,
+                size: 55,
+                width: 29.4,
+                delay: 0.01,
+                reload: 1,
+                recoil: 0.3,
+                isTrapezoid: false,
+                trapezoidDirection: 0,
+                addon: null,
+                bullet: {
+                    type: "bullet",
+                    health: 1,
+                    damage: 0.5,
+                    speed: 1.2,
+                    scatterRate: 1,
+                    lifeLength: 1,
+                    sizeRatio: 1,
+                    absorbtionFactor: 1
                 }
             }
         ],

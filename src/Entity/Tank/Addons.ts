@@ -117,7 +117,7 @@ const AutoTurretMiniDefinition: BarrelDefinition = {
     angle: 0,
     offset: 0,
     size: 55,
-    width: 42 * 0.7,
+    width: 29.4,
     delay: 0.01,
     reload: 1,
     recoil: 0.3,
