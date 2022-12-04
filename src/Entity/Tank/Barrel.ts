@@ -24,6 +24,12 @@ import Drone from "./Projectile/Drone";
 import Rocket from "./Projectile/Rocket";
 import Skimmer from "./Projectile/Skimmer";
 import Minion from "./Projectile/Minion";
+
+import OldSkimmer from "./Projectile/OldSkimmer";
+import EngineerTrap from "./Projectile/EngineerTrap";
+import Launcher from "./Projectile/Launcher";
+import AutoDrone from "./Projectile/AutoDrone";
+
 import ObjectEntity from "../Object";
 import TankBody, { BarrelBase } from "./TankBody";
 
@@ -166,6 +172,18 @@ export default class Barrel extends ObjectEntity {
 
 
         switch (this.definition.bullet.type) {
+            case 'autodrone':
+                new AutoDrone(this, this.tank, tankDefinition, angle);
+                break;
+            case "launcher":
+                new Launcher(this, this.tank, tankDefinition, angle);
+                break;
+            case "engineer":
+                new EngineerTrap(this, this.tank, tankDefinition, angle);
+                break;
+            case "oldskimmer":
+                new OldSkimmer(this, this.tank, tankDefinition, angle);
+                break;
             case "skimmer":
                 new Skimmer(this, this.tank, tankDefinition, angle, this.tank.inputs.attemptingRepel() ? -Skimmer.BASE_ROTATION : Skimmer.BASE_ROTATION);
                 break;
