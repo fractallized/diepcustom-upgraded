@@ -6612,8 +6612,8 @@ export interface TankDefinition {
                 "delay": 0,
                 "reload": 4,
                 "recoil": 3,
-                "isTrapezoid": true,
-                "trapezoidDirection": 3.141592653589793,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
                 "addon": null,
                 "bullet": {
                     "type": "swarmer",
