@@ -6622,7 +6622,7 @@ export interface TankDefinition {
                     "damage": 1,
                     "speed": 0.6,
                     "scatterRate": 1,
-                    "lifeLength": 1,
+                    "lifeLength": 1.3,
                     "absorbtionFactor": 0.1
                 }
             }
