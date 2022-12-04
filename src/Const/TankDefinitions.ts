@@ -155,6 +155,8 @@ export interface TankDefinition {
     borderWidth: number;
     /** The tank's barrels. */
     barrels: BarrelDefinition[];
+    /* for auto 3 only*/
+    barrelDef?: BarrelDefinition;
     /** The tank's stat names and limits. */
     stats: StatDefinition[];
 }
@@ -1622,7 +1624,7 @@ export interface TankDefinition {
         "postAddon": "auto3",
         "sides": 1,
         "borderWidth": 15,
-        "barrels": [
+        "barrelDef": [
             {
                 "angle": 0,
                 "offset": 0,
@@ -2372,9 +2374,9 @@ export interface TankDefinition {
                 "offset": -30,
                 "size": 71.4,
                 "width": 33.6,
-                "delay": 0.5,
+                "delay": 0.67,
                 "reload": 1,
-                "recoil": 0.67,
+                "recoil": 0.5,
                 "isTrapezoid": false,
                 "trapezoidDirection": 0,
                 "addon": null,
@@ -5190,7 +5192,7 @@ export interface TankDefinition {
                 "delay": 0,
                 "reload": 3,
                 "recoil": 1,
-                "isTrapezoid": true,
+                "isTrapezoid": false,
                 "trapezoidDirection": 0,
                 "addon": "spawner",
                 "droneCount": 8,
@@ -6581,7 +6583,7 @@ export interface TankDefinition {
         "postAddon": "auto5",
         "sides": 1,
         "borderWidth": 15,
-        "barrels": [
+        "barrelDef": [
             {
                 "angle": 0,
                 "offset": 0,

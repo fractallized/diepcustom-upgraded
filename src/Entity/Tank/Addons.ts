@@ -291,7 +291,7 @@ class AutoSmasherAddon extends Addon {
 export class AutoTankTurretAddon extends Addon {
     public constructor(owner: BarrelBase & TankBody, num?: number) {
         super(owner);
-        const autoDef = owner.barrels[0]?.definition ?? AutoTurretMiniDefinition;
+        const autoDef = owner.definition.barrelDef ?? AutoTurretMiniDefinition;
         this.createAutoTurrets(num ?? 1, autoDef);
     }
 }
