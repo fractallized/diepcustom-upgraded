@@ -1310,8 +1310,7 @@ export interface TankDefinition {
         "name": "Quad Tank",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [
-        ],
+        "upgrades": [],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -2167,25 +2166,25 @@ export interface TankDefinition {
                     "lifeLength": 3,
                     "absorbtionFactor": 0.2,
                     "autoCannon": {
-                        angle: 0,
-                        offset: 0,
-                        size: 55,
-                        width: 29.4,
-                        delay: 0,
-                        reload: 2,
-                        recoil: 0,
-                        isTrapezoid: false,
-                        trapezoidDirection: 0,
-                        addon: null,
-                        bullet: {
-                            type: "bullet",
-                            sizeRatio: 1,
-                            health: 0.5,
-                            damage: 0.5,
-                            speed: 0.8,
-                            scatterRate: 1,
-                            lifeLength: 0.6,
-                            absorbtionFactor: 1
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0,
+                        "reload": 2,
+                        "recoil": 0,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "sizeRatio": 1,
+                            "health": 0.5,
+                            "damage": 0.5,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 0.6,
+                            "absorbtionFactor": 1
                         }
                     }
                 }
@@ -2198,8 +2197,7 @@ export interface TankDefinition {
         "name": "Destroyer",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [
-        ],
+        "upgrades": [],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -3070,8 +3068,7 @@ export interface TankDefinition {
         "name": "The Wall",
         "upgradeMessage": "",
         "levelRequirement": 45,
-        "upgrades": [
-        ],
+        "upgrades": [],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -3935,8 +3932,7 @@ export interface TankDefinition {
         "name": "Twin Triplet",
         "upgradeMessage": "",
         "levelRequirement": 45,
-        "upgrades": [
-        ],
+        "upgrades": [],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -4228,25 +4224,25 @@ export interface TankDefinition {
                     "lifeLength": 1,
                     "absorbtionFactor": 0.2,
                     "autoCannon": {
-                        angle: 0,
-                        offset: 0,
-                        size: 55,
-                        width: 29.4,
-                        delay: 0,
-                        reload: 2,
-                        recoil: 0,
-                        isTrapezoid: false,
-                        trapezoidDirection: 0,
-                        addon: null,
-                        bullet: {
-                            type: "bullet",
-                            sizeRatio: 1,
-                            health: 0.5,
-                            damage: 0.5,
-                            speed: 0.8,
-                            scatterRate: 1,
-                            lifeLength: 0.6,
-                            absorbtionFactor: 1
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0,
+                        "reload": 2,
+                        "recoil": 0,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "sizeRatio": 1,
+                            "health": 0.5,
+                            "damage": 0.5,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 0.6,
+                            "absorbtionFactor": 1
                         }
                     }
                 }
@@ -4457,25 +4453,25 @@ export interface TankDefinition {
                     "lifeLength": -1,
                     "absorbtionFactor": 1,
                     "autoCannon": {
-                        angle: 0,
-                        offset: 0,
-                        size: 55,
-                        width: 29.4,
-                        delay: 0.01,
-                        reload: 1,
-                        recoil: 0.3,
-                        isTrapezoid: false,
-                        trapezoidDirection: 0,
-                        addon: null,
-                        bullet: {
-                            type: "bullet",
-                            health: 0.5,
-                            damage: 0.5,
-                            speed: 1.2,
-                            scatterRate: 1,
-                            lifeLength: 1,
-                            sizeRatio: 1,
-                            absorbtionFactor: 1
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0.01,
+                        "reload": 1,
+                        "recoil": 0.3,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "health": 0.5,
+                            "damage": 0.5,
+                            "speed": 1.2,
+                            "scatterRate": 1,
+                            "lifeLength": 1,
+                            "sizeRatio": 1,
+                            "absorbtionFactor": 1
                         }
                     }
                 }
@@ -5038,25 +5034,25 @@ export interface TankDefinition {
                     "absorbtionFactor": 1,
                     "sides": 1,
                     "autoCannon": {
-                        angle: 0,
-                        offset: 0,
-                        size: 55,
-                        width: 29.4,
-                        delay: 0.01,
-                        reload: 1,
-                        recoil: 0.2,
-                        isTrapezoid: false,
-                        trapezoidDirection: 0,
-                        addon: null,
-                        bullet: {
-                            type: "bullet",
-                            health: 0.5,
-                            damage: 0.3,
-                            speed: 0.8,
-                            scatterRate: 1,
-                            lifeLength: 1,
-                            sizeRatio: 1,
-                            absorbtionFactor: 1
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0.01,
+                        "reload": 1,
+                        "recoil": 0.2,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "health": 0.5,
+                            "damage": 0.3,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 1,
+                            "sizeRatio": 1,
+                            "absorbtionFactor": 1
                         }
                     }
                 }
