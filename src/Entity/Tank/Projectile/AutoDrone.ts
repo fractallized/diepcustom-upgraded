@@ -51,30 +51,30 @@ export default class AutoDrone extends Bullet implements BarrelBase {
     public constructor(barrel: Barrel, tank: BarrelBase, tankDefinition: TankDefinition | null, shootAngle: number) {
         super(barrel, tank, tankDefinition, shootAngle);
         this.cameraEntity = tank.cameraEntity;
-
-        this.sizeFactor = this.physicsData.values.size / 50;
-        this.turret = new AutoTurret(this, {
+        const autoCannonDef = barrel.definition.bullet.autoCannon ?? {
             angle: 0,
             offset: 0,
             size: 55,
             width: 29.4,
-            delay: 0,
-            reload: 2,
-            recoil: 0,
+            delay: 0.01,
+            reload: 1,
+            recoil: 0.3,
             isTrapezoid: false,
             trapezoidDirection: 0,
             addon: null,
             bullet: {
                 type: "bullet",
-                sizeRatio: 1,
-                health: 0.5,
-                damage: 0.5,
-                speed: 0.8,
+                health: 1,
+                damage: 0.3,
+                speed: 1.2,
                 scatterRate: 1,
-                lifeLength: 0.6,
+                lifeLength: 1,
+                sizeRatio: 1,
                 absorbtionFactor: 1
             }
-        });
+        }
+        this.sizeFactor = this.physicsData.values.size / 50;
+        this.turret = new AutoTurret(this, autoCannonDef);
         this.turret.positionData.values.angle = shootAngle
         //atuo.ai.passiveRotation = this.movementAngle
         this.turret.styleData.values.flags |= StyleFlags.showsAboveParent;

@@ -60,6 +60,7 @@ export interface BulletDefinition {
     color?: Color;
     /** Overrides number of sides for projectile. */
     sides?: number;
+    autoCannon?: BarrelDefinition;
 }
 
 /**
@@ -1732,7 +1733,10 @@ export interface TankDefinition {
         "name": "Spawner",
         "upgradeMessage": "",
         "levelRequirement": 30,
-        "upgrades": [],
+        "upgrades": [
+            "Factory",
+            "Wait What"
+        ],
         "flags": {
             "invisibility": false,
             "zoomAbility": false,
@@ -2161,7 +2165,29 @@ export interface TankDefinition {
                     "speed": 3,
                     "scatterRate": 1,
                     "lifeLength": 3,
-                    "absorbtionFactor": 0.2
+                    "absorbtionFactor": 0.2,
+                    "autoCannon": {
+                        angle: 0,
+                        offset: 0,
+                        size: 55,
+                        width: 29.4,
+                        delay: 0,
+                        reload: 2,
+                        recoil: 0,
+                        isTrapezoid: false,
+                        trapezoidDirection: 0,
+                        addon: null,
+                        bullet: {
+                            type: "bullet",
+                            sizeRatio: 1,
+                            health: 0.5,
+                            damage: 0.5,
+                            speed: 0.8,
+                            scatterRate: 1,
+                            lifeLength: 0.6,
+                            absorbtionFactor: 1
+                        }
+                    }
                 }
             }
         ],
@@ -4200,7 +4226,29 @@ export interface TankDefinition {
                     "speed": 0.1,
                     "scatterRate": 1,
                     "lifeLength": 1,
-                    "absorbtionFactor": 0.2
+                    "absorbtionFactor": 0.2,
+                    "autoCannon": {
+                        angle: 0,
+                        offset: 0,
+                        size: 55,
+                        width: 29.4,
+                        delay: 0,
+                        reload: 2,
+                        recoil: 0,
+                        isTrapezoid: false,
+                        trapezoidDirection: 0,
+                        addon: null,
+                        bullet: {
+                            type: "bullet",
+                            sizeRatio: 1,
+                            health: 0.5,
+                            damage: 0.5,
+                            speed: 0.8,
+                            scatterRate: 1,
+                            lifeLength: 0.6,
+                            absorbtionFactor: 1
+                        }
+                    }
                 }
             }
         ],
@@ -4407,7 +4455,29 @@ export interface TankDefinition {
                     "speed": 0.8,
                     "scatterRate": 1,
                     "lifeLength": -1,
-                    "absorbtionFactor": 1
+                    "absorbtionFactor": 1,
+                    "autoCannon": {
+                        angle: 0,
+                        offset: 0,
+                        size: 55,
+                        width: 29.4,
+                        delay: 0.01,
+                        reload: 1,
+                        recoil: 0.3,
+                        isTrapezoid: false,
+                        trapezoidDirection: 0,
+                        addon: null,
+                        bullet: {
+                            type: "bullet",
+                            health: 0.5,
+                            damage: 0.5,
+                            speed: 1.2,
+                            scatterRate: 1,
+                            lifeLength: 1,
+                            sizeRatio: 1,
+                            absorbtionFactor: 1
+                        }
+                    }
                 }
             },
             {
@@ -4541,7 +4611,7 @@ export interface TankDefinition {
             {
                 "angle": 2.0943951023931953,
                 "offset": 0,
-                "size": 70,
+                "size": 80,
                 "width": 42,
                 "delay": 0,
                 "reload": 6,
@@ -4565,7 +4635,7 @@ export interface TankDefinition {
             {
                 "angle": 4.1887902047863905,
                 "offset": 0,
-                "size": 70,
+                "size": 80,
                 "width": 42,
                 "delay": 0,
                 "reload": 6,
@@ -4798,6 +4868,197 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": -1,
                     "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": [
+            {
+                "name": "Movement Speed",
+                "max": 7
+            },
+            {
+                "name": "Reload",
+                "max": 7
+            },
+            {
+                "name": "Drone Damage",
+                "max": 7
+            },
+            {
+                "name": "Drone Health",
+                "max": 7
+            },
+            {
+                "name": "Drone Speed",
+                "max": 7
+            },
+            {
+                "name": "Body Damage",
+                "max": 7
+            },
+            {
+                "name": "Max Health",
+                "max": 7
+            },
+            {
+                "name": "Health Regen",
+                "max": 7
+            }
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Factory",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 4,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 70,
+                "width": 42,
+                "delay": 0,
+                "reload": 3,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 8,
+                "canControlDrones": true,
+                "bullet": {
+                    "type": "minion",
+                    "sizeRatio": 1,
+                    "health": 2,
+                    "damage": 1,
+                    "speed": 0.56,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": [
+            {
+                "name": "Movement Speed",
+                "max": 7
+            },
+            {
+                "name": "Reload",
+                "max": 7
+            },
+            {
+                "name": "Drone Damage",
+                "max": 7
+            },
+            {
+                "name": "Drone Health",
+                "max": 7
+            },
+            {
+                "name": "Drone Speed",
+                "max": 7
+            },
+            {
+                "name": "Body Damage",
+                "max": 7
+            },
+            {
+                "name": "Max Health",
+                "max": 7
+            },
+            {
+                "name": "Health Regen",
+                "max": 7
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Wait What",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 4,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 70,
+                "width": 42,
+                "delay": 0,
+                "reload": 3,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 6,
+                "canControlDrones": true,
+                "bullet": {
+                    "type": "autodrone",
+                    "sizeRatio": 1,
+                    "health": 3,
+                    "damage": 1,
+                    "speed": 0.56,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1,
+                    "sides": 1,
+                    "autoCannon": {
+                        angle: 0,
+                        offset: 0,
+                        size: 55,
+                        width: 29.4,
+                        delay: 0.01,
+                        reload: 1,
+                        recoil: 0.2,
+                        isTrapezoid: false,
+                        trapezoidDirection: 0,
+                        addon: null,
+                        bullet: {
+                            type: "bullet",
+                            health: 0.5,
+                            damage: 0.3,
+                            speed: 0.8,
+                            scatterRate: 1,
+                            lifeLength: 1,
+                            sizeRatio: 1,
+                            absorbtionFactor: 1
+                        }
+                    }
                 }
             }
         ],
