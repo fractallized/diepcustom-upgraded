@@ -3153,7 +3153,7 @@ export interface TankDefinition {
             {
                 "angle": 0,
                 "offset": 0,
-                "size": 70,
+                "size": 60,
                 "width": 42,
                 "delay": 0,
                 "reload": 1,

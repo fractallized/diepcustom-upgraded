@@ -35,7 +35,7 @@ const SkimmerBarrelDefinition: BarrelDefinition = {
     width: 42,
     delay: 0,
     reload: 0.6,
-    recoil: 5.5,
+    recoil: 4.5,
     isTrapezoid: false,
     trapezoidDirection: 0,
     addon: null,
