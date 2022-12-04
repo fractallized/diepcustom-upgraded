@@ -29,6 +29,7 @@ import OldSkimmer from "./Projectile/OldSkimmer";
 import EngineerTrap from "./Projectile/EngineerTrap";
 import Launcher from "./Projectile/Launcher";
 import AutoDrone from "./Projectile/AutoDrone";
+import Swarmer from "./Projectile/Swarmer";
 
 import ObjectEntity from "../Object";
 import TankBody, { BarrelBase } from "./TankBody";
@@ -172,6 +173,9 @@ export default class Barrel extends ObjectEntity {
 
 
         switch (this.definition.bullet.type) {
+            case "swarmer":
+                new Swarmer(this, this.tank, tankDefinition, angle, Swarmer.BASE_ROTATION);
+                break;
             case 'autodrone':
                 new AutoDrone(this, this.tank, tankDefinition, angle);
                 break;

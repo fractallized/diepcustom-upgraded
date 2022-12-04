@@ -1197,7 +1197,7 @@ export interface TankDefinition {
         "upgradeMessage": "",
         "levelRequirement": 30,
         "upgrades": [
-            "Twiple Twin",
+            "Triple Twin",
             "Twin Triplet"
         ],
         "flags": {
@@ -6425,40 +6425,7 @@ export interface TankDefinition {
                 }
             }
         ],
-        "stats": [
-            {
-                "name": "Movement Speed",
-                "max": 7
-            },
-            {
-                "name": "Reload",
-                "max": 7
-            },
-            {
-                "name": "Bullet Damage",
-                "max": 7
-            },
-            {
-                "name": "Bullet Penetration",
-                "max": 7
-            },
-            {
-                "name": "Bullet Speed",
-                "max": 7
-            },
-            {
-                "name": "Body Damage",
-                "max": 7
-            },
-            {
-                "name": "Max Health",
-                "max": 7
-            },
-            {
-                "name": "Health Regen",
-                "max": 7
-            }
-        ]
+        "stats": []
     },
     {
         "id": 66,
@@ -6605,6 +6572,55 @@ export interface TankDefinition {
                     "absorbtionFactor": 1
                 }
             },
+        "stats": []
+    },
+    {
+        "id": 68,
+        "name": "Swarmer",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": "launcher",
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 80,
+                "width": 71.39999999999999,
+                "delay": 0,
+                "reload": 4,
+                "recoil": 3,
+                "isTrapezoid": false,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "bullet": {
+                    "type": "swarmer",
+                    "sizeRatio": 1,
+                    "health": 3,
+                    "damage": 1,
+                    "speed": 0.6,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 0.1
+                }
+            }
+        ],
         "stats": []
     }
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;
