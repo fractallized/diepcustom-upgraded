@@ -1624,6 +1624,7 @@ export interface TankDefinition {
         "postAddon": "auto3",
         "sides": 1,
         "borderWidth": 15,
+        "barrels": [],
         "barrelDef": [
             {
                 "angle": 0,
@@ -6583,6 +6584,7 @@ export interface TankDefinition {
         "postAddon": "auto5",
         "sides": 1,
         "borderWidth": 15,
+        "barrels": [],
         "barrelDef": [
             {
                 "angle": 0,
