@@ -95,8 +95,7 @@ export default class InceptionTank extends Bullet implements BarrelBase {
     public tick(tick: number) {
         this.sizeFactor = this.physicsData.values.size / 50;
         this.reloadTime = this.tank.reloadTime;
-        if (this.inputs.attemptingShot()) this.positionData.angle = Math.atan2(this.inputs.mouse.y - this.positionData.values.y, this.inputs.mouse.x - this.positionData.values.x);       
-        else this.positionData.angle += 0.1;
+        this.positionData.angle = Math.atan2(this.inputs.mouse.y - this.positionData.values.y, this.inputs.mouse.x - this.positionData.values.x);       
         super.tick(tick);
         if (this.deletionAnimation) return;
         // Only accurate on current version, but we dont want that
