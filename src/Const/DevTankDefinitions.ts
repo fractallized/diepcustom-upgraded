@@ -67,7 +67,7 @@ const DevTankDefinitions: TankDefinition[] = [
                     scatterRate: 0.01,
                     lifeLength: 8,
                     absorbtionFactor: 1,
-                    sizeRatio: 2,
+                    sizeRatio: 1,
                     autoCannon: {
                         "angle": 0,
                         "offset": 0,
@@ -91,7 +91,7 @@ const DevTankDefinitions: TankDefinition[] = [
                         }
                     }
                 },
-                reload: 0.5,
+                reload: 1.5,
                 width: 50,
                 isTrapezoid: true,
                 trapezoidDirection: Math.PI
