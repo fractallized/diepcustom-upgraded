@@ -60,7 +60,7 @@ const DevTankDefinitions: TankDefinition[] = [
                 recoil: 0,
                 addon: "trapLauncher",
                 bullet: {
-                    type: "engineer",
+                    type: "inception",
                     speed: 10,
                     damage: 4,
                     health: 10,

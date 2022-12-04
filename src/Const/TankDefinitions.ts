@@ -1947,7 +1947,8 @@ export interface TankDefinition {
         "levelRequirement": 30,
         "upgrades": [
             "Battleship",
-            "Carrier"
+            "Carrier",
+            "Cancer"
         ],
         "flags": {
             "invisibility": false,
@@ -2214,7 +2215,7 @@ export interface TankDefinition {
                     "damage": 1.5,
                     "speed": 3,
                     "scatterRate": 1,
-                    "lifeLength": 3,
+                    "lifeLength": 4,
                     "absorbtionFactor": 0.2,
                     "autoCannon": {
                         "angle": 0,
@@ -3344,7 +3345,7 @@ export interface TankDefinition {
                 "size": 80,
                 "width": 42,
                 "delay": 0,
-                "reload": 2,
+                "reload": 4,
                 "recoil": 3,
                 "isTrapezoid": false,
                 "trapezoidDirection": 0,
@@ -4484,7 +4485,7 @@ export interface TankDefinition {
                     "damage": 1.5,
                     "speed": 0.1,
                     "scatterRate": 1,
-                    "lifeLength": 1,
+                    "lifeLength": 3,
                     "absorbtionFactor": 0.2,
                     "autoCannon": {
                         "angle": 0,
@@ -5505,10 +5506,10 @@ export interface TankDefinition {
                     "type": "engineer",
                     "sizeRatio": 2,
                     "health": 2,
-                    "damage": 1,
+                    "damage": 1.5,
                     "speed": 3,
                     "scatterRate": 1,
-                    "lifeLength": 3,
+                    "lifeLength": 4,
                     "absorbtionFactor": 0.2,
                     "autoCannon": {
                         "angle": 0,
@@ -5524,7 +5525,7 @@ export interface TankDefinition {
                         "bullet": {
                             "type": "bullet",
                             "sizeRatio": 1,
-                            "health": 0.5,
+                            "health": 0.6,
                             "damage": 0.5,
                             "speed": 0.8,
                             "scatterRate": 1,
@@ -6671,7 +6672,7 @@ export interface TankDefinition {
                     "damage": 1.5,
                     "speed": 3,
                     "scatterRate": 1,
-                    "lifeLength": 3,
+                    "lifeLength": 4,
                     "absorbtionFactor": 0.2,
                     "autoCannon": {
                         "angle": 0,
@@ -6718,6 +6719,81 @@ export interface TankDefinition {
                     "speed": 1,
                     "scatterRate": 1,
                     "lifeLength": -1,
+                    "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": []
+    },
+    {
+        "id": 70,
+        "name": "Cancer",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": "autoturret",
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": -20,
+                "size": 75,
+                "width": 29.4,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 3.141592653589793,
+                "addon": null,
+                "droneCount": 4294967295,
+                "canControlDrones": true,
+                "bullet": {
+                    "type": "swarm",
+                    "sizeRatio": 0.7,
+                    "health": 1,
+                    "damage": 0.35,
+                    "speed": 1.1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
+                    "absorbtionFactor": 1
+                }
+            },
+            {
+                "angle": 0,
+                "offset": 20,
+                "size": 75,
+                "width": 29.4,
+                "delay": 0,
+                "reload": 1,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 3.141592653589793,
+                "addon": null,
+                "droneCount": 4294967295,
+                "canControlDrones": false,
+                "bullet": {
+                    "type": "swarm",
+                    "sizeRatio": 0.7,
+                    "health": 1,
+                    "damage": 0.2,
+                    "speed": 1,
+                    "scatterRate": 1,
+                    "lifeLength": 1,
                     "absorbtionFactor": 1
                 }
             }
