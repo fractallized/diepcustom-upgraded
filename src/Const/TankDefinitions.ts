@@ -6865,8 +6865,8 @@ export interface TankDefinition {
                     "type": "swarm",
                     "sizeRatio": 0.5,
                     "health": 1,
-                    "damage": 0.25,
-                    "speed": 1.1,
+                    "damage": 0.2,
+                    "speed": 1.3,
                     "scatterRate": 1,
                     "lifeLength": 1.3,
                     "absorbtionFactor": 1
