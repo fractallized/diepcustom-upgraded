@@ -130,7 +130,7 @@ export default class Drone extends Bullet {
         }
 
         // So that switch tank works, as well as on death
-        if (!Entity.exists(this.barrelEntity)) this.destroy();
+        if (!Entity.exists(this.barrelEntity) && this.lifeLength === Infinity) this.destroy();
 
         this.tickMixin(tick);
     }
