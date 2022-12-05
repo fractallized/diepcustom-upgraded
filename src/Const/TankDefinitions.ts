@@ -4725,16 +4725,16 @@ export interface TankDefinition {
                         "size": 55,
                         "width": 29.4,
                         "delay": 0.01,
-                        "reload": 1,
+                        "reload": 1.5,
                         "recoil": 0.3,
                         "isTrapezoid": false,
                         "trapezoidDirection": 0,
                         "addon": null,
                         "bullet": {
                             "type": "bullet",
-                            "health": 0.4,
-                            "damage": 0.4,
-                            "speed": 1.2,
+                            "health": 0.25,
+                            "damage": 0.25,
+                            "speed": 0.8,
                             "scatterRate": 1,
                             "lifeLength": 1,
                             "sizeRatio": 1,
@@ -5760,8 +5760,8 @@ export interface TankDefinition {
                 "bullet": {
                     "type": "trap",
                     "sizeRatio": 1,
-                    "health": 0.6,
-                    "damage": 0.6,
+                    "health": 0.8,
+                    "damage": 0.8,
                     "speed": 0.3,
                     "scatterRate": 1,
                     "lifeLength": 1,
@@ -6477,11 +6477,11 @@ export interface TankDefinition {
                 "bullet": {
                     "type": "swarm",
                     "sizeRatio": 0.7,
-                    "health": 1,
-                    "damage": 0.2,
+                    "health": 0.6,
+                    "damage": 0.3,
                     "speed": 1.1,
                     "scatterRate": 1,
-                    "lifeLength": 1,
+                    "lifeLength": 1.3,
                     "absorbtionFactor": 1
                 }
             },
@@ -6501,11 +6501,11 @@ export interface TankDefinition {
                 "bullet": {
                     "type": "swarm",
                     "sizeRatio": 0.7,
-                    "health": 1,
-                    "damage": 0.2,
+                    "health": 0.6,
+                    "damage": 0.3,
                     "speed": 1.1,
                     "scatterRate": 1,
-                    "lifeLength": 1,
+                    "lifeLength": 1.3,
                     "absorbtionFactor": 1
                 }
             },
@@ -6525,11 +6525,11 @@ export interface TankDefinition {
                 "bullet": {
                     "type": "swarm",
                     "sizeRatio": 0.7,
-                    "health": 1,
-                    "damage": 0.2,
+                    "health": 0.6,
+                    "damage": 0.3,
                     "speed": 1.1,
                     "scatterRate": 1,
-                    "lifeLength": 1,
+                    "lifeLength": 1.3,
                     "absorbtionFactor": 1
                 }
             }
@@ -6843,7 +6843,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "health": 1,
                     "damage": 1.5,
-                    "speed": 3,
+                    "speed": 2.5,
                     "scatterRate": 1,
                     "lifeLength": 3,
                     "absorbtionFactor": 0.2
@@ -6855,7 +6855,7 @@ export interface TankDefinition {
                 "size": 60,
                 "width": 56,
                 "delay": 0,
-                "reload": 0.5,
+                "reload": 1,
                 "recoil": 0.5,
                 "isTrapezoid": true,
                 "trapezoidDirection": 3.141592653589793,
