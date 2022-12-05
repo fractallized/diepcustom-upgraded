@@ -111,7 +111,7 @@ export default class Drone extends Bullet {
                 this.restCycle = (delta.x ** 2 + delta.y ** 2) <= 4 * (this.tank.physicsData.values.size ** 2);
             }
 
-            if (!Entity.exists(this.barrelEntity) && this.lifeLength !== Infinity) this.destroy();
+            if (!Entity.exists(this.barrelEntity) && this.lifeLength === Infinity) this.destroy();
 
             this.tickMixin(tick);
 
