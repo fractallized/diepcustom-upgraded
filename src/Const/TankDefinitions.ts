@@ -6856,7 +6856,7 @@ export interface TankDefinition {
                 "width": 56,
                 "delay": 0,
                 "reload": 1,
-                "recoil": 0.5,
+                "recoil": 0.1,
                 "isTrapezoid": true,
                 "trapezoidDirection": 3.141592653589793,
                 "addon": null,
