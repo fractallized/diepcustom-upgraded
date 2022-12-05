@@ -18,7 +18,7 @@
 
 import Barrel from "../Barrel";
 import Bullet from "./Bullet";
-
+import { Swarm } from "./Swarm";
 import { PhysicsFlags, StyleFlags } from "../../../Const/Enums";
 import { TankDefinition } from "../../../Const/TankDefinitions";
 import { Entity } from "../../../Native/Entity";
@@ -112,7 +112,7 @@ export default class Drone extends Bullet {
                 this.restCycle = (delta.x ** 2 + delta.y ** 2) <= 4 * (this.tank.physicsData.values.size ** 2);
             }
 
-            if (!Entity.exists(this.barrelEntity)) this.destroy();
+            if (!Entity.exists(this.barrelEntity) && !(this instanceof Swarm)) this.destroy();
 
             this.tickMixin(tick);
 
