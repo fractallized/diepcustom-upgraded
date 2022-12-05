@@ -107,7 +107,7 @@ export default class ShapeManager {
     }
 
     protected get wantedShapes() {
-        return 1000;
+        return 50;
     }
 
     public tick() {
