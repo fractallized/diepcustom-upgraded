@@ -41,8 +41,8 @@ import { BarrelBase } from "../TankBody";
     addon: null,
     bullet: {
         type: "bullet",
-        health: 0.4,
-        damage: 0.4,
+        health: 0.3,
+        damage: 0.3,
         speed: 0.8,
         scatterRate: 1,
         lifeLength: 1,

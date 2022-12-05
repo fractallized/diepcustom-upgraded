@@ -3167,7 +3167,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "health": 1,
                     "damage": 0.5,
-                    "speed": 3,
+                    "speed": 1,
                     "scatterRate": 1,
                     "lifeLength": 2.5,
                     "absorbtionFactor": 0.2
@@ -3189,7 +3189,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "health": 1,
                     "damage": 0.5,
-                    "speed": 3,
+                    "speed": 1,
                     "scatterRate": 1,
                     "lifeLength": 2.5,
                     "absorbtionFactor": 0.2
@@ -3210,8 +3210,8 @@ export interface TankDefinition {
                     "type": "trap",
                     "sizeRatio": 1,
                     "health": 1,
-                    "damage": 0.75,
-                    "speed": 3,
+                    "damage": 0.7,
+                    "speed": 1,
                     "scatterRate": 1,
                     "lifeLength": 2.5,
                     "absorbtionFactor": 0.2
@@ -6228,7 +6228,7 @@ export interface TankDefinition {
                     "type": "skimmer",
                     "sizeRatio": 1,
                     "health": 3,
-                    "damage": 1.6,
+                    "damage": 1,
                     "speed": 0.6,
                     "scatterRate": 1,
                     "lifeLength": 1.3,
