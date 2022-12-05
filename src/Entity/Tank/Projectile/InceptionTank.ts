@@ -76,7 +76,7 @@ export default class InceptionTank extends Bullet implements BarrelBase {
 
         const barrels: Barrel[] = this.barrels = [];
         const def = {...BarrelDefinition};
-        def.angle = -barrel.definition.angle;
+        def.angle = - 2 * barrel.definition.angle;
         barrels.push(new Barrel(this, def));
         this.inputs = tank.inputs;
     }
