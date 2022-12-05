@@ -20,7 +20,7 @@ import ObjectEntity from "../Object";
 import Barrel from "./Barrel";
 
 import { BarrelBase } from "./TankBody";
-import { Color, InputFlags, PositionFlags, NameFlags, PhysicsFlags, Stat, StyleFlags } from "../../Const/Enums";
+import { Color, InputFlags, PositionFlags, NameFlags, PhysicsFlags, StyleFlags } from "../../Const/Enums";
 import { BarrelDefinition } from "../../Const/TankDefinitions";
 import { AI, AIState, Inputs } from "../AI";
 import { Entity } from "../../Native/Entity";

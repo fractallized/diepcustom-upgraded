@@ -125,10 +125,7 @@ export default class Drone extends Bullet {
 
 
         
-        if (this.canControlDrones && inputs.attemptingRepel()) {
-            this.positionData.angle += Math.PI; 
-        }
-
+        if (this.canControlDrones && inputs.attemptingRepel()) this.positionData.angle += Math.PI; 
         // So that switch tank works, as well as on death
         if (!Entity.exists(this.barrelEntity) && this.lifeLength === Infinity) this.destroy();
 

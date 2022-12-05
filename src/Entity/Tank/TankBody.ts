@@ -29,7 +29,7 @@ import Barrel from "./Barrel";
 import { Color, StyleFlags, StatCount, Tank, CameraFlags, Stat, InputFlags, PhysicsFlags, PositionFlags } from "../../Const/Enums";
 import { Entity } from "../../Native/Entity";
 import { NameGroup, ScoreGroup } from "../../Native/FieldGroups";
-import { Addon, AddonById, AutoTankTurretAddon } from "./Addons";
+import { Addon, AddonById } from "./Addons";
 import { getTankById, TankDefinition } from "../../Const/TankDefinitions";
 import { DevTank } from "../../Const/DevTankDefinitions";
 import { Inputs } from "../AI";

@@ -59,7 +59,6 @@ export default class Skimmer extends Bullet implements BarrelBase {
     public static BASE_ROTATION = 0.1;
 
     /** The skimmer's barrels */
-    private skimmerBarrels: Barrel[];
 
     /** The size ratio of the skimmer. */
     public sizeFactor: number;
@@ -83,7 +82,7 @@ export default class Skimmer extends Bullet implements BarrelBase {
 
         this.sizeFactor = this.physicsData.values.size / 50;
 
-        const skimmerBarrels: Barrel[] = this.skimmerBarrels =[];
+        const skimmerBarrels: Barrel[] =[];
 
         const s1 = new class extends Barrel {
             // Keep the width constant

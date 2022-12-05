@@ -19,7 +19,6 @@
 import Barrel from "../Barrel";
 import Bullet from "./Bullet";
 
-import { InputFlags } from "../../../Const/Enums";
 import { BarrelDefinition, TankDefinition } from "../../../Const/TankDefinitions";
 import { Entity } from "../../../Native/Entity";
 import { Inputs } from "../../AI";

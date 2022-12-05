@@ -16,14 +16,12 @@
 import Barrel from "../Barrel";
 import Bullet from "./Bullet";
 import { Inputs } from "../../AI";
-import { InputFlags } from "../../../Const/Enums";
 import { PhysicsFlags, StyleFlags } from "../../../Const/Enums";
-import {BarrelDefinition, TankDefinition } from "../../../Const/TankDefinitions";
+import { TankDefinition } from "../../../Const/TankDefinitions";
 import { BarrelBase } from "../TankBody";
 import { DevTank } from "../../../Const/DevTankDefinitions";
 import AutoTurret from "../AutoTurret";
 import { Entity } from "../../../Native/Entity";
-import { normalizeAngle } from "../../../util";
 /**
  * The trap class represents the trap (projectile) entity in diep.
  */

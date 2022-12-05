@@ -59,7 +59,6 @@ export default class Swarmer extends Bullet implements BarrelBase {
     public static BASE_ROTATION = 0.1;
 
     /** The skimmer's barrels */
-    private skimmerBarrels: Barrel[];
 
     /** The size ratio of the skimmer. */
     public sizeFactor: number;
@@ -83,7 +82,7 @@ export default class Swarmer extends Bullet implements BarrelBase {
 
         this.sizeFactor = this.physicsData.values.size / 50;
 
-        const skimmerBarrels: Barrel[] = this.skimmerBarrels = [];
+        const barrels: Barrel[] = [];
 
         const s1 = new Barrel(this, {...SwarmerBarrelDefinition});
         const s2Definition = {...SwarmerBarrelDefinition};
@@ -98,7 +97,7 @@ export default class Swarmer extends Bullet implements BarrelBase {
         s2.styleData.values.color = this.styleData.values.color;
         s3.styleData.values.color = this.styleData.values.color;
 
-        skimmerBarrels.push(s1, s2, s3);
+        barrels.push(s1, s2, s3);
 
         this.inputs = new Inputs();
         this.inputs.flags |= InputFlags.leftclick;
