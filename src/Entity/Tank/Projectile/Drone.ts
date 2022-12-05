@@ -24,6 +24,7 @@ import { TankDefinition } from "../../../Const/TankDefinitions";
 import { Entity } from "../../../Native/Entity";
 import { AI, AIState } from "../../AI";
 import { BarrelBase } from "../TankBody";
+import { Swarm } from "./Swarm";
 
 /**
  * The drone class represents the drone (projectile) entity in diep.
@@ -112,7 +113,7 @@ export default class Drone extends Bullet {
                 this.restCycle = (delta.x ** 2 + delta.y ** 2) <= 4 * (this.tank.physicsData.values.size ** 2);
             }
 
-            if (!Entity.exists(this.barrelEntity)) this.destroy();
+            if (!Entity.exists(this.barrelEntity) && !(this instanceof Swarm)) this.destroy();
 
             this.tickMixin(tick);
 
