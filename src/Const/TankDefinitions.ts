@@ -6843,7 +6843,7 @@ export interface TankDefinition {
                     "sizeRatio": 1.5,
                     "health": 3,
                     "damage": 4,
-                    "speed": 0.6,
+                    "speed": 0.56,
                     "scatterRate": 1,
                     "lifeLength": -1,
                     "absorbtionFactor": 0.2;
