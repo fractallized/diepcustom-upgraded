@@ -488,7 +488,8 @@ export interface TankDefinition {
             "Overseer",
             "Spawner",
             "Converter",
-            "Cruiser"
+            "Cruiser",
+            "Big Cheese"
         ],
         "flags": {
             "invisibility": false,
@@ -6799,7 +6800,91 @@ export interface TankDefinition {
             }
         ],
         "stats": []
-    }
+    },
+    {
+        "id": 71,
+        "name": "Big Cheese",
+        "upgradeMessage": "",
+        "levelRequirement": 45,
+        "upgrades": [],
+        "flags": {
+            "invisibility": false,
+            "zoomAbility": false,
+            "canClaimSquares": false,
+            "devOnly": false
+        },
+        "visibilityRateShooting": 0.23,
+        "visibilityRateMoving": 0.08,
+        "invisibilityRate": 0.03,
+        "fieldFactor": 0.9,
+        "absorbtionFactor": 1,
+        "speed": 1,
+        "maxHealth": 50,
+        "preAddon": null,
+        "postAddon": null,
+        "sides": 1,
+        "borderWidth": 15,
+        "barrels": [
+            {
+                "angle": 0,
+                "offset": 0,
+                "size": 80,
+                "width": 71.4,
+                "delay": 0,
+                "reload": 4,
+                "recoil": 1,
+                "isTrapezoid": true,
+                "trapezoidDirection": 0,
+                "addon": null,
+                "droneCount": 6,
+                "canControlDrones": true,
+                "bullet": {
+                    "type": "drone",
+                    "sizeRatio": 1.6,
+                    "health": 3,
+                    "damage": 4,
+                    "speed": 0.6,
+                    "scatterRate": 1,
+                    "lifeLength": -1,
+                    "absorbtionFactor": 1
+                }
+            }
+        ],
+        "stats": [
+            {
+                "name": "Movement Speed",
+                "max": 7
+            },
+            {
+                "name": "Reload",
+                "max": 7
+            },
+            {
+                "name": "Drone Damage",
+                "max": 7
+            },
+            {
+                "name": "Drone Health",
+                "max": 7
+            },
+            {
+                "name": "Drone Speed",
+                "max": 7
+            },
+            {
+                "name": "Body Damage",
+                "max": 7
+            },
+            {
+                "name": "Max Health",
+                "max": 7
+            },
+            {
+                "name": "Health Regen",
+                "max": 7
+            }
+        ]
+    },
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;
 
 /**
