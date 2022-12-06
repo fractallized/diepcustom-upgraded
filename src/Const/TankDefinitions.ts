@@ -6755,7 +6755,7 @@ export interface TankDefinition {
         "borderWidth": 15,
         "barrels": [
             {
-                "angle": -0.7853981633974483,
+                "angle": -0.5235987755982988,
                 "offset": 0,
                 "size": 95,
                 "width": 42,
@@ -6777,7 +6777,7 @@ export interface TankDefinition {
                 }
             },
             {
-                "angle": 0.7853981633974483,
+                "angle": 0.5235987755982988,
                 "offset": 0,
                 "size": 95,
                 "width": 42,
