@@ -75,7 +75,6 @@ export default class AutoDrone extends Bullet implements BarrelBase {
         };
         this.sizeFactor = this.physicsData.values.size / 50;
         this.turret = new AutoTurret(this, autoCannonDef);
-        this.turret.reloadTime = barrel.tank.reloadTime * autoCannonDef.reload;
         this.turret.positionData.values.angle = shootAngle
         //atuo.ai.passiveRotation = this.movementAngle
         this.turret.styleData.values.flags |= StyleFlags.showsAboveParent;
@@ -124,9 +123,9 @@ export default class AutoDrone extends Bullet implements BarrelBase {
     }
 
     public tick(tick: number) {
+        this.reloadTime = this.tank.reloadTime;
         const usingAI = !this.canControlDrones || this.tank.inputs.deleted || (!this.tank.inputs.attemptingShot() && !this.tank.inputs.attemptingRepel());
         const inputs = !usingAI ? this.tank.inputs : this.ai.inputs;
-
         if (usingAI && this.ai.state === AIState.idle) {
             const delta = {
                 x: this.positionData.values.x - this.tank.positionData.values.x,
