@@ -228,7 +228,7 @@ const DevTankDefinitions: TankDefinition[] = [
                 max: 7
             }
         ]
-    }
+    },
 ]
 
 export default DevTankDefinitions;
