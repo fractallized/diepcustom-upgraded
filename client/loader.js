@@ -1,17 +1,14 @@
 /*
     DiepCustom - custom tank game server that shares diep.io's WebSocket protocol
     Copyright (C) 2022 ABCxFF (github.com/ABCxFF)
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
     by the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
-
     You should have received a copy of the GNU Affero General Public License
     along with this program. If not, see <https://www.gnu.org/licenses/>
 */
@@ -154,6 +151,11 @@ Module.loadGamemodeButtons = () => {
     const vec = new $.Vector(MOD_CONFIG.memory.gamemodeButtons, "struct", 28);
     if(vec.start) vec.destroy(); // remove old arenas
     // map server response to memory struct
+    vec.push(...[[
+        { offset: 0, type: "cstr", value: "maze" }, 
+        { offset: 12, type: "cstr", value: "" }, 
+        { offset: 24, type: "i32", value: 1 }
+    ]]);
     vec.push(...Module.servers.map(server => ([
         { offset: 0, type: "cstr", value: server.gamemode }, 
         { offset: 12, type: "cstr", value: server.name }, 
@@ -298,7 +300,7 @@ Module.loadCommands = (commands = CUSTOM_COMMANDS) => {
 };
 
 const wasmImports = {
-    assertFail: (condition, filename, line, func) => Module.abort("Assertion failed: " + UTF8ToString(condition) + ", at: " + [filename ? UTF8ToString(filename) : "unknown filename", line, func ? UTF8ToString(func) : "unknown function"]),
+    assertFail: (condition, filename, line, func) => Module.abort("Assertion failed: " + Module.UTF8ToString(condition) + ", at: " + [filename ? Module.UTF8ToString(filename) : "unknown filename", line, func ? Module.UTF8ToString(func) : "unknown function"]),
     mapFile: () => -1, // unused
     sysMunmap: (addr, len) => addr === -1 || !len ? -28 : 0, // not really used
     abort: Module.abort,

@@ -146,6 +146,88 @@ const DevTankDefinitions: TankDefinition[] = [
                 max: 9
             }
         ]
+    },
+    {
+        id: DevTank.UsainBolt,
+        name: "Big Cheese",
+        upgradeMessage: "Go wild",
+        // upgrades dont have any affect
+        upgrades: [],
+        barrels: [
+            {
+                angle: 0,
+                delay: 0,
+                size: 80,
+                offset: 0,
+                recoil: 0,
+                addon: null,
+                bullet: {
+                    type: "drone",
+                    speed: 0.6,
+                    damage: 4,
+                    health: 5,
+                    scatterRate: 0,
+                    lifeLength: -1,
+                    absorbtionFactor: 0.1,
+                    sizeRatio: 1,
+                },
+                reload: 4,
+                width: 60,
+                isTrapezoid: true,
+                trapezoidDirection: 0
+            }
+        ],
+        levelRequirement: 45,
+        fieldFactor: .75,
+        speed: 1.5,
+        absorbtionFactor: 1,
+        flags: {
+            invisibility: true,
+            zoomAbility: false,
+            devOnly: true
+        },
+        visibilityRateShooting: 0,
+        visibilityRateMoving: 0.5,
+        invisibilityRate: 0.2,
+        preAddon: null,
+        postAddon: "overdrive",
+        maxHealth: 50,
+        borderWidth: 15,
+        sides: 1,
+        stats: [
+            {
+                name: "Movement Speed",
+                max: 7
+            },
+            {
+                name: "Reload",
+                max: 7
+            },
+            {
+                name: "Bullet Damage",
+                max: 7
+            },
+            {
+                name: "Bullet Penetration",
+                max: 7
+            },
+            {
+                name: "Bullet Speed",
+                max: 7
+            },
+            {
+                name: "Body Damage",
+                max: 7
+            },
+            {
+                name: "Max Health",
+                max: 7
+            },
+            {
+                name: "Health Regen",
+                max: 7
+            }
+        ]
     }
 ]
 

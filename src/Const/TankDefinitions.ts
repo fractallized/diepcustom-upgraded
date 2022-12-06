@@ -356,7 +356,6 @@ export interface TankDefinition {
         "levelRequirement": 15,
         "upgrades": [
             "Gunner",
-            "Trap Gunner",
             "Sprayer"
         ],
         "flags": {
@@ -575,7 +574,6 @@ export interface TankDefinition {
         "upgradeMessage": "",
         "levelRequirement": 15,
         "upgrades": [
-            "Trap Gunner",
             "Trap Guard",
             "Flank Trapper",
             "Hybrid Trapper",
@@ -1115,79 +1113,6 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 1,
                     "absorbtionFactor": 1
-                }
-            }
-        ],
-        "stats": []
-    },
-    {
-        "id": 13,
-        "name": "Trap Gunner",
-        "upgradeMessage": "",
-        "levelRequirement": 30,
-        "upgrades": [
-            "Barricade"
-        ],
-        "flags": {
-            "invisibility": false,
-            "zoomAbility": false,
-            "canClaimSquares": false,
-            "devOnly": false
-        },
-        "visibilityRateShooting": 0.23,
-        "visibilityRateMoving": 0.08,
-        "invisibilityRate": 0.03,
-        "fieldFactor": 0.9,
-        "absorbtionFactor": 1,
-        "speed": 1,
-        "maxHealth": 50,
-        "preAddon": null,
-        "postAddon": null,
-        "sides": 1,
-        "borderWidth": 15,
-        "barrels": [
-            {
-                "angle": 0,
-                "offset": 0,
-                "size": 80,
-                "width": 42,
-                "delay": 0,
-                "reload": 1.2,
-                "recoil": 1,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": "trapLauncher",
-                "bullet": {
-                    "type": "trap",
-                    "sizeRatio": 0.8,
-                    "health": 0.6,
-                    "damage": 1.2,
-                    "speed": 3,
-                    "scatterRate": 1,
-                    "lifeLength": 3,
-                    "absorbtionFactor": 0.2
-                }
-            },
-            {
-                "angle": 0,
-                "offset": 0,
-                "size": 60,
-                "width": 42,
-                "delay": 0.5,
-                "reload": 1.2,
-                "recoil": 1,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": "trapLauncher",
-                "bullet": {
-                    "type": "trap",
-                    "sizeRatio": 0.8,
-                    "health": 0.6,
-                    "damage": 1.2,
-                    "speed": 3,
-                    "scatterRate": 1,
-                    "lifeLength": 3,
-                    "absorbtionFactor": 0.2
                 }
             }
         ],
@@ -3734,99 +3659,6 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 1,
                     "absorbtionFactor": 1
-                }
-            }
-        ],
-        "stats": []
-    },
-    {
-        "id": 41,
-        "name": "Barricade",
-        "upgradeMessage": "",
-        "levelRequirement": 45,
-        "upgrades": [],
-        "flags": {
-            "invisibility": false,
-            "zoomAbility": false,
-            "canClaimSquares": false,
-            "devOnly": false
-        },
-        "visibilityRateShooting": 0.23,
-        "visibilityRateMoving": 0.08,
-        "invisibilityRate": 0.03,
-        "fieldFactor": 0.9,
-        "absorbtionFactor": 1,
-        "speed": 1,
-        "maxHealth": 50,
-        "preAddon": null,
-        "postAddon": null,
-        "sides": 1,
-        "borderWidth": 15,
-        "barrels": [
-            {
-                "angle": 0,
-                "offset": 0,
-                "size": 100,
-                "width": 42,
-                "delay": 0,
-                "reload": 1.2,
-                "recoil": 1,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": "trapLauncher",
-                "bullet": {
-                    "type": "trap",
-                    "sizeRatio": 0.8,
-                    "health": 0.5,
-                    "damage": 1.2,
-                    "speed": 3,
-                    "scatterRate": 1,
-                    "lifeLength": 3,
-                    "absorbtionFactor": 0.2
-                }
-            },
-            {
-                "angle": 0,
-                "offset": 0,
-                "size": 80,
-                "width": 42,
-                "delay": 0.33,
-                "reload": 1.2,
-                "recoil": 1,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": "trapLauncher",
-                "bullet": {
-                    "type": "trap",
-                    "sizeRatio": 0.8,
-                    "health": 0.5,
-                    "damage": 1.2,
-                    "speed": 3,
-                    "scatterRate": 1,
-                    "lifeLength": 3,
-                    "absorbtionFactor": 0.2
-                }
-            },
-            {
-                "angle": 0,
-                "offset": 0,
-                "size": 60,
-                "width": 42,
-                "delay": 0.67,
-                "reload": 1.2,
-                "recoil": 1,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": "trapLauncher",
-                "bullet": {
-                    "type": "trap",
-                    "sizeRatio": 0.8,
-                    "health": 0.5,
-                    "damage": 1.2,
-                    "speed": 3,
-                    "scatterRate": 1,
-                    "lifeLength": 3,
-                    "absorbtionFactor": 0.2
                 }
             }
         ],
