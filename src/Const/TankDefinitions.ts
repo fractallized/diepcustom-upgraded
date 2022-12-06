@@ -1119,7 +1119,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 14,
+        "id": 13,
         "name": "Twin Flank",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1237,7 +1237,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 15,
+        "id": 14,
         "name": "Quad Tank",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1355,7 +1355,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 16,
+        "id": 15,
         "name": "Tri-Angle",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1452,7 +1452,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 17,
+        "id": 16,
         "name": "Trap Guard",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1527,7 +1527,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 18,
+        "id": 17,
         "name": "Auto 3",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1554,31 +1554,31 @@ export interface TankDefinition {
         "borderWidth": 15,
         "barrels": [],
         "barrelDef": {
-                "angle": 0,
-                "offset": 0,
-                "size": 55,
-                "width": 29.4,
-                "delay": 0.01,
-                "reload": 1,
-                "recoil": 0.3,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": null,
-                "bullet": {
-                    "type": "bullet",
-                    "health": 1,
-                    "damage": 0.6,
-                    "speed": 1.2,
-                    "scatterRate": 1,
-                    "lifeLength": 1,
-                    "sizeRatio": 1,
-                    "absorbtionFactor": 1
-                }
-            },
+            "angle": 0,
+            "offset": 0,
+            "size": 55,
+            "width": 29.4,
+            "delay": 0.01,
+            "reload": 1,
+            "recoil": 0.3,
+            "isTrapezoid": false,
+            "trapezoidDirection": 0,
+            "addon": null,
+            "bullet": {
+                "type": "bullet",
+                "health": 1,
+                "damage": 0.6,
+                "speed": 1.2,
+                "scatterRate": 1,
+                "lifeLength": 1,
+                "sizeRatio": 1,
+                "absorbtionFactor": 1
+            }
+        },
         "stats": []
     },
     {
-        "id": 19,
+        "id": 18,
         "name": "Overseer",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1693,7 +1693,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 20,
+        "id": 19,
         "name": "Spawner",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1780,7 +1780,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 21,
+        "id": 20,
         "name": "Converter",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1867,7 +1867,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 22,
+        "id": 21,
         "name": "Cruiser",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -1947,7 +1947,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 23,
+        "id": 22,
         "name": "Flank Trapper",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2021,7 +2021,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 24,
+        "id": 23,
         "name": "Hybrid Trapper",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2097,7 +2097,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 25,
+        "id": 24,
         "name": "Engineer",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2173,7 +2173,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 26,
+        "id": 25,
         "name": "Destroyer",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2226,7 +2226,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 27,
+        "id": 26,
         "name": "Launcher",
         "upgradeMessage": "",
         "levelRequirement": 30,
@@ -2280,7 +2280,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 28,
+        "id": 27,
         "name": "Focus Fire",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2417,7 +2417,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 29,
+        "id": 28,
         "name": "Auto Triplet",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2510,7 +2510,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 30,
+        "id": 29,
         "name": "Streamliner",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2647,7 +2647,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 31,
+        "id": 30,
         "name": "Penta Shot",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -2784,7 +2784,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 32,
+        "id": 31,
         "name": "Spread Shot",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3053,7 +3053,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 33,
+        "id": 32,
         "name": "The Wall",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3146,7 +3146,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 34,
+        "id": 33,
         "name": "Stalker",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3195,7 +3195,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 35,
+        "id": 34,
         "name": "Ranger",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3244,7 +3244,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 36,
+        "id": 35,
         "name": "Ambusher",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3293,7 +3293,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 37,
+        "id": 36,
         "name": "Predator",
         "upgradeMessage": "Use your right mouse button to look further in the direction you're facing",
         "levelRequirement": 45,
@@ -3386,7 +3386,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 38,
+        "id": 37,
         "name": "Sprayer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3457,7 +3457,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 39,
+        "id": 38,
         "name": "Gunner Trapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3550,7 +3550,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 40,
+        "id": 39,
         "name": "Auto Gunner",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3665,7 +3665,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 42,
+        "id": 40,
         "name": "Triple Twin",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3824,7 +3824,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 43,
+        "id": 41,
         "name": "Twin Triplet",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -3983,7 +3983,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 44,
+        "id": 42,
         "name": "Octo Tank",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4186,7 +4186,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 45,
+        "id": 43,
         "name": "Sniper Guard",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4257,7 +4257,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 46,
+        "id": 44,
         "name": "Infiltrator",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4350,7 +4350,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 47,
+        "id": 45,
         "name": "Overlord",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4506,7 +4506,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 48,
+        "id": 46,
         "name": "Overdrive",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4658,7 +4658,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 49,
+        "id": 47,
         "name": "Overgunner",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4810,7 +4810,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 50,
+        "id": 48,
         "name": "Overtrapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -4940,7 +4940,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 51,
+        "id": 49,
         "name": "Manager",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5024,7 +5024,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 52,
+        "id": 50,
         "name": "Factory",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5108,7 +5108,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 53,
+        "id": 51,
         "name": "Wait What",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5215,7 +5215,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 54,
+        "id": 52,
         "name": "Necromancer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5325,7 +5325,7 @@ export interface TankDefinition {
         ]
     },
     {
-        "id": 55,
+        "id": 53,
         "name": "Mechanic",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5396,7 +5396,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 56,
+        "id": 54,
         "name": "Quad Trapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5511,7 +5511,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 57,
+        "id": 55,
         "name": "Bomber",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5626,7 +5626,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 58,
+        "id": 56,
         "name": "Fighter",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5763,7 +5763,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 59,
+        "id": 57,
         "name": "Booster",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5900,7 +5900,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 60,
+        "id": 58,
         "name": "Hybrid",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -5973,7 +5973,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 61,
+        "id": 59,
         "name": "Annihilator",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6022,7 +6022,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 62,
+        "id": 60,
         "name": "Cyclone",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6071,7 +6071,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 63,
+        "id": 61,
         "name": "Rocketeer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6120,7 +6120,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 64,
+        "id": 62,
         "name": "Skimmer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6169,7 +6169,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 65,
+        "id": 63,
         "name": "Battleship",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6292,7 +6292,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 66,
+        "id": 64,
         "name": "Carrier",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6391,7 +6391,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 67,
+        "id": 65,
         "name": "Auto 5",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6415,31 +6415,31 @@ export interface TankDefinition {
         "borderWidth": 15,
         "barrels": [],
         "barrelDef": {
-                "angle": 0,
-                "offset": 0,
-                "size": 55,
-                "width": 29.4,
-                "delay": 0.01,
-                "reload": 1,
-                "recoil": 0.3,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": null,
-                "bullet": {
-                    "type": "bullet",
-                    "health": 1,
-                    "damage": 0.5,
-                    "speed": 1.2,
-                    "scatterRate": 1,
-                    "lifeLength": 1,
-                    "sizeRatio": 1,
-                    "absorbtionFactor": 1
-                }
-            },
+            "angle": 0,
+            "offset": 0,
+            "size": 55,
+            "width": 29.4,
+            "delay": 0.01,
+            "reload": 1,
+            "recoil": 0.3,
+            "isTrapezoid": false,
+            "trapezoidDirection": 0,
+            "addon": null,
+            "bullet": {
+                "type": "bullet",
+                "health": 1,
+                "damage": 0.5,
+                "speed": 1.2,
+                "scatterRate": 1,
+                "lifeLength": 1,
+                "sizeRatio": 1,
+                "absorbtionFactor": 1
+            }
+        },
         "stats": []
     },
     {
-        "id": 68,
+        "id": 66,
         "name": "Swarmer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6488,7 +6488,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 69,
+        "id": 67,
         "name": "Overengineerer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6583,7 +6583,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 70,
+        "id": 68,
         "name": "Cancer",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6658,7 +6658,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 71,
+        "id": 69,
         "name": "Swarm Trapper",
         "upgradeMessage": "",
         "levelRequirement": 45,
@@ -6730,7 +6730,7 @@ export interface TankDefinition {
         "stats": []
     },
     {
-        "id": 72,
+        "id": 70,
         "name": "Flank Attack",
         "upgradeMessage": "",
         "levelRequirement": 45,
