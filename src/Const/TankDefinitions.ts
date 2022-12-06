@@ -6840,13 +6840,13 @@ export interface TankDefinition {
                 "canControlDrones": true,
                 "bullet": {
                     "type": "drone",
-                    "sizeRatio": 1.6,
+                    "sizeRatio": 1.5,
                     "health": 3,
                     "damage": 4,
                     "speed": 0.6,
                     "scatterRate": 1,
                     "lifeLength": -1,
-                    "absorbtionFactor": 1
+                    "absorbtionFactor": 0.2;
                 }
             }
         ],
