@@ -61,7 +61,9 @@ export class ShootCycle {
         this.barrelEntity.barrelData.reloadTime = this.barrelEntity.tank.reloadTime * this.barrelEntity.definition.reload;
         this.reloadTime = this.pos = barrel.barrelData.values.reloadTime;
     }
-
+    public get reload() {
+        return this.reloadTime;
+    }
     public tick() {
         const reloadTime = this.barrelEntity.tank.reloadTime * this.barrelEntity.definition.reload;
         if (reloadTime !== this.reloadTime) {
