@@ -5258,7 +5258,7 @@ export interface TankDefinition {
                     "sizeRatio": 1,
                     "health": 0.5,
                     "damage": 2.5,
-                    "speed": 0.9,
+                    "speed": 0.75,
                     "scatterRate": 1,
                     "lifeLength": -1,
                     "absorbtionFactor": 1
@@ -5282,8 +5282,8 @@ export interface TankDefinition {
                     "type": "necrodrone",
                     "sizeRatio": 1,
                     "health": 0.5,
-                    "damage": 3,
-                    "speed": 0.9,
+                    "damage": 2.5,
+                    "speed": 0.75,
                     "scatterRate": 1,
                     "lifeLength": -1,
                     "absorbtionFactor": 1
