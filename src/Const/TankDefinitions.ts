@@ -6884,7 +6884,7 @@ export interface TankDefinition {
                 "max": 7
             }
         ]
-    },
+    }
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;
 
 /**
