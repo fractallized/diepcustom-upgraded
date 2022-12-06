@@ -57,7 +57,7 @@ export default class AutoDrone extends Bullet implements BarrelBase {
             size: 55,
             width: 29.4,
             delay: 0.01,
-            reload: barrel.barrelData.reloadTime / 60,
+            reload: 1 / 6,
             recoil: 0.3,
             isTrapezoid: false,
             trapezoidDirection: 0,
@@ -75,6 +75,7 @@ export default class AutoDrone extends Bullet implements BarrelBase {
         };
         this.sizeFactor = this.physicsData.values.size / 50;
         this.turret = new AutoTurret(this, autoCannonDef);
+        this.turret.reloadTime = tank.reloadTime * autoCannonDef.reload;
         this.turret.positionData.values.angle = shootAngle
         //atuo.ai.passiveRotation = this.movementAngle
         this.turret.styleData.values.flags |= StyleFlags.showsAboveParent;
