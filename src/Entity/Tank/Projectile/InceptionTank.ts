@@ -40,8 +40,8 @@ const BarrelDefinition: BarrelDefinition = {
     addon: null,
     bullet: {
         type: "bullet",
-        health: 0.6,
-        damage: 0.6,
+        health: 0.4,
+        damage: 0.4,
         speed: 1,
         scatterRate: 1,
         lifeLength: 0.8,
