@@ -43,7 +43,7 @@ export class Addon {
     /** The current game server */
     protected game: GameServer;
     /** Helps the class determine size ratio as well as who is the owner */
-    protected owner: BarrelBase;
+    public owner: BarrelBase;
 
     public constructor(owner: BarrelBase) {
         this.owner = owner;

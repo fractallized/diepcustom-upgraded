@@ -23,6 +23,7 @@ import { HealthFlags, PositionFlags, PhysicsFlags, Stat, StyleFlags } from "../.
 import { TankDefinition } from "../../../Const/TankDefinitions";
 import { BarrelBase } from "../TankBody";
 import { EntityStateFlags } from "../../../Native/Entity";
+import { Addon } from "../Addons";
 
 /**
  * The bullet class represents the bullet entity in diep.
@@ -100,21 +101,21 @@ export default class Bullet extends LivingEntity {
         this.positionData.values.x = x + (Math.cos(shootAngle) * barrel.physicsData.values.size) - Math.sin(shootAngle) * barrel.definition.offset * sizeFactor;
         this.positionData.values.y = y + (Math.sin(shootAngle) * barrel.physicsData.values.size) + Math.cos(shootAngle) * barrel.definition.offset * sizeFactor;
         this.positionData.values.angle = shootAngle;
+        this.addAcceleration(this.movementAngle, this.baseSpeed);
     }
 
     /** Extends LivingEntity.onKill - passes kill to the owner. */
     public onKill(killedEntity: LivingEntity) {
-        // TODO(ABC):
-        // Make this, work differently
-        /** @ts-ignore */
-        if (typeof this.tank.onKill === 'function') this.tank.onKill(killedEntity);
+        if (this.tank instanceof Addon){
+            this.tank.owner.onKill(killedEntity);
+        }
+        else this.tank.onKill(killedEntity);
     }
 
     public tick(tick: number) {
         super.tick(tick);
-
-        if (tick === this.spawnTick + 1) this.addAcceleration(this.movementAngle, this.baseSpeed);
-        else this.maintainVelocity(this.usePosAngle ? this.positionData.values.angle : this.movementAngle, this.baseAccel);
+        
+        this.maintainVelocity(this.usePosAngle ? this.positionData.values.angle : this.movementAngle, this.baseAccel);
 
         if (tick - this.spawnTick >= this.lifeLength) this.destroy(true);
         // TODO(ABC):
