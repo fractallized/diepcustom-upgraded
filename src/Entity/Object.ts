@@ -24,7 +24,6 @@ import Vector from "../Physics/Vector";
 import { PhysicsGroup, PositionGroup, RelationsGroup, StyleGroup } from "../Native/FieldGroups";
 import { Entity } from "../Native/Entity";
 import { PositionFlags, PhysicsFlags } from "../Const/Enums";
-import LivingEntity from "./Live";
 
 /**
  * The animator for how entities delete (the opacity and size fade out).
@@ -350,5 +349,4 @@ export default class ObjectEntity extends Entity {
 
         if (this.isViewed) for (let i = 0; i < this.children.length; ++i) this.children[i].tick(tick);
     }
-    public onKill(entity: LivingEntity) {}
 }
