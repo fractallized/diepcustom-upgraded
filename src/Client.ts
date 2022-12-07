@@ -306,7 +306,7 @@ export default class Client {
                 if (this.inputs.isPossessing && this.accessLevel !== config.AccessLevel.FullAccess) return;
                 
                 if ((flags & InputFlags.godmode)) {
-                    if (this.accessLevel >= config.AccessLevel.BetaAccess) {
+                    if (this.accessLevel > config.AccessLevel.BetaAccess) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         player.setTank(player.currentTank < 0 ? Tank.Basic : DevTank.Developer);
@@ -322,14 +322,12 @@ export default class Client {
                         }
                     }
                 }
-/*
                 if ((flags & InputFlags.rightclick) && !(previousFlags & InputFlags.rightclick) && player.currentTank === DevTank.Developer) {
                     player.positionData.x = this.inputs.mouse.x;
                     player.positionData.y = this.inputs.mouse.y;
                     player.setVelocity(0, 0);
                     player.entityState |= EntityStateFlags.needsCreate | EntityStateFlags.needsDelete;
                 }
-                */
                 if ((flags & InputFlags.switchtank) && !(previousFlags & InputFlags.switchtank)) {
                     if (this.accessLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
                         player.nameData.flags |= NameFlags.highlightedName;
@@ -342,7 +340,7 @@ export default class Client {
                             while (!TankDefinitions[tank] || (TankDefinitions[tank]?.flags.devOnly && this.accessLevel < config.AccessLevel.FullAccess)) {
                                 tank = (tank + TankDefinitions.length - 1) % TankDefinitions.length;
                             }
-                        } else tank = 0/*else {
+                        } else {
                             const isDeveloper = this.accessLevel === config.AccessLevel.FullAccess;
                             tank = ~tank;
                             
@@ -351,7 +349,7 @@ export default class Client {
                                 tank = (tank + 1) % DevTankDefinitions.length;
                             }
                             tank = ~tank;
-                        }*/
+                        }
 
                         player.setTank(tank);
                     }
