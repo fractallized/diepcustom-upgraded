@@ -341,7 +341,7 @@ export default class Client {
                             while (!TankDefinitions[tank] || (TankDefinitions[tank]?.flags.devOnly && this.accessLevel < config.AccessLevel.FullAccess)) {
                                 tank = (tank + TankDefinitions.length - 1) % TankDefinitions.length;
                             }
-                        } else {
+                        } /*else {
                             const isDeveloper = this.accessLevel === config.AccessLevel.FullAccess;
                             tank = ~tank;
                             
@@ -350,7 +350,7 @@ export default class Client {
                                 tank = (tank + 1) % DevTankDefinitions.length;
                             }
                             tank = ~tank;
-                        }
+                        }*/
 
                         player.setTank(tank);
                     }
