@@ -62,7 +62,7 @@ export default class AutoTurret extends ObjectEntity {
     /** Barrel's owner (Tank-like object). */
     private owner: BarrelBase;
     /** Actual turret / barrel. */
-    public turret: Barrel[];
+    public turret: Barrel[] = [];
     /** The AI controlling the turret. */
     public ai: AI;
     /** The AI's inputs, for determining whether to shoot or not. */
