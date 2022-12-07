@@ -322,13 +322,14 @@ export default class Client {
                         }
                     }
                 }
-
+/*
                 if ((flags & InputFlags.rightclick) && !(previousFlags & InputFlags.rightclick) && player.currentTank === DevTank.Developer) {
                     player.positionData.x = this.inputs.mouse.x;
                     player.positionData.y = this.inputs.mouse.y;
                     player.setVelocity(0, 0);
                     player.entityState |= EntityStateFlags.needsCreate | EntityStateFlags.needsDelete;
                 }
+                */
                 if ((flags & InputFlags.switchtank) && !(previousFlags & InputFlags.switchtank)) {
                     if (this.accessLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
                         player.nameData.flags |= NameFlags.highlightedName;
@@ -341,7 +342,7 @@ export default class Client {
                             while (!TankDefinitions[tank] || (TankDefinitions[tank]?.flags.devOnly && this.accessLevel < config.AccessLevel.FullAccess)) {
                                 tank = (tank + TankDefinitions.length - 1) % TankDefinitions.length;
                             }
-                        } /*else {
+                        } else tank = 0/*else {
                             const isDeveloper = this.accessLevel === config.AccessLevel.FullAccess;
                             tank = ~tank;
                             
