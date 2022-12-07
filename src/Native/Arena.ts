@@ -81,7 +81,7 @@ export default class ArenaEntity extends Entity implements TeamGroupEntity {
 	public constructor(game: GameServer) {
 		super(game);
 
-		this.updateBounds(this.width = 7500, this.height = 7500);
+		this.updateBounds(this.width = 6000, this.height = 6000);
 
 		this.arenaData.values.topY = -this.height / 2;
 		this.arenaData.values.bottomY = this.height / 2;
