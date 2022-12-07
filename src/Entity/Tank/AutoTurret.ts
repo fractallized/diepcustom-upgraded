@@ -62,7 +62,7 @@ export default class AutoTurret extends ObjectEntity {
     /** Barrel's owner (Tank-like object). */
     private owner: BarrelBase;
     /** Actual turret / barrel. */
-    public turret: Barrel;
+    public turret: Barrel[] = [];
     /** The AI controlling the turret. */
     public ai: AI;
     /** The AI's inputs, for determining whether to shoot or not. */
@@ -104,9 +104,12 @@ export default class AutoTurret extends ObjectEntity {
 
         this.nameData.values.name = "Mounted Turret";
         this.nameData.values.flags |= NameFlags.hiddenName;
-
-        this.turret = new Barrel(this, turretDefinition);
-        this.turret.physicsData.values.flags |= PhysicsFlags._unknown;
+const def = {...turretDefinition};
+        this.turret.push(new Barrel(this, turretDefinition));
+        this.turret[0].physicsData.values.flags |= PhysicsFlags._unknown;
+        def.angle += 1;
+        this.turret.push(new Barrel(this, def));
+        this.turret[1].physicsData.values.flags |= PhysicsFlags._unknown;
     }
     
     /**
@@ -132,7 +135,7 @@ export default class AutoTurret extends ObjectEntity {
 
         this.physicsData.size = this.baseSize * this.sizeFactor;
 
-        this.ai.aimSpeed = this.turret.bulletAccel;
+        this.ai.aimSpeed = this.turret[0].bulletAccel;
         // Top Speed
         this.ai.movementSpeed = 0;
 
@@ -155,7 +158,7 @@ export default class AutoTurret extends ObjectEntity {
         if (useAI) {
             if (this.ai.state === AIState.idle) {
                 this.positionData.angle += this.ai.passiveRotation;
-                this.turret.attemptingShot = false;
+                this.turret[0].attemptingShot = false;
             } else {
                 // Uh. Yeah
                 const {x, y} = this.getWorldPosition();
