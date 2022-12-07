@@ -219,9 +219,7 @@ export default class Client {
             if (config.devPasswordHash && createHash('sha256').update(pw).digest('hex') === config.devPasswordHash) {
                 this.accessLevel = config.AccessLevel.FullAccess;
                 util.log("Developer Connected", "A client connected to the server (`" + this.game.gamemode + "`) with `full` access.", 0x5A65EA);
-            } else if (auth && pw) {
-                if (!auth.verifyCode(pw)) return this.terminate();
-
+            } else {
                 const [id, perm] = pw.split('v');
                 this.discordId = id;
                 this.accessLevel = config.devTokens[id] ?? parseInt(perm) ?? config.devTokens["*"];
@@ -239,11 +237,6 @@ export default class Client {
                     util.log("Client Kicked", this.toString() + " client count maximum reached at `" + this.game.gamemode + "`.", 0xEE326A);
                     this.terminate();
                 }
-            } else if (auth) {
-                util.log("Client Terminated", "Unknown client terminated due to lack of authentication:: " + this.toString(), 0x6AEE32);
-                return this.terminate();
-            } else {
-                this.accessLevel = config.defaultAccessLevel;
             }
 
             if (this.accessLevel === config.AccessLevel.NoAccess) {
