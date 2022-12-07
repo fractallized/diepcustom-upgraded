@@ -78,7 +78,7 @@ export default class AutoTurret extends ObjectEntity {
     /** The size of the auto turret base */
     public baseSize: number;
 
-    public constructor(owner: BarrelBase, turretDefinition: BarrelDefinition[] = [AutoTurretDefinition], baseSize: number = 25) {
+    public constructor(owner: BarrelBase, turretDefinition: BarrelDefinition[] | BarrelDefinition = [AutoTurretDefinition], baseSize: number = 25) {
         super(owner.game);
 
         this.cameraEntity = owner.cameraEntity;
@@ -104,7 +104,7 @@ export default class AutoTurret extends ObjectEntity {
 
         this.nameData.values.name = "Mounted Turret";
         this.nameData.values.flags |= NameFlags.hiddenName;
-        
+        if (!(turretDefinition instanceof Array)) turretDefinition = [turretDefinition];
         for (const def of turretDefinition) { 
             this.turret = [new Barrel(this, def)];
             this.turret[0].physicsData.values.flags |= PhysicsFlags._unknown;

@@ -75,7 +75,7 @@ export class Addon {
         if (rotator.styleData.values.flags & StyleFlags.isVisible) rotator.styleData.values.flags ^= StyleFlags.isVisible;
 
         for (let i = 0; i < count; ++i) {
-            const base = new AutoTurret(rotator, [def]);
+            const base = new AutoTurret(rotator, def);
             base.influencedByOwnerInputs = true;
 
             const angle = base.ai.inputs.mouse.angle = PI2 * (i / count);
@@ -399,7 +399,7 @@ class AutoRocketAddon extends Addon {
     public constructor(owner: BarrelBase) {
         super(owner);
 
-        const base = new AutoTurret(owner, [{
+        const base = new AutoTurret(owner, {
             angle: 0,
             offset: 0,
             size: 40,
@@ -420,11 +420,11 @@ class AutoRocketAddon extends Addon {
                 lifeLength: 0.75,
                 absorbtionFactor: 0.1
             }
-        }]);
+        });
 
         new LauncherAddon(base);
 
-        for (const t of base.turret) t.styleData.zIndex += 2;
+        for (const t of base.turret) base.turret.styleData.zIndex += 2;
     }
 }
 /** SPIESK addon. */
