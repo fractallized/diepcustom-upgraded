@@ -143,7 +143,7 @@ export default class TankBody extends LivingEntity implements BarrelBase {
 
         // Size ratios
         this.baseSize = tank.sides === 4 ? Math.SQRT2 * 32.5 : tank.sides === 16 ? Math.SQRT2 * 25 : 50;
-        this.physicsData.absorbtionFactor = this.isInvulnerable ? 0 : tank.absorbtionFactor;
+        this.physicsData.absorbtionFactor = this.isInvulnerable ? 0 : tank.absorbtionFactor * Math.pow(0.914, camera.cameraData.statLevels[Stat.BodyDamage]);
         if (tank.absorbtionFactor === 0) this.positionData.flags |= PositionFlags.canMoveThroughWalls;
         else if (this.positionData.flags & PositionFlags.canMoveThroughWalls) this.positionData.flags ^= PositionFlags.canMoveThroughWalls
 
@@ -212,7 +212,7 @@ export default class TankBody extends LivingEntity implements BarrelBase {
             this.physicsData.absorbtionFactor = 0.0;
         } else {
             this.damageReduction = 1.0;
-            this.physicsData.absorbtionFactor = this.definition.absorbtionFactor;
+            this.physicsData.absorbtionFactor = this.definition.absorbtionFactor * Math.pow(0.914, this.cameraEntity.cameraData.statLevels[Stat.BodyDamage]);
         }
       
         this.isInvulnerable = invulnerable;
@@ -304,7 +304,7 @@ export default class TankBody extends LivingEntity implements BarrelBase {
             // Max Health
             const maxHealthCache = this.healthData.values.maxHealth;
 
-            this.healthData.maxHealth = this.definition.maxHealth + 2 * (this.cameraEntity.cameraData.values.level - 1) + this.cameraEntity.cameraData.values.statLevels.values[Stat.MaxHealth] * 20;
+            this.healthData.maxHealth = this.definition.maxHealth + 2 * (this.cameraEntity.cameraData.values.level - 1) + this.cameraEntity.cameraData.values.statLevels.values[Stat.MaxHealth] * 25;
             if (this.healthData.values.health === maxHealthCache) this.healthData.health = this.healthData.maxHealth; // just in case
             else if (this.healthData.values.maxHealth !== maxHealthCache) {
                 this.healthData.health *= this.healthData.values.maxHealth / maxHealthCache
