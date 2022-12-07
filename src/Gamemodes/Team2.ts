@@ -26,7 +26,7 @@ import TankBody from "../Entity/Tank/TankBody";
 import { TeamEntity } from "../Entity/Misc/TeamEntity";
 import { Color } from "../Const/Enums";
 
- const arenaSize = 3000;
+ const arenaSize = 3550;
  const baseWidth = 100;
 // const arenaSize = 2000;
 // const baseWidth = 407;
@@ -52,15 +52,14 @@ export default class Teams2Arena extends ArenaEntity {
     public constructor(game: GameServer) {
         super(game);
         this.updateBounds(arenaSize * 2, arenaSize * 2);
-        this.blueTeamBase = new TeamBase(game, new TeamEntity(this.game, Color.TeamBlue), -arenaSize + baseWidth / 2, 0, arenaSize * 2, baseWidth);
-        this.redTeamBase = new TeamBase(game, new TeamEntity(this.game, Color.TeamRed), arenaSize - baseWidth / 2, 0, arenaSize * 2, baseWidth);
+        //this.blueTeamBase = new TeamBase(game, new TeamEntity(this.game, Color.TeamBlue), -arenaSize + baseWidth / 2, 0, arenaSize * 2, baseWidth);
+        //this.redTeamBase = new TeamBase(game, new TeamEntity(this.game, Color.TeamRed), arenaSize - baseWidth / 2, 0, arenaSize * 2, baseWidth);
     }
 
     public spawnPlayer(tank: TankBody, client: Client) {
         tank.positionData.values.y = arenaSize * Math.random() - arenaSize;
 
         const xOffset = (Math.random() - 0.5) * baseWidth;
-        
         const base = this.playerTeamMap.get(client) || [this.blueTeamBase, this.redTeamBase][0|Math.random()*2];
         tank.relationsData.values.team = base.relationsData.values.team;
         tank.styleData.values.color = base.styleData.values.color;
