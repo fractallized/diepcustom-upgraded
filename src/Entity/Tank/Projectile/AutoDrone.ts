@@ -117,6 +117,10 @@ export default class AutoDrone extends Bullet implements BarrelBase {
         super.destroy(animate);
     }
     
+    /** This allows for factory to hook in before the entity moves. */
+    protected tickMixin(tick: number) {
+        super.tick(tick);
+    }
 
     public tick(tick: number) {
         this.reloadTime = this.tank.reloadTime;
@@ -144,6 +148,8 @@ export default class AutoDrone extends Bullet implements BarrelBase {
             }
 
             if (!Entity.exists(this.barrelEntity)) this.destroy();
+
+            this.tickMixin(tick);
 
             this.baseAccel = base;
 
