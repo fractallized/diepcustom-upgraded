@@ -37,7 +37,7 @@ export default class EngineerTrap extends Bullet implements BarrelBase {
     public constructor(barrel: Barrel, tank: BarrelBase, tankDefinition: TankDefinition | null, shootAngle: number) {
         super(barrel, tank, tankDefinition, shootAngle);
         
-        const autoCannonDef = barrel.definition.bullet.autoCannon ?? {
+        const autoCannonDef = barrel.definition.bullet.autoCannon ?? [{
             angle: 0,
             offset: 0,
             size: 55,
@@ -58,16 +58,12 @@ export default class EngineerTrap extends Bullet implements BarrelBase {
                 sizeRatio: 1,
                 absorbtionFactor: 1
             }
-        }
+        }]
 
         this.cameraEntity = tank.cameraEntity;
 
         this.sizeFactor = this.physicsData.values.size / 50;
-        const def1 = {...autoCannonDef};
-        const def2 = {...def1};
-        def1.angle += Math.PI * 2 / 3;
-        def2.angle += Math.PI * 4 / 3
-        this.turret = new AutoTurret(this, [autoCannonDef, def1, def2]);
+        this.turret = new AutoTurret(this, autoCannonDef);
         this.turret.positionData.values.angle = shootAngle
         //atuo.ai.passiveRotation = this.movementAngle
         this.turret.styleData.values.flags |= StyleFlags.showsAboveParent;
