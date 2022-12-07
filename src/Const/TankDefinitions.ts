@@ -5365,7 +5365,7 @@ export interface TankDefinition {
                     "type": "engineer",
                     "sizeRatio": 2,
                     "health": 2,
-                    "damage": 1.5,
+                    "damage": 2,
                     "speed": 3,
                     "scatterRate": 1,
                     "lifeLength": 4,
