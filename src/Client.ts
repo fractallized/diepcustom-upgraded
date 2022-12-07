@@ -200,7 +200,7 @@ export default class Client {
         const camera = this.camera;
         if (header === ServerBound.Init) {
             if (camera) return this.terminate(); // only one connection;
-
+            util.log("Attempting Connect By Client", this.ipAddress)
             const buildHash = r.stringNT();
             const pw = r.stringNT();
             // const party = r.stringNT();

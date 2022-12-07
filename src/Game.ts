@@ -189,7 +189,7 @@ const HOSTED_ENDPOINTS: string[] = [];
         
             if (!(!HOSTED_ENDPOINTS.includes(endpoint)) && this.gamemode !== endpoint) return;
 
-            util.log("Incoming client");
+            //util.log("Incoming client");
             if (this.arena.state !== ArenaState.OPEN) {
                 util.log("Arena is not open: Closing client");
                 return  ws.terminate();
