@@ -424,7 +424,7 @@ class AutoRocketAddon extends Addon {
 
         new LauncherAddon(base);
 
-        for (const t of base.turret) base.turret.styleData.zIndex += 2;
+        for (const t of base.turret) t.styleData.zIndex += 2;
     }
 }
 /** SPIESK addon. */
