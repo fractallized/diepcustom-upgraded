@@ -260,7 +260,8 @@ const MOD_CONFIG = {
 
 const ADDON_MAP = {
     "barrelAddons": {
-        "trapLauncher": 147
+        "trapLauncher": 147,
+        "overdrive": 146
     },
     "tankAddons": {
         "auto3": 148,

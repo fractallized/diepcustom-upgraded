@@ -35,7 +35,7 @@ export default class Drone extends Bullet {
     public static MAX_RESTING_RADIUS = 400 ** 2;
 
     /** Used let the drone go back to the player in time. */
-    private restCycle = true;
+    protected restCycle = true;
 
     /** Cached prop of the definition. */
     protected canControlDrones: boolean;
@@ -120,7 +120,7 @@ export default class Drone extends Bullet {
             return;
         } else {
             this.positionData.angle = Math.atan2(inputs.mouse.y - this.positionData.values.y, inputs.mouse.x - this.positionData.values.x);
-            this.restCycle = false
+            this.restCycle = false;
         }
 
 

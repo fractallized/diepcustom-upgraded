@@ -25,11 +25,12 @@ import { Entity } from "../../../Native/Entity";
 import { AI, AIState } from "../../AI";
 import { BarrelBase } from "../TankBody";
 import AutoTurret from "../AutoTurret";
+import Drone from "./Drone";
 
 /**
  * The drone class represents the drone (projectile) entity in diep.
  */
-export default class AutoDrone extends Bullet implements BarrelBase {
+export default class AutoDrone extends Drone implements BarrelBase {
     private turret: AutoTurret;
     public sizeFactor: number;
     public cameraEntity: Entity;
@@ -37,14 +38,6 @@ export default class AutoDrone extends Bullet implements BarrelBase {
     public reloadTime = 15;
     /** The AI of the drone (for AI mode) */
     public ai: AI;
-
-    /** The drone's radius of resting state */
-    public static MAX_RESTING_RADIUS = 400 ** 2;
-
-    /** Used let the drone go back to the player in time. */
-    private restCycle = true;
-
-
     /** Cached prop of the definition. */
     protected canControlDrones: boolean;
 
