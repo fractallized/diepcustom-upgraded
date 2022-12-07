@@ -57,13 +57,13 @@ export const commandDefinitions = {
         id: CommandID.gameSetTank,
         usage: "[tank]",
         description: "Changes your tank to the given class",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_set_level: {
         id: CommandID.gameSetLevel,
         usage: "[level]",
         description: "Changes your level to the given whole number",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_set_score: {
         id: CommandID.gameSetScore,
@@ -75,31 +75,31 @@ export const commandDefinitions = {
         id: CommandID.gameSetStat,
         usage: "[stat num] [points]",
         description: "Set the value of one of your statuses. Values can be greater than the capacity. [stat num] is equivalent to the number that appears in the UI",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_set_stat_max: {
         id: CommandID.gameSetStatMax,
         usage: "[stat num] [max]",
         description: "Set the max value of one of your statuses. [stat num] is equivalent to the number that appears in the UI",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_add_upgrade_points: {
         id: CommandID.gameAddUpgradePoints,
         usage: "[points]",
         description: "Add upgrade points",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_teleport: {
         id: CommandID.gameTeleport,
         usage: "[x] [y]",
         description: "Teleports you to the given position",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_claim: {
         id: CommandID.gameClaim,
         usage: "[entityName]",
         description: "Attempts claiming an entity of the given type",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     admin_godmode: {
         id: CommandID.adminGodmode,
