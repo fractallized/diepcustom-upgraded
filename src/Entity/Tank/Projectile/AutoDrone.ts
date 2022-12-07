@@ -18,6 +18,7 @@
 
 import Barrel from "../Barrel";
 import Bullet from "./Bullet";
+import Drone from "./Drone";
 import { Inputs } from "../../AI";
 import { PhysicsFlags, StyleFlags } from "../../../Const/Enums";
 import { TankDefinition } from "../../../Const/TankDefinitions";
@@ -29,7 +30,7 @@ import AutoTurret from "../AutoTurret";
 /**
  * The drone class represents the drone (projectile) entity in diep.
  */
-export default class AutoDrone extends Bullet implements BarrelBase {
+export default class AutoDrone extends Drone implements BarrelBase {
     private turret: AutoTurret;
     public sizeFactor: number;
     public cameraEntity: Entity;
@@ -42,7 +43,7 @@ export default class AutoDrone extends Bullet implements BarrelBase {
     public static MAX_RESTING_RADIUS = 400 ** 2;
 
     /** Used let the drone go back to the player in time. */
-    private restCycle = true;
+    protected restCycle = true;
 
 
     /** Cached prop of the definition. */
@@ -76,7 +77,6 @@ export default class AutoDrone extends Bullet implements BarrelBase {
         this.sizeFactor = this.physicsData.values.size / 50;
         this.turret = new AutoTurret(this, autoCannonDef);
         this.turret.positionData.values.angle = shootAngle
-        //atuo.ai.passiveRotation = this.movementAngle
         this.turret.styleData.values.flags |= StyleFlags.showsAboveParent;
         this.turret.ai.viewRange = 640
         const bulletDefinition = barrel.definition.bullet;
@@ -104,7 +104,6 @@ export default class AutoDrone extends Bullet implements BarrelBase {
         this.physicsData.values.absorbtionFactor = bulletDefinition.absorbtionFactor;
 
         this.baseSpeed /= 3;
-
         barrel.droneCount += 1;
 
         this.ai.movementSpeed = this.ai.aimSpeed = this.baseAccel;
@@ -115,11 +114,6 @@ export default class AutoDrone extends Bullet implements BarrelBase {
         if (!animate) this.barrelEntity.droneCount -= 1;
 
         super.destroy(animate);
-    }
-    
-    /** This allows for factory to hook in before the entity moves. */
-    protected tickMixin(tick: number) {
-        super.tick(tick);
     }
 
     public tick(tick: number) {
@@ -148,9 +142,6 @@ export default class AutoDrone extends Bullet implements BarrelBase {
             }
 
             if (!Entity.exists(this.barrelEntity)) this.destroy();
-
-            this.tickMixin(tick);
-
             this.baseAccel = base;
 
             return;
@@ -159,15 +150,9 @@ export default class AutoDrone extends Bullet implements BarrelBase {
             this.restCycle = false
         }
 
-
-        
-        if (this.canControlDrones && inputs.attemptingRepel()) {
-            this.positionData.angle += Math.PI; 
-        }
+        if (this.canControlDrones && inputs.attemptingRepel()) this.positionData.angle += Math.PI; 
 
         // So that switch tank works, as well as on death
         if (!Entity.exists(this.barrelEntity)) this.destroy();
-
-        this.tickMixin(tick);
     }
 }
