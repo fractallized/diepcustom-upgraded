@@ -6981,7 +6981,7 @@ export interface TankDefinition {
                             "angle": 0,
                             "offset": 0,
                             "size": 40,
-                            "width": 21,
+                            "width": 28,
                             "delay": 0,
                             "reload": 1.5,
                             "recoil": 0,
@@ -6990,7 +6990,7 @@ export interface TankDefinition {
                             "addon": null,
                             "bullet": {
                                 "type": "swarm",
-                                "sizeRatio": 1,
+                                "sizeRatio": 0.75,
                                 "health": 0.4,
                                 "damage": 0.4,
                                 "speed": 1.1,
