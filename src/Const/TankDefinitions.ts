@@ -3272,7 +3272,7 @@ export interface TankDefinition {
             {
                 "angle": 0,
                 "offset": 0,
-                "size": 80,
+                "size": 95,
                 "width": 42,
                 "delay": 0,
                 "reload": 4,
