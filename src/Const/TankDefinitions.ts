@@ -6988,6 +6988,7 @@ export interface TankDefinition {
                             "isTrapezoid": true,
                             "trapezoidDirection": 3.141592653589793,
                             "addon": null,
+                            "forceFire": true,
                             "bullet": {
                                 "type": "swarm",
                                 "sizeRatio": 0.75,
