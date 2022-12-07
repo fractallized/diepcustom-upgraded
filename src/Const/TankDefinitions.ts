@@ -2146,74 +2146,28 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 4,
                     "absorbtionFactor": 0.2,
-                    "autoCannon": [
-                        {
-                            "angle": 0,
-                            "offset": 13,
-                            "size": 40,
-                            "width": 21,
-                            "delay": 0,
-                            "reload": 2,
-                            "recoil": 0,
-                            "isTrapezoid": false,
-                            "trapezoidDirection": 0,
-                            "addon": null,
-                            "bullet": {
-                                "type": "bullet",
-                                "sizeRatio": 1,
-                                "health": 0.5,
-                                "damage": 0.5,
-                                "speed": 0.8,
-                                "scatterRate": 1,
-                                "lifeLength": 0.6,
-                                "absorbtionFactor": 1
-                            }
-                        },
-                        {
-                            "angle": 0,
-                            "offset": -13,
-                            "size": 40,
-                            "width": 21,
-                            "delay": 0,
-                            "reload": 2,
-                            "recoil": 0,
-                            "isTrapezoid": false,
-                            "trapezoidDirection": 0,
-                            "addon": null,
-                            "bullet": {
-                                "type": "bullet",
-                                "sizeRatio": 1,
-                                "health": 0.5,
-                                "damage": 0.5,
-                                "speed": 0.8,
-                                "scatterRate": 1,
-                                "lifeLength": 0.6,
-                                "absorbtionFactor": 1
-                            }
-                        },
-                        {
-                            "angle": 0,
-                            "offset": 0,
-                            "size": 47.5,
-                            "width": 21,
-                            "delay": 0,
-                            "reload": 2,
-                            "recoil": 0,
-                            "isTrapezoid": false,
-                            "trapezoidDirection": 0,
-                            "addon": null,
-                            "bullet": {
-                                "type": "bullet",
-                                "sizeRatio": 1,
-                                "health": 0.5,
-                                "damage": 0.5,
-                                "speed": 0.8,
-                                "scatterRate": 1,
-                                "lifeLength": 0.6,
-                                "absorbtionFactor": 1
-                            }
+                    "autoCannon": {
+                        "angle": 0,
+                        "offset": 0,
+                        "size": 55,
+                        "width": 29.4,
+                        "delay": 0,
+                        "reload": 2,
+                        "recoil": 0,
+                        "isTrapezoid": false,
+                        "trapezoidDirection": 0,
+                        "addon": null,
+                        "bullet": {
+                            "type": "bullet",
+                            "sizeRatio": 1,
+                            "health": 0.5,
+                            "damage": 0.5,
+                            "speed": 0.8,
+                            "scatterRate": 1,
+                            "lifeLength": 0.6,
+                            "absorbtionFactor": 1
                         }
-                    ]
+                    }
                 }
             }
         ],
@@ -5415,28 +5369,74 @@ export interface TankDefinition {
                     "scatterRate": 1,
                     "lifeLength": 4,
                     "absorbtionFactor": 0.2,
-                    "autoCannon": {
-                        "angle": 0,
-                        "offset": 0,
-                        "size": 55,
-                        "width": 29.4,
-                        "delay": 0,
-                        "reload": 2,
-                        "recoil": 0,
-                        "isTrapezoid": false,
-                        "trapezoidDirection": 0,
-                        "addon": null,
-                        "bullet": {
-                            "type": "bullet",
-                            "sizeRatio": 1,
-                            "health": 0.6,
-                            "damage": 0.5,
-                            "speed": 0.8,
-                            "scatterRate": 1,
-                            "lifeLength": 0.6,
-                            "absorbtionFactor": 1
+                    "autoCannon": [
+                        {
+                            "angle": 0,
+                            "offset": 13,
+                            "size": 40,
+                            "width": 21,
+                            "delay": 0,
+                            "reload": 2,
+                            "recoil": 0,
+                            "isTrapezoid": false,
+                            "trapezoidDirection": 0,
+                            "addon": null,
+                            "bullet": {
+                                "type": "bullet",
+                                "sizeRatio": 1,
+                                "health": 0.5,
+                                "damage": 0.2,
+                                "speed": 0.8,
+                                "scatterRate": 1,
+                                "lifeLength": 0.6,
+                                "absorbtionFactor": 1
+                            }
+                        },
+                        {
+                            "angle": 0,
+                            "offset": -13,
+                            "size": 40,
+                            "width": 21,
+                            "delay": 0,
+                            "reload": 2,
+                            "recoil": 0,
+                            "isTrapezoid": false,
+                            "trapezoidDirection": 0,
+                            "addon": null,
+                            "bullet": {
+                                "type": "bullet",
+                                "sizeRatio": 1,
+                                "health": 0.5,
+                                "damage": 0.2,
+                                "speed": 0.8,
+                                "scatterRate": 1,
+                                "lifeLength": 0.6,
+                                "absorbtionFactor": 1
+                            }
+                        },
+                        {
+                            "angle": 0,
+                            "offset": 0,
+                            "size": 47.5,
+                            "width": 21,
+                            "delay": 0,
+                            "reload": 2,
+                            "recoil": 0,
+                            "isTrapezoid": false,
+                            "trapezoidDirection": 0,
+                            "addon": null,
+                            "bullet": {
+                                "type": "bullet",
+                                "sizeRatio": 1,
+                                "health": 0.5,
+                                "damage": 0.3,
+                                "speed": 0.8,
+                                "scatterRate": 1,
+                                "lifeLength": 0.6,
+                                "absorbtionFactor": 1
+                            }
                         }
-                    }
+                    ]
                 }
             }
         ],
