@@ -23,7 +23,7 @@ import { HealthFlags, PositionFlags, PhysicsFlags, Stat, StyleFlags } from "../.
 import { TankDefinition } from "../../../Const/TankDefinitions";
 import { BarrelBase } from "../TankBody";
 import { EntityStateFlags } from "../../../Native/Entity";
-import { Addon } from "../Addons";
+import { GuardObject } from "../Addons";
 
 /**
  * The bullet class represents the bullet entity in diep.
@@ -105,8 +105,7 @@ export default class Bullet extends LivingEntity {
 
     /** Extends LivingEntity.onKill - passes kill to the owner. */
     public onKill(killedEntity: LivingEntity) {
-        //if (this.tank instanceof Addon) this.tank.owner.onKill(killedEntity);
-        if (0){}
+        if (this.tank instanceof GuardObject) this.tank.owner.onKill(killedEntity);
         else this.tank.onKill(killedEntity);
     }
 
