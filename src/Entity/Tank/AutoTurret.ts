@@ -106,7 +106,7 @@ export default class AutoTurret extends ObjectEntity {
         this.nameData.values.flags |= NameFlags.hiddenName;
         if (!(turretDefinition instanceof Array)) turretDefinition = [turretDefinition];
         for (const def of turretDefinition) { 
-            this.turret = [new Barrel(this, def)];
+            this.turret.push(new Barrel(this, def));
             this.turret[0].physicsData.values.flags |= PhysicsFlags._unknown;
         }
     }

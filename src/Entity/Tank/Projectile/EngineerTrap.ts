@@ -63,7 +63,11 @@ export default class EngineerTrap extends Bullet implements BarrelBase {
         this.cameraEntity = tank.cameraEntity;
 
         this.sizeFactor = this.physicsData.values.size / 50;
-        this.turret = new AutoTurret(this, autoCannonDef);
+        const def1 = {...autoCannonDef};
+        const def2 = {...def1};
+        def1.angle += Math.PI * 2 / 3;
+        def2.angle += Math.PI * 4 / 3
+        this.turret = new AutoTurret(this, [autoCannonDef, def1, def2]);
         this.turret.positionData.values.angle = shootAngle
         //atuo.ai.passiveRotation = this.movementAngle
         this.turret.styleData.values.flags |= StyleFlags.showsAboveParent;
