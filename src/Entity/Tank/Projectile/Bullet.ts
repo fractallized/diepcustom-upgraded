@@ -105,7 +105,8 @@ export default class Bullet extends LivingEntity {
 
     /** Extends LivingEntity.onKill - passes kill to the owner. */
     public onKill(killedEntity: LivingEntity) {
-        if (this.tank instanceof GuardObject) this.tank.owner.onKill(killedEntity);
+        //if (this.tank instanceof GuardObject) this.tank.owner.onKill(killedEntity);
+        if (0) {}
         else this.tank.onKill(killedEntity);
     }
 
