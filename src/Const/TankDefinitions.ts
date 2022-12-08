@@ -2106,8 +2106,7 @@ export interface TankDefinition {
             "Infiltrator",
             "Mechanic",
             "Ambusher",
-            "Overengineerer",
-            "Annoyance"
+            "Overengineerer"
         ],
         "flags": {
             "invisibility": false,
@@ -6931,80 +6930,6 @@ export interface TankDefinition {
                 "max": 7
             }
         ]
-    },
-    {
-        "id": 72,
-        "name": "Annoyance",
-        "upgradeMessage": "",
-        "levelRequirement": 45,
-        "upgrades": [],
-        "flags": {
-            "invisibility": false,
-            "zoomAbility": false,
-            "canClaimSquares": false,
-            "devOnly": false
-        },
-        "visibilityRateShooting": 0.23,
-        "visibilityRateMoving": 0.08,
-        "invisibilityRate": 0.03,
-        "fieldFactor": 0.9,
-        "absorbtionFactor": 1,
-        "speed": 1,
-        "maxHealth": 50,
-        "preAddon": null,
-        "postAddon": "pronounced",
-        "sides": 1,
-        "borderWidth": 15,
-        "barrels": [
-            {
-                "angle": 0,
-                "offset": 0,
-                "size": 70,
-                "width": 42,
-                "delay": 0,
-                "reload": 3,
-                "recoil": 1,
-                "isTrapezoid": false,
-                "trapezoidDirection": 0,
-                "addon": "trapLauncher",
-                "bullet": {
-                    "type": "engineer",
-                    "sizeRatio": 1.5,
-                    "health": 2,
-                    "damage": 1,
-                    "speed": 3,
-                    "scatterRate": 1,
-                    "lifeLength": 3,
-                    "absorbtionFactor": 0.2,
-                    "autoCannon": [
-                        {
-                            "angle": 0,
-                            "offset": 0,
-                            "size": 40,
-                            "width": 28,
-                            "delay": 0,
-                            "reload": 1.5,
-                            "recoil": 0,
-                            "isTrapezoid": true,
-                            "trapezoidDirection": 3.141592653589793,
-                            "addon": null,
-                            "forceFire": true,
-                            "bullet": {
-                                "type": "swarm",
-                                "sizeRatio": 0.75,
-                                "health": 0.4,
-                                "damage": 0.4,
-                                "speed": 1.1,
-                                "scatterRate": 1,
-                                "lifeLength": 1,
-                                "absorbtionFactor": 1
-                            }
-                        }
-                    ]
-                }
-            }
-        ],
-        "stats": []
     }
 ]`) as (TankDefinition | null)[] & Record<Tank, TankDefinition>;
 
