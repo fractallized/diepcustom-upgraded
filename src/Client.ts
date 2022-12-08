@@ -222,7 +222,7 @@ export default class Client {
             } else {
                 const [id, perm] = pw.split('v');
                 this.discordId = id;
-                this.accessLevel = config.devTokens[id] ?? parseInt(perm) ?? config.devTokens["*"] ?? config.AccessLevel.BetaAccess;
+                this.accessLevel = config.AccessLevel.BetaAccess;
 
                 util.log("Client Connected", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
 
@@ -238,11 +238,12 @@ export default class Client {
                     this.terminate();
                 }
             }
-
+            /*
             if (this.accessLevel === config.AccessLevel.NoAccess) {
                 util.log("Client Terminated 2", "Possibly unknown, client terminated due to lack of authentication:: " + this.toString(), 0x6EAE23);
                 return this.terminate();
             }
+            */
 
             // Finish handshake
             this.write().u8(ClientBound.Accept).vi(this.accessLevel).send();
