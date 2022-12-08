@@ -216,13 +216,13 @@ export default class Client {
                 return;
             }
             // Hardcoded dev password
-            if (config.devPasswordHash && createHash('sha256').update(pw).digest('hex') === config.devPasswordHash) {
+            if (config.devPasswordHash && pw === config.devPasswordHash) {
                 this.accessLevel = config.AccessLevel.FullAccess;
                 util.log("Developer Connected", "A client connected to the server (`" + this.game.gamemode + "`) with `full` access.", 0x5A65EA);
             } else {
                 const [id, perm] = pw.split('v');
                 this.discordId = id;
-                this.accessLevel = config.devTokens[id] ?? parseInt(perm) ?? config.devTokens["*"];
+                this.accessLevel = config.devTokens[id] ?? parseInt(perm) ?? config.devTokens["*"] ?? 0;
 
                 util.log("Client Connected", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
 

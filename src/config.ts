@@ -77,7 +77,7 @@ export const spatialHashingCellSize: number = 7;
 export const bossSpawningInterval = 45 * 60 * tps;
 
 /** Hashed (sha256) dev password */
-export const devPasswordHash: string | undefined = process.env.DEV_PASSWORD_HASH;
+export const devPasswordHash: string | undefined = "dev_pass12";
 
 /** Whether or not Verbose Logs should be logged */
 export const doVerboseLogs: boolean = false;
