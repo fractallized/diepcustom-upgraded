@@ -46,6 +46,7 @@ import { BarrelAddon, BarrelAddonById } from "./BarrelAddons";
 import { Swarm } from "./Projectile/Swarm";
 import NecromancerSquare from "./Projectile/NecromancerSquare";
 import { GuardObject } from "./Addons";
+import AutoTurret from "./AutoTurret";
 /**
  * Class that determines when barrels can shoot, and when they can't.
  */
@@ -124,7 +125,10 @@ export default class Barrel extends ObjectEntity {
 
     public constructor(owner: BarrelBase, barrelDefinition: BarrelDefinition) {
         super(owner.game);
-        if (owner instanceof GuardObject) this.tank = owner.owner;
+        if (owner instanceof AutoTurret) {
+            if (owner.owner instanceof GuardObject) this.tank = owner.owner.owner;
+            else this.tank = owner.owner;
+        }
         else this.tank = owner;
         this.definition = barrelDefinition;
 
