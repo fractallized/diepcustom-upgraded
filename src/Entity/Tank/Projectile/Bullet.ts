@@ -24,6 +24,8 @@ import { TankDefinition } from "../../../Const/TankDefinitions";
 import { BarrelBase } from "../TankBody";
 import { EntityStateFlags } from "../../../Native/Entity";
 import { GuardObject } from "../Addons";
+import ObjectEntity from "../../Object";
+import { kill } from "process";
 
 /**
  * The bullet class represents the bullet entity in diep.
@@ -49,10 +51,11 @@ export default class Bullet extends LivingEntity {
     protected usePosAngle = false;
     /** The tank who shot the bullet. */
     protected tank: BarrelBase;
+    protected parent?: ObjectEntity;
 
-    public constructor(barrel: Barrel, tank: BarrelBase, tankDefinition: TankDefinition | null, shootAngle: number) {
+    public constructor(barrel: Barrel, tank: BarrelBase, tankDefinition: TankDefinition | null, shootAngle: number, parent?: ObjectEntity) {
         super(barrel.game);
-
+        this.parent = parent;
         this.tank = tank;
         
         this.tankDefinition = tankDefinition;
@@ -106,7 +109,8 @@ export default class Bullet extends LivingEntity {
     /** Extends LivingEntity.onKill - passes kill to the owner. */
     public onKill(killedEntity: LivingEntity) {
         //if (this.tank instanceof GuardObject) this.tank.owner.onKill(killedEntity);
-        this.tank.onKill(killedEntity);
+        if (this.parent) this.parent.onKill(killedEntity);
+        else this.tank.onKill(killedEntity);
     }
 
     public tick(tick: number) {

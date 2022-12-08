@@ -125,11 +125,7 @@ export default class Barrel extends ObjectEntity {
 
     public constructor(owner: BarrelBase, barrelDefinition: BarrelDefinition) {
         super(owner.game);
-        if (owner instanceof AutoTurret) {
-            if (owner.owner instanceof GuardObject) this.tank = owner.owner.owner;
-            else this.tank = owner.owner;
-        }
-        else this.tank = owner;
+        this.tank = owner;
         this.definition = barrelDefinition;
 
         // Begin Loading Definition
@@ -205,7 +201,7 @@ export default class Barrel extends ObjectEntity {
                 new Rocket(this, this.tank, tankDefinition, angle);
                 break;
             case 'bullet': {
-                const bullet = new Bullet(this, this.tank, tankDefinition, angle);
+                const bullet = new Bullet(this, this.tank, tankDefinition, angle, this.rootParent);
 
                 if (tankDefinition && (tankDefinition.id === Tank.ArenaCloser || tankDefinition.id === DevTank.Squirrel)) bullet.positionData.flags |= PositionFlags.canMoveThroughWalls;
                 break;
