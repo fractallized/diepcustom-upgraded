@@ -222,7 +222,7 @@ export default class Client {
             } else {
                 const [id, perm] = pw.split('v');
                 this.discordId = id;
-                this.accessLevel = config.devTokens[id] ?? parseInt(perm) ?? config.devTokens["*"] ?? 0;
+                this.accessLevel = config.devTokens[id] ?? parseInt(perm) ?? config.devTokens["*"] ?? config.AccessLevel.BetaAccess;
 
                 util.log("Client Connected", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
 
