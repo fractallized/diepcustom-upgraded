@@ -60,7 +60,7 @@ export default class AutoTurret extends ObjectEntity {
     public nameData: NameGroup = new NameGroup(this);
 
     /** Barrel's owner (Tank-like object). */
-    public owner: BarrelBase;
+    private owner: BarrelBase;
     /** Actual turret / barrel. */
     public turret: Barrel[] = [];
     /** The AI controlling the turret. */

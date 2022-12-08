@@ -69,7 +69,6 @@ export class Addon {
 
         const rotator = this.createGuard(1, .1, 0, rotPerTick) as GuardObject & { turrets: AutoTurret[] };
         rotator.turrets = [];
-        rotator.onKill = this.owner.onKill;
 
         const ROT_OFFSET = 0.8;
 
