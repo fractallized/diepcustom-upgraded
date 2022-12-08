@@ -45,6 +45,7 @@ import CrocSkimmer from "./Projectile/CrocSkimmer";
 import { BarrelAddon, BarrelAddonById } from "./BarrelAddons";
 import { Swarm } from "./Projectile/Swarm";
 import NecromancerSquare from "./Projectile/NecromancerSquare";
+import { GuardObject } from "./Addons";
 /**
  * Class that determines when barrels can shoot, and when they can't.
  */
@@ -123,8 +124,8 @@ export default class Barrel extends ObjectEntity {
 
     public constructor(owner: BarrelBase, barrelDefinition: BarrelDefinition) {
         super(owner.game);
-
-        this.tank = owner;
+        if (owner instanceof GuardObject) this.tank = owner.owner;
+        else this.tank = owner;
         this.definition = barrelDefinition;
 
         // Begin Loading Definition
@@ -167,7 +168,6 @@ export default class Barrel extends ObjectEntity {
         // Map angles unto
         // let e: Entity | null | undefined = this;
         // while (!((e?.position?.flags || 0) & MotionFlags.absoluteRotation) && (e = e.relations?.values.parent) instanceof ObjectEntity) angle += e.position.values.angle;
-
         this.rootParent.addAcceleration(angle + Math.PI, this.definition.recoil * 2);
 
         let tankDefinition: TankDefinition | null = null;
