@@ -200,7 +200,6 @@ export default class Client {
         const camera = this.camera;
         if (header === ServerBound.Init) {
             if (camera) return this.terminate(); // only one connection;
-            util.log("Attempting Connect By Client", this.ipAddress)
             const buildHash = r.stringNT();
             const pw = r.stringNT();
             // const party = r.stringNT();
@@ -218,32 +217,11 @@ export default class Client {
             // Hardcoded dev password
             if (config.devPasswordHash && pw === config.devPasswordHash) {
                 this.accessLevel = config.AccessLevel.FullAccess;
-                util.log("Developer Connected", "A client connected to the server (`" + this.game.gamemode + "`) with `full` access.", 0x5A65EA);
+                util.log("Developer Connected: ", "A client connected to the server (`" + this.game.gamemode + "`) with `full` access.", 0x5A65EA);
             } else {
-                const [id, perm] = pw.split('v');
-                this.discordId = id;
                 this.accessLevel = config.AccessLevel.BetaAccess;
-
-                util.log("Client Connected", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
-
-                // Enforce 2 clients per account id
-                if (!this.game.discordCache[id]) this.game.discordCache[id] = 1;
-                else this.game.discordCache[id] += 1;
-
-                util.log(`${this.toString()} client connecting. ip: ` + this.ipAddressHash);
-
-                if (this.game.discordCache[id] > 2) {
-                    util.log(`${this.toString()} too many accounts!. ip: ` + this.ipAddressHash);
-                    util.log("Client Kicked", this.toString() + " client count maximum reached at `" + this.game.gamemode + "`.", 0xEE326A);
-                    this.terminate();
-                }
+                util.log("Client Connected: ", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
             }
-            /*
-            if (this.accessLevel === config.AccessLevel.NoAccess) {
-                util.log("Client Terminated 2", "Possibly unknown, client terminated due to lack of authentication:: " + this.toString(), 0x6EAE23);
-                return this.terminate();
-            }
-            */
 
             // Finish handshake
             this.write().u8(ClientBound.Accept).vi(this.accessLevel).send();
