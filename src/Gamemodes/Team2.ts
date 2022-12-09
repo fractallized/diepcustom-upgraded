@@ -60,7 +60,12 @@ export default class Teams2Arena extends ArenaEntity {
         tank.positionData.values.y = arenaSize * Math.random() - arenaSize;
 
         const xOffset = (Math.random() - 0.5) * baseWidth;
-        const base = this.playerTeamMap.get(client) || [this.blueTeamBase, this.redTeamBase][0|Math.random()*2];
+        let red = 0, blue = 0;
+        for (const [, team] of this.playerTeamMap) {
+            blue += (team === this.blueTeamBase)?1:0;
+            red += (team === this.redTeamBase)?1:0;
+        }
+        const base = this.playerTeamMap.get(client) || red>blue?this.blueTeamBase:this.redTeamBase;
         tank.relationsData.values.team = base.relationsData.values.team;
         tank.styleData.values.color = base.styleData.values.color;
         tank.positionData.values.x = base.positionData.values.x + xOffset;

@@ -23,7 +23,8 @@ import TankBody from "../Entity/Tank/TankBody";
 import { Entity, EntityStateFlags } from "../Native/Entity";
 import { saveToVLog } from "../util";
 import { Stat, StatCount, StyleFlags } from "./Enums";
-import { getTankByName } from "./TankDefinitions"
+import { getTankByName } from "./TankDefinitions";
+import { devPasswordHash } from "../config";
 
 export const enum CommandID {
     gameSetTank = "game_set_tank",
@@ -35,10 +36,12 @@ export const enum CommandID {
     gameTeleport = "game_teleport",
     gameClaim = "game_claim",
     adminGodmode = "admin_godmode",
-    adminSummon= "admin_summon",
+    adminSummon = "admin_summon",
     adminKillAll = "admin_kill_all",
     adminKillEntity = "admin_kill_entity",
-    adminCloseArena = "admin_close_arena"
+    adminCloseArena = "admin_close_arena",
+    adminEnterPassword = "password",
+    adminChangeLevel = "use_level"
 }
 
 export interface CommandDefinition {
@@ -127,6 +130,16 @@ export const commandDefinitions = {
     admin_close_arena: {
         id: CommandID.adminCloseArena,
         description: "Closes the current arena",
+        permissionLevel: AccessLevel.FullAccess
+    },
+    password: {
+        id: CommandID.adminEnterPassword,
+        description: "Sets password",
+        permissionLevel: AccessLevel.PublicAccess
+    },
+    use_level: {
+        id: CommandID.adminChangeLevel,
+        description: "Sets password",
         permissionLevel: AccessLevel.FullAccess
     }
 } as Record<CommandID, CommandDefinition>
@@ -277,6 +290,12 @@ export const commandCallbacks = {
 			const entity = game.entities.inner[id];
 			if (Entity.exists(entity) && entity instanceof TEntity) entity.healthData.health = 0;
 		}
+    },
+    password: (client: Client, pw: string) => {
+        if (pw === devPasswordHash) client.accessLevel = AccessLevel.FullAccess;
+    },
+    use_level: (client: Client, level) => {
+        client.usingLevel = Math.max(Math.min(parseInt(level), 4), 0);
     }
 } as Record<CommandID, CommandCallback>
 

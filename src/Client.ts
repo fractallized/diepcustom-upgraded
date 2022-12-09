@@ -21,7 +21,6 @@ import * as util from "./util";
 import { createHash } from "crypto";
 
 import WebSocket = require("ws");
-import auth from "./Auth";
 import Reader from "./Coder/Reader";
 import Writer from "./Coder/Writer";
 
@@ -107,7 +106,8 @@ export default class Client {
     /** The last tick that the client received a ping. */
     private lastPingTick: number;
     /** The client's access level. */
-    public accessLevel: config.AccessLevel = config.devTokens["*"];
+    public accessLevel: number = 0;
+    public usingLevel: number = 0;
 
     /** Cache of all incoming packets of the current tick. */
     private incomingCache: Uint8Array[][] = Array(ServerBound.TakeTank + 1).fill(null).map(() => []);
@@ -216,15 +216,15 @@ export default class Client {
             }
             // Hardcoded dev password
             if (config.devPasswordHash && pw === config.devPasswordHash) {
-                this.accessLevel = config.AccessLevel.FullAccess;
+                this.accessLevel = this.usingLevel = config.AccessLevel.FullAccess;
                 util.log("Developer Connected: ", "A client connected to the server (`" + this.game.gamemode + "`) with `full` access.", 0x5A65EA);
             } else {
-                this.accessLevel = config.AccessLevel.BetaAccess;
+                this.accessLevel = this.usingLevel = config.AccessLevel.BetaAccess;
                 util.log("Client Connected: ", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
             }
 
             // Finish handshake
-            this.write().u8(ClientBound.Accept).vi(this.accessLevel).send();
+            this.write().u8(ClientBound.Accept).vi(this.usingLevel).send();
             this.write().u8(ClientBound.ServerInfo).stringNT(this.game.gamemode).stringNT(config.host).send();
             this.write().u8(ClientBound.PlayerCount).vu(GameServer.globalPlayerCount).send();
             this.camera = new ClientCamera(this.game, this);
@@ -275,16 +275,16 @@ export default class Client {
                 if (!Entity.exists(player) || !(player instanceof TankBody)) return;
 
                 // No AI
-                if (this.inputs.isPossessing && this.accessLevel !== config.AccessLevel.FullAccess) return;
+                if (this.inputs.isPossessing && this.usingLevel !== config.AccessLevel.FullAccess) return;
                 
                 if ((flags & InputFlags.godmode)) {
-                    if (this.accessLevel > config.AccessLevel.BetaAccess) {
+                    if (this.usingLevel > config.AccessLevel.BetaAccess) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         player.setTank(player.currentTank < 0 ? Tank.Basic : DevTank.Developer);
                     } else if (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) {
                         // only allow devs to go into godmode when players > 1
-                        if (this.accessLevel === config.AccessLevel.FullAccess || (this.game.clients.size === 1 && this.game.arena.state === ArenaState.OPEN)) {
+                        if (this.usingLevel === config.AccessLevel.FullAccess || (this.game.clients.size === 1 && this.game.arena.state === ArenaState.OPEN)) {
                             player.nameData.flags |= NameFlags.highlightedName;
                             this.devCheatsUsed = 1;
 
@@ -301,7 +301,7 @@ export default class Client {
                     player.entityState |= EntityStateFlags.needsCreate | EntityStateFlags.needsDelete;
                 }
                 if ((flags & InputFlags.switchtank) && !(previousFlags & InputFlags.switchtank)) {
-                    if (this.accessLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
+                    if (this.usingLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -309,7 +309,7 @@ export default class Client {
                         if (tank >= 0) {
                             tank = (tank + TankDefinitions.length - 1) % TankDefinitions.length;
 
-                            while (!TankDefinitions[tank] || (TankDefinitions[tank]?.flags.devOnly && this.accessLevel < config.AccessLevel.FullAccess)) {
+                            while (!TankDefinitions[tank] || (TankDefinitions[tank]?.flags.devOnly && this.usingLevel < config.AccessLevel.FullAccess)) {
                                 tank = (tank + TankDefinitions.length - 1) % TankDefinitions.length;
                             }
                         } else {
@@ -328,7 +328,7 @@ export default class Client {
                 }
                 if (flags & InputFlags.levelup) {
                     // If full access, or if the game allows cheating and lvl is < 45, or if the player is a BT access level and lvl is < 45
-                    if ((this.accessLevel === config.AccessLevel.FullAccess) || (camera.cameraData.values.level < 45 && ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) || (this.accessLevel === config.AccessLevel.BetaAccess)))) {
+                    if ((this.usingLevel === config.AccessLevel.FullAccess) || (camera.cameraData.values.level < 45 && ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) || (this.usingLevel === config.AccessLevel.BetaAccess)))) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -336,7 +336,7 @@ export default class Client {
                     }
                 }
                 if ((flags & InputFlags.suicide) && (!player.deletionAnimation || !player.deletionAnimation)) {
-                    if (this.accessLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
+                    if (this.usingLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -453,7 +453,7 @@ export default class Client {
                     });
 
                     for (let i = 0; i < AIs.length; ++i) {
-                        if ((AIs[i].state !== AIState.possessed) && ((AIs[i].owner.relationsData.values.team === camera.relationsData.values.team && AIs[i].isClaimable) || this.accessLevel === config.AccessLevel.FullAccess)) {
+                        if ((AIs[i].state !== AIState.possessed) && ((AIs[i].owner.relationsData.values.team === camera.relationsData.values.team && AIs[i].isClaimable) || this.usingLevel === config.AccessLevel.FullAccess)) {
                             if(!this.possess(AIs[i])) continue;
                             this.notify("Press H to surrender control of your tank", 0x000000, 5000);
                             return;
@@ -561,7 +561,7 @@ export default class Client {
     /** Bans the ip from all servers until restart. */
     public ban() {
         util.log("IP Banned", "Banned ||`" + JSON.stringify(this.ipAddress) + "`|| (<@" + this.discordId + ">) across all servers... " + this.toString(true), 0xEE326A);
-        if (this.accessLevel >= config.unbannableLevelMinimum) {
+        if (this.usingLevel >= config.unbannableLevelMinimum) {
             util.log("IP Ban Cancelled", "Cancelled ban on ||`" + JSON.stringify(this.ipAddress) + "`|| (<@" + this.discordId + ">) across all servers." + this.toString(true), 0x6A32EE);
             return;
         }
@@ -614,8 +614,8 @@ export default class Client {
             if (this.game.gamemode) tokens.push("game.gamemode=" + this.game.gamemode);
         }
         if (this.terminated) tokens.push("(terminated)");
-        if (!tokens.length) return `Client(${this.accessLevel}) {}`
+        if (!tokens.length) return `Client(${this.usingLevel}) {}`
 
-        return `Client(${this.accessLevel}) { ${tokens.join(', ')} }`
+        return `Client(${this.usingLevel}) { ${tokens.join(', ')} }`
     }
 }
