@@ -309,9 +309,11 @@ export const executeCommand = (client: Client, cmd: string, args: string[]) => {
     if (!commandDefinitions.hasOwnProperty(cmd) || !commandCallbacks.hasOwnProperty(cmd)) {
         return saveToVLog(`${client.toString()} tried to run the invalid command ${cmd}`);
     }
+    /*
     if (client.accessLevel < commandDefinitions[cmd as CommandID].permissionLevel) {
         return saveToVLog(`${client.toString()} tried to run the command ${cmd} with a permission that was too low`);
     }
+    */
 
     commandCallbacks[cmd as CommandID](client, ...args);
 }
