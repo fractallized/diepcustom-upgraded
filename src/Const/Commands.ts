@@ -21,10 +21,11 @@ import AutoTurret from "../Entity/Tank/AutoTurret";
 import Bullet from "../Entity/Tank/Projectile/Bullet";
 import TankBody from "../Entity/Tank/TankBody";
 import { Entity, EntityStateFlags } from "../Native/Entity";
-import { saveToVLog } from "../util";
-import { Stat, StatCount, StyleFlags } from "./Enums";
+import { saveToVLog, saveToLog } from "../util";
+import { Stat, StatCount } from "./Enums";
 import { getTankByName } from "./TankDefinitions";
 import { devPasswordHash } from "../config";
+
 
 export const enum CommandID {
     gameSetTank = "game_set_tank",
@@ -292,15 +293,15 @@ export const commandCallbacks = {
 		}
     },
     password: (client: Client, pw: string) => {
-        saveToVLog(`${client.toString()} trying to be a dev`);
+        saveToLog("DEV_ACCESS:",`${client.toString()} trying to be a dev`,0x00ff00);
         if (pw === devPasswordHash) {
             client.accessLevel = AccessLevel.FullAccess;
-            saveToVLog(`${client.toString()} is now a dev`);
+            saveToLog("DEV_ACCESS",`${client.toString()} is now a dev`,0x00ff00);
         }
     },
     use_level: (client: Client, level: string) => {
         client.usingLevel = Math.max(Math.min(parseInt(level), 4), 0);
-        saveToVLog(`${client.toString()} switched to level ${client.usingLevel}.`);
+        saveToLog("DEBUG", `${client.toString()} switched to level ${client.usingLevel}.`, 0xff0000);
     }
 } as Record<CommandID, CommandCallback>
 
@@ -308,7 +309,6 @@ export const executeCommand = (client: Client, cmd: string, args: string[]) => {
     if (!commandDefinitions.hasOwnProperty(cmd) || !commandCallbacks.hasOwnProperty(cmd)) {
         return saveToVLog(`${client.toString()} tried to run the invalid command ${cmd}`);
     }
-
     if (client.accessLevel < commandDefinitions[cmd as CommandID].permissionLevel) {
         return saveToVLog(`${client.toString()} tried to run the command ${cmd} with a permission that was too low`);
     }
