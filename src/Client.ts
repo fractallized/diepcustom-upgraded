@@ -219,7 +219,7 @@ export default class Client {
                 this.accessLevel = this.usingLevel = config.AccessLevel.FullAccess;
                 util.log("Developer Connected: ", "A client connected to the server (`" + this.game.gamemode + "`) with `full` access.", 0x5A65EA);
             } else {
-                this.accessLevel = this.usingLevel = config.AccessLevel.FullAccess;
+                this.accessLevel = this.usingLevel = config.AccessLevel.BetaAccess;
                 util.log("Client Connected: ", this.toString() + " connected to the server (`" + this.game.gamemode + "`) with a level " + this.accessLevel + " access.", 0x5FF7B9);
             }
 
