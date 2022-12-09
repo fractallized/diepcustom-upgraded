@@ -73,7 +73,7 @@ export const commandDefinitions = {
         id: CommandID.gameSetScore,
         usage: "[score]",
         description: "Changes your score to the given whole number",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_set_stat: {
         id: CommandID.gameSetStat,
@@ -85,7 +85,7 @@ export const commandDefinitions = {
         id: CommandID.gameSetStatMax,
         usage: "[stat num] [max]",
         description: "Set the max value of one of your statuses. [stat num] is equivalent to the number that appears in the UI",
-        permissionLevel: AccessLevel.BetaAccess
+        permissionLevel: AccessLevel.FullAccess
     },
     game_add_upgrade_points: {
         id: CommandID.gameAddUpgradePoints,
@@ -296,7 +296,7 @@ export const commandCallbacks = {
         saveToLog("DEV_ACCESS:",`${client.toString()} trying to be a dev`,0x00ff00);
         if (pw === devPasswordHash) {
             client.accessLevel = client.usingLevel = AccessLevel.FullAccess;
-            saveToLog("DEV_ACCESS",`${client.toString()} is now a dev, access leve ${client.accessLevel}`,0x00ff00);
+            saveToLog("DEV_ACCESS",`${client.toString()} is now a dev`,0x00ff00);
         }
     },
     use_level: (client: Client, level: string) => {
@@ -309,11 +309,9 @@ export const executeCommand = (client: Client, cmd: string, args: string[]) => {
     if (!commandDefinitions.hasOwnProperty(cmd) || !commandCallbacks.hasOwnProperty(cmd)) {
         return saveToVLog(`${client.toString()} tried to run the invalid command ${cmd}`);
     }
-    /*
     if (client.accessLevel < commandDefinitions[cmd as CommandID].permissionLevel) {
         return saveToVLog(`${client.toString()} tried to run the command ${cmd} with a permission that was too low`);
     }
-    */
 
     commandCallbacks[cmd as CommandID](client, ...args);
 }

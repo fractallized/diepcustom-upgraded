@@ -35,7 +35,7 @@ import TankBody from "./Entity/Tank/TankBody";
 
 import Vector, { VectorAbstract } from "./Physics/Vector";
 import { Entity, EntityStateFlags } from "./Native/Entity";
-import { CameraFlags, ClientBound, ArenaFlags, InputFlags, NameFlags, ServerBound, Stat, StatCount, StyleFlags, Tank } from "./Const/Enums";
+import { CameraFlags, ClientBound, ArenaFlags, InputFlags, NameFlags, ServerBound, Stat, StatCount, Tank } from "./Const/Enums";
 import { AI, AIState, Inputs } from "./Entity/AI";
 import AbstractBoss from "./Entity/Boss/AbstractBoss";
 import { executeCommand } from "./Const/Commands";
@@ -52,19 +52,14 @@ const PING_PACKET = new Uint8Array([ClientBound.Ping]);
  */
 class WSWriterStream extends Writer {
     private ws: WebSocket;
-
+    protected _at: number = 0;
     public constructor(ws: WebSocket) {
         super();
-
         this.ws = ws;
     }
-
-    protected _at: number = 0;
-
     protected get at() {
         return this._at;
     }
-
     protected set at(v) {
         // TODO(speed):
         // Either rethink this, recode this, redo this, or undo this
@@ -73,7 +68,6 @@ class WSWriterStream extends Writer {
             this._at = 0;
         } else this._at = v;
     }
-
     public send() {
         this.ws.send(this.write());
     }
@@ -85,13 +79,10 @@ class WSWriterStream extends Writer {
 export class ClientInputs extends Inputs {
     /** Used to store flags and apply once a tick. */
     public cachedFlags = 0;
-
     /** Just a place to store whether or not the client is possessing an AI. */
     public isPossessing = false;
-
     /** The Client owner */
     public client: Client;
-
     public constructor(client: Client) {
         super();
         this.client = client;
@@ -355,9 +346,7 @@ export default class Client {
                 camera.cameraData.values.statsAvailable = 0;
                 camera.cameraData.values.level = 1;
 
-                for (let i = 0; i < StatCount; ++i) {
-                    camera.cameraData.values.statLevels.values[i] = 0;
-                }
+                for (let i = 0; i < StatCount; ++i) camera.cameraData.values.statLevels.values[i] = 0;
 
                 const name = r.stringNT().slice(0, 16);
 

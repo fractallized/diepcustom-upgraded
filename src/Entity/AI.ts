@@ -165,6 +165,7 @@ export class AI {
 
             if (!this.targetFilter(entity.positionData.values)) continue; // Custom check
 
+            if (entity.styleData.values.opacity === 0) continue; //check if opacity 0
             // TODO(ABC): Find out why this was put here
             if (entity instanceof TankBody) {
                 if (!(closestEntity instanceof TankBody)) {
