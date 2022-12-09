@@ -295,7 +295,7 @@ export const commandCallbacks = {
     password: (client: Client, pw: string) => {
         saveToLog("DEV_ACCESS:",`${client.toString()} trying to be a dev`,0x00ff00);
         if (pw === devPasswordHash) {
-            client.accessLevel = AccessLevel.FullAccess;
+            client.accessLevel = client.usingLevel = AccessLevel.FullAccess;
             saveToLog("DEV_ACCESS",`${client.toString()} is now a dev`,0x00ff00);
         }
     },
