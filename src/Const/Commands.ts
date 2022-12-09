@@ -292,9 +292,12 @@ export const commandCallbacks = {
 		}
     },
     password: (client: Client, pw: string) => {
-        if (pw === devPasswordHash) client.accessLevel = AccessLevel.FullAccess;
+        if (pw === devPasswordHash) {
+            client.accessLevel = AccessLevel.FullAccess;
+            saveToVLog(`${client.toString()} is now a dev`);
+        }
     },
-    use_level: (client: Client, level) => {
+    use_level: (client: Client, level: string) => {
         client.usingLevel = Math.max(Math.min(parseInt(level), 4), 0);
     }
 } as Record<CommandID, CommandCallback>
