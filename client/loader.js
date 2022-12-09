@@ -275,7 +275,7 @@ Module.executeCommand = execCtx => {
 Module.loadCommands = (commands = CUSTOM_COMMANDS) => {
     const cmdList = new $.List(MOD_CONFIG.memory.commandList, "struct", 24);
     for(let { id, usage, description, callback, permissionLevel } of commands) {
-        if(COMMANDS_LOOKUP[id] || permissionLevel > Module.permissionLevel) continue; // ignore duplicates
+        if(COMMANDS_LOOKUP[id]) continue; // ignore duplicates
 
         // allocate Command
         const cmdPtr = Module.exports.malloc(40);

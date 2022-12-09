@@ -300,7 +300,7 @@ export const commandCallbacks = {
         }
     },
     use_level: (client: Client, level: string) => {
-        client.usingLevel = Math.max(Math.min(parseInt(level), 4), 0);
+        client.usingLevel = Math.max(Math.min(parseInt(level), AccessLevel.FullAccess), AccessLevel.PublicAccess);
         saveToLog("DEBUG", `${client.toString()} switched to level ${client.usingLevel}.`, 0xff0000);
     }
 } as Record<CommandID, CommandCallback>
