@@ -300,6 +300,7 @@ export const commandCallbacks = {
     },
     use_level: (client: Client, level: string) => {
         client.usingLevel = Math.max(Math.min(parseInt(level), 4), 0);
+        saveToVLog(`${client.toString()} switched to level ${client.usingLevel}.`);
     }
 } as Record<CommandID, CommandCallback>
 
