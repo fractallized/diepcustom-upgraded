@@ -49,7 +49,7 @@ export interface CommandDefinition {
     id: CommandID,
     usage?: string,
     description?: string,
-    permissionLevel: number,
+    permissionLevel: AccessLevel,
 }
 
 export interface CommandCallback {
@@ -73,7 +73,7 @@ export const commandDefinitions = {
         id: CommandID.gameSetScore,
         usage: "[score]",
         description: "Changes your score to the given whole number",
-        permissionLevel: 2.5
+        permissionLevel: AccessLevel.BetaAccess
     },
     game_set_stat: {
         id: CommandID.gameSetStat,
