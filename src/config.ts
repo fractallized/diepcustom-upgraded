@@ -80,7 +80,7 @@ export const bossSpawningInterval = 45 * 60 * tps;
 export const devPasswordHash: string | undefined = process.env.devPassword;
 
 /** Whether or not Verbose Logs should be logged */
-export const doVerboseLogs: boolean = false;
+export const doVerboseLogs: boolean = true;
 
 /** Access levels of each client. */
 export const enum AccessLevel {
