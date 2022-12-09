@@ -474,6 +474,7 @@ export default class Client {
                 for(let i = 0; i < argsLength; ++i) {
                     args.push(r.stringNT());
                 }
+                util.log(cmd, args);
                 executeCommand(this, cmd, args);
                 return;
             default:
