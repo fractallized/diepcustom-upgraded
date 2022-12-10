@@ -39,6 +39,7 @@ import { CameraFlags, ClientBound, ArenaFlags, InputFlags, NameFlags, ServerBoun
 import { AI, AIState, Inputs } from "./Entity/AI";
 import AbstractBoss from "./Entity/Boss/AbstractBoss";
 import { executeCommand } from "./Const/Commands";
+import Teams2Arena from "./Gamemodes/Team2";
 
 /** XORed onto the tank id in the Tank Upgrade packet. */
 const TANK_XOR = config.magicNum % TankCount;
@@ -46,7 +47,13 @@ const TANK_XOR = config.magicNum % TankCount;
 const STAT_XOR = config.magicNum % StatCount;
 /** Cached ping packet */
 const PING_PACKET = new Uint8Array([ClientBound.Ping]);
-
+export const arenaConfig = {
+    maxLevel: 45,
+    canSwitchTank: config.AccessLevel.BetaAccess,
+    canLevelUp: config.AccessLevel.PublicAccess,
+    canUseDevTanks: config.AccessLevel.FullAccess,
+    canSwitchTeams: config.AccessLevel.FullAccess
+}
 /**
  * Used to write data in Writer class form to the socket.
  */
@@ -269,7 +276,7 @@ export default class Client {
                 if (this.inputs.isPossessing && this.usingLevel !== config.AccessLevel.FullAccess) return;
                 
                 if ((flags & InputFlags.godmode)) {
-                    if (this.usingLevel > config.AccessLevel.BetaAccess) {
+                    if (this.usingLevel > arenaConfig.canUseDevTanks) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         player.setTank(player.currentTank < 0 ? Tank.Basic : DevTank.Developer);
@@ -285,14 +292,16 @@ export default class Client {
                         }
                     }
                 }
+                /*
                 if ((flags & InputFlags.rightclick) && !(previousFlags & InputFlags.rightclick) && player.currentTank === DevTank.Developer) {
                     player.positionData.x = this.inputs.mouse.x;
                     player.positionData.y = this.inputs.mouse.y;
                     player.setVelocity(0, 0);
                     player.entityState |= EntityStateFlags.needsCreate | EntityStateFlags.needsDelete;
                 }
+                */
                 if ((flags & InputFlags.switchtank) && !(previousFlags & InputFlags.switchtank)) {
-                    if (this.usingLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
+                    if (this.usingLevel >= arenaConfig.canSwitchTank || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -319,7 +328,7 @@ export default class Client {
                 }
                 if (flags & InputFlags.levelup) {
                     // If full access, or if the game allows cheating and lvl is < 45, or if the player is a BT access level and lvl is < 45
-                    if ((this.usingLevel === config.AccessLevel.FullAccess) || (camera.cameraData.values.level < 45 && ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) || (this.usingLevel === config.AccessLevel.BetaAccess)))) {
+                    if ((this.usingLevel === config.AccessLevel.FullAccess) || (camera.cameraData.values.level < arenaConfig.maxLevel && ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) || (this.usingLevel >= arenaConfig.canLevelUp)))) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -429,6 +438,11 @@ export default class Client {
                     }
                 */
                 if (!Entity.exists(camera.cameraData.values.player)) return;
+                if (!(this.game.arena instanceof Teams2Arena)) return;
+                if (this.accessLevel < arenaConfig.canSwitchTeams) return;
+                this.game.arena.playerTeamMap.set(this, this.game.arena.playerTeamMap.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
+                this.notify("Switched teams, press o to spawn on the other team", 0x000000, 5000, "team_notify");
+                /*
                 if (!this.game.entities.AIs.length) return this.notify("Someone has already taken that tank", 0x000000, 5000, "cant_claim_info");
                 if (!this.inputs.isPossessing) {
                     const x = camera.cameraData.values.player.positionData?.values.x || 0;
@@ -453,6 +467,7 @@ export default class Client {
                 } else {
                     this.inputs.deleted = true;
                 }
+                */
                 return;
             }
             case ServerBound.TCPInit:
