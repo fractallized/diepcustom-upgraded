@@ -76,6 +76,7 @@ export class AI {
 
     /** Specific rotation of the AI in passive mode. */
     public passiveRotation = Math.random() < .5 ? AI.PASSIVE_ROTATION : -AI.PASSIVE_ROTATION;
+    public rotationVector = new Vector(Math.cos(this.passiveRotation), Math.sin(this.passiveRotation));
     /** View range in diep units. */
     public viewRange = 1700;
     /** The state of the AI. */
@@ -244,9 +245,6 @@ export class AI {
                 y: pos.y
             });
         }
-
-        this.inputs.movement.magnitude = 1;
-        this.inputs.movement.angle = Math.atan2(this.inputs.mouse.y - ownerPos.y, this.inputs.mouse.x - ownerPos.x);
     }
 
     public tick(tick: number) {
@@ -260,14 +258,12 @@ export class AI {
         const target = this.findTarget(tick);
         
         if (!target) {
+            const ownerPos = this.owner.getWorldPosition();
             this.inputs.flags = 0;
             this.state = AIState.idle;
-            const angle = this.inputs.mouse.angle + this.passiveRotation;
+            const inputs = new Vector(this.inputs.mouse.x - ownerPos.x, this.inputs.mouse.y - ownerPos.y);
 
-            this.inputs.mouse.set({
-                x: Math.cos(angle) * 100,
-                y: Math.sin(angle) * 100
-            });
+            this.inputs.mouse.set(inputs.rotate(this.rotationVector));
         } else {
             this.state = AIState.hasTarget;
             this.inputs.flags |= InputFlags.leftclick;

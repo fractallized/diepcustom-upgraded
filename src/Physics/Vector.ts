@@ -70,7 +70,14 @@ export default class Vector implements VectorAbstract {
         // if angle is pi/2, it will get the y component
         return Math.cos(this.angle - angle) * this.magnitude;
     }
-    
+    /** much friendlier version of rotate, less computationally intensive 
+     * requires a unit vector as input
+    */
+    public rotate(vector: VectorAbstract) {
+        this.x = this.x * vector.x - this.y * vector.y;
+        this.y = this.y * vector.x + this.x * vector.y;
+        return this;
+    }
     public set angle(angle: number) {
         const currentMag = this.magnitude;
 
