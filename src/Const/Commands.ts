@@ -22,7 +22,7 @@ import Bullet from "../Entity/Tank/Projectile/Bullet";
 import TankBody from "../Entity/Tank/TankBody";
 import { Entity, EntityStateFlags } from "../Native/Entity";
 import { saveToVLog, saveToLog } from "../util";
-import { Stat, StatCount } from "./Enums";
+import { ClientBound, Stat, StatCount } from "./Enums";
 import { getTankByName } from "./TankDefinitions";
 import { devPasswordHash } from "../config";
 
@@ -322,10 +322,15 @@ export const commandCallbacks = {
         arenaConfig[perm] = _val;
     },
     set_arena_size: (client: Client, x: string, y: string) => {
-        client.notify("arena is now" + x + " x " + y, 0x000000, 10000, "");
         const _x = Math.max(500, parseInt(x));
         const _y = Math.max(500, parseInt(y));
         client.game.arena.updateBounds(_x, _y);
+        client.game.broadcast()
+            .u8(ClientBound.Notification)
+            .stringNT("arena is now " + _x + " x " + _y)
+            .u32(0x000000)
+            .float(10000)
+            .stringNT("").send();
         client.game.arena.entityState |= EntityStateFlags.needsUpdate;
     },
 } as Record<CommandID, CommandCallback>
