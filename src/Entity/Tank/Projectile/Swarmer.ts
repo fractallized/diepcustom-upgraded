@@ -43,7 +43,7 @@ const SwarmerBarrelDefinition: BarrelDefinition = {
         type: "swarm",
         health: 1,
         damage: 0.1,
-        speed: 1.3,
+        speed: 1.1,
         scatterRate: 1,
         lifeLength: 0.8,
         sizeRatio: 0.7,
