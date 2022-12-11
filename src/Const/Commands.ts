@@ -310,10 +310,10 @@ export const commandCallbacks = {
         saveToLog("DEBUG", `${client.toString()} switched to level ${client.usingLevel}.`, 0xff0000);
     },
     set_perm: (client: Client, perm: string, val: string) => {
+        client.notify(JSON.stringify(arenaConfig), 0x000000, 10000, "");
         if (!arenaConfig.hasOwnProperty(perm)) return;
         const _val: number = parseInt(val);
         arenaConfig[perm] = _val;
-        client.notify(JSON.stringify(arenaConfig), 0x000000, 10000, "")
     }
 } as Record<CommandID, CommandCallback>
 

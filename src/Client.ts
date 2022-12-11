@@ -338,7 +338,7 @@ export default class Client {
                     }
                 }
                 if ((flags & InputFlags.suicide) && (!player.deletionAnimation || !player.deletionAnimation)) {
-                    if (this.usingLevel >= config.AccessLevel.BetaAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
+                    if (this.usingLevel >= config.AccessLevel.PublicAccess || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -365,7 +365,7 @@ export default class Client {
                 if (this.accessLevel >= arenaConfig.canRespawn) tank.setTank(Tank.Basic);
                 else tank.setTank(DevTank.Spectator);
                 this.game.arena.spawnPlayer(tank, this);
-                camera.setLevel(Math.min(camera.cameraData.values.respawnLevel, arenaConfig.maxLevel));
+                camera.setLevel(Math.min(camera.cameraData.values.respawnLevel, arenaConfig.maxLevel, arenaConfig.maxLevelUp));
 
                 tank.nameData.values.name = name;
                 if (this.devCheatsUsed) tank.nameData.values.flags |= NameFlags.highlightedName;
