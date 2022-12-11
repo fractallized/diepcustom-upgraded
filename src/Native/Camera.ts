@@ -82,14 +82,14 @@ export class CameraEntity extends Entity {
 
                 const score = this.cameraData.values.score;
                 let newLevel = this.cameraData.values.level;
-                while (newLevel < levelToScoreTable.length && score - levelToScore(newLevel + 1) >= 0) newLevel += 1
+                while (newLevel < arenaConfig.maxLevel && score - levelToScore(newLevel + 1) >= 0) newLevel += 1
 
                 if (newLevel !== this.cameraData.values.level) {
                     this.setLevel(newLevel);
                     this.cameraData.score = score;
                 }
 
-                if (newLevel < levelToScoreTable.length) {
+                if (newLevel < arenaConfig.maxLevel) {
                     const levelScore = levelToScore(this.cameraData.values.level)
                     this.cameraData.levelbarMax = levelToScore(this.cameraData.values.level + 1) - levelScore;
                     this.cameraData.levelbarProgress = score - levelScore;
