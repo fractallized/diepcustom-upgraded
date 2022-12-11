@@ -53,8 +53,8 @@ export const arenaConfig = {
     canLevelUp: config.AccessLevel.PublicAccess,
     canUseDevTanks: config.AccessLevel.FullAccess,
     canSwitchTeams: config.AccessLevel.FullAccess,
-    canRespawn: config.AccessLevel.FullAccess
-}
+    canRespawn: config.AccessLevel.PublicAccess
+} as Record<string, number>;
 /**
  * Used to write data in Writer class form to the socket.
  */
@@ -277,7 +277,7 @@ export default class Client {
                 if (this.inputs.isPossessing && this.usingLevel !== config.AccessLevel.FullAccess) return;
                 
                 if ((flags & InputFlags.godmode)) {
-                    if (this.usingLevel > arenaConfig.canUseDevTanks) {
+                    if (this.usingLevel >= arenaConfig.canUseDevTanks) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         player.setTank(player.currentTank < 0 ? Tank.Basic : DevTank.Developer);

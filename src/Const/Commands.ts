@@ -1,4 +1,4 @@
-import Client from "../Client"
+import Client, { arenaConfig } from "../Client"
 import { AccessLevel } from "../config";
 import AbstractBoss from "../Entity/Boss/AbstractBoss";
 import Defender from "../Entity/Boss/Defender";
@@ -42,7 +42,8 @@ export const enum CommandID {
     adminKillEntity = "admin_kill_entity",
     adminCloseArena = "admin_close_arena",
     adminEnterPassword = "password",
-    adminChangeLevel = "use_level"
+    adminChangeLevel = "use_level",
+    adminSetPermLevel = "set_perm"
 }
 
 export interface CommandDefinition {
@@ -140,7 +141,12 @@ export const commandDefinitions = {
     },
     use_level: {
         id: CommandID.adminChangeLevel,
-        description: "Sets password",
+        description: "Changes access level",
+        permissionLevel: AccessLevel.FullAccess
+    },
+    set_perm: {
+        id: CommandID.adminSetPermLevel,
+        description: "Changes arena config for access levels",
         permissionLevel: AccessLevel.FullAccess
     }
 } as Record<CommandID, CommandDefinition>
@@ -302,6 +308,11 @@ export const commandCallbacks = {
     use_level: (client: Client, level: string) => {
         client.usingLevel = Math.max(Math.min(parseInt(level), AccessLevel.FullAccess), AccessLevel.PublicAccess);
         saveToLog("DEBUG", `${client.toString()} switched to level ${client.usingLevel}.`, 0xff0000);
+    },
+    set_perm: (client: Client, perm: string, val: string) => {
+        if (!arenaConfig.hasOwnProperty(perm)) return;
+        const _val: number = parseInt(val);
+        arenaConfig[perm] = _val;
     }
 } as Record<CommandID, CommandCallback>
 
@@ -312,6 +323,5 @@ export const executeCommand = (client: Client, cmd: string, args: string[]) => {
     if (client.accessLevel < commandDefinitions[cmd as CommandID].permissionLevel) {
         return saveToVLog(`${client.toString()} tried to run the command ${cmd} with a permission that was too low`);
     }
-
     commandCallbacks[cmd as CommandID](client, ...args);
 }
