@@ -444,9 +444,9 @@ export default class Client {
                 map.set(this, map.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
                 const team = map.get(this);
                 this.notify(`Switched to team ${team === this.game.arena.blueTeamBase? "blue":"red"}, press o to spawn on the other team`, 0x000000, 5000, "team_notify");
-                camera.cameraData.player.relationsData.team = team ?? this.game.arena.blueTeamBase;
+                camera.cameraData.player.relationsData.values.team = team ?? this.game.arena.blueTeamBase;
                 camera.cameraData.player.styleData.color = team?.styleData.color ?? Color.TeamBlue;
-                camera.relationsData.team = team ?? this.game.arena.blueTeamBase;
+                camera.relationsData.values.team = team ?? this.game.arena.blueTeamBase;
                 camera.entityState &= EntityStateFlags.needsUpdate;
                 camera.cameraData.player.entityState &= EntityStateFlags.needsUpdate;
                 /*
