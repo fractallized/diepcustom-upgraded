@@ -313,6 +313,7 @@ export const commandCallbacks = {
         if (!arenaConfig.hasOwnProperty(perm)) return;
         const _val: number = parseInt(val);
         arenaConfig[perm] = _val;
+        client.notify(JSON.stringify(arenaConfig), 0x000000, 10000, "")
     }
 } as Record<CommandID, CommandCallback>
 
