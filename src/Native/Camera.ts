@@ -17,7 +17,7 @@
 */
 
 import GameServer from "../Game";
-import Client from "../Client";
+import Client, { arenaConfig } from "../Client";
 import Writer from "../Coder/Writer";
 import TankBody from "../Entity/Tank/TankBody";
 import ObjectEntity from "../Entity/Object";
@@ -45,8 +45,8 @@ export class CameraEntity extends Entity {
         const previousLevel = this.cameraData.values.level;
         this.cameraData.level = level;
         this.sizeFactor = Math.pow(1.01, level - 1);
-        this.cameraData.levelbarMax = level < 45 ? 1 : 0; // quick hack, not correct values
-        if (level <= 45) {
+        this.cameraData.levelbarMax = level < arenaConfig.maxLevel ? 1 : 0; // quick hack, not correct values
+        if (level <= arenaConfig.maxLevel) {
             this.cameraData.score = levelToScore(level);
 
             const player = this.cameraData.values.player;

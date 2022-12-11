@@ -48,6 +48,7 @@ const STAT_XOR = config.magicNum % StatCount;
 /** Cached ping packet */
 const PING_PACKET = new Uint8Array([ClientBound.Ping]);
 export const arenaConfig = {
+    maxLevelUp: 45,
     maxLevel: 45,
     canSwitchTank: config.AccessLevel.BetaAccess,
     canLevelUp: config.AccessLevel.PublicAccess,
@@ -329,7 +330,7 @@ export default class Client {
                 }
                 if (flags & InputFlags.levelup) {
                     // If full access, or if the game allows cheating and lvl is < 45, or if the player is a BT access level and lvl is < 45
-                    if ((this.usingLevel === config.AccessLevel.FullAccess) || (camera.cameraData.values.level < arenaConfig.maxLevel && ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) || (this.usingLevel >= arenaConfig.canLevelUp)))) {
+                    if ((this.usingLevel === config.AccessLevel.FullAccess) || (camera.cameraData.values.level < arenaConfig.maxLevelUp && ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) || (this.usingLevel >= arenaConfig.canLevelUp)))) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -364,7 +365,7 @@ export default class Client {
                 if (this.accessLevel >= arenaConfig.canRespawn) tank.setTank(Tank.Basic);
                 else tank.setTank(DevTank.Spectator);
                 this.game.arena.spawnPlayer(tank, this);
-                camera.setLevel(camera.cameraData.values.respawnLevel);
+                camera.setLevel(Math.min(camera.cameraData.values.respawnLevel, arenaConfig.maxLevel));
 
                 tank.nameData.values.name = name;
                 if (this.devCheatsUsed) tank.nameData.values.flags |= NameFlags.highlightedName;
