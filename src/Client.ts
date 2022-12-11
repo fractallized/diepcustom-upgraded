@@ -447,6 +447,8 @@ export default class Client {
                 camera.cameraData.player.relationsData.team = team ?? this.game.arena.blueTeamBase;
                 camera.cameraData.player.styleData.color = team?.styleData.color ?? Color.TeamBlue;
                 camera.relationsData.team = team ?? this.game.arena.blueTeamBase;
+                camera.entityState &= EntityStateFlags.needsUpdate;
+                camera.cameraData.player.entityState &= EntityStateFlags.needsUpdate;
                 /*
                 if (!this.game.entities.AIs.length) return this.notify("Someone has already taken that tank", 0x000000, 5000, "cant_claim_info");
                 if (!this.inputs.isPossessing) {
