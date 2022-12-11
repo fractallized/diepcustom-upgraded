@@ -52,7 +52,8 @@ export const arenaConfig = {
     canSwitchTank: config.AccessLevel.BetaAccess,
     canLevelUp: config.AccessLevel.PublicAccess,
     canUseDevTanks: config.AccessLevel.FullAccess,
-    canSwitchTeams: config.AccessLevel.FullAccess
+    canSwitchTeams: config.AccessLevel.FullAccess,
+    canRespawn: config.AccessLevel.FullAccess
 }
 /**
  * Used to write data in Writer class form to the socket.
@@ -301,7 +302,7 @@ export default class Client {
                 }
                 */
                 if ((flags & InputFlags.switchtank) && !(previousFlags & InputFlags.switchtank)) {
-                    if (this.usingLevel >= arenaConfig.canSwitchTank || (this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats)) {
+                    if (this.usingLevel >= arenaConfig.canSwitchTank || ((this.game.arena.arenaData.values.flags & ArenaFlags.canUseCheats) && this.accessLevel >= arenaConfig.canRespawn)) {
                         player.nameData.flags |= NameFlags.highlightedName;
                         this.devCheatsUsed = 1;
                         
@@ -360,7 +361,8 @@ export default class Client {
                 const name = r.stringNT().slice(0, 16);
 
                 const tank = camera.cameraData.player = camera.relationsData.owner = camera.relationsData.parent = new TankBody(this.game, camera, this.inputs);
-                tank.setTank(Tank.Basic);
+                if (this.accessLevel >= arenaConfig.canRespawn) tank.setTank(Tank.Basic);
+                else tank.setTank(DevTank.Spectator);
                 this.game.arena.spawnPlayer(tank, this);
                 camera.setLevel(camera.cameraData.values.respawnLevel);
 
@@ -442,13 +444,8 @@ export default class Client {
                 if (this.accessLevel < arenaConfig.canSwitchTeams) return;
                 const map = this.game.arena.playerTeamMap;
                 map.set(this, map.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
-                const team = map.get(this);
-                this.notify(`Switched to team ${team === this.game.arena.blueTeamBase? "blue":"red"}, press o to spawn on the other team`, 0x000000, 5000, "team_notify");
-                const player = camera.cameraData.values.player;
-                if (!Entity.exists(player) || !player.relationsData || !player.styleData) return;
-                player.relationsData.team = team ?? this.game.arena.blueTeamBase;
-                camera.cameraData.player.styleData.color = team?.styleData.color ?? Color.TeamBlue;
-                camera.cameraData.player.entityState &= EntityStateFlags.needsUpdate;
+                this.notify(`Switched to team ${map.get(this) === this.game.arena.blueTeamBase? "blue":"red"}`, 0x000000, 5000, "team_notify");
+                if (camera.cameraData.values.player instanceof TankBody) camera.cameraData.values.player.destroy();
                 /*
                 if (!this.game.entities.AIs.length) return this.notify("Someone has already taken that tank", 0x000000, 5000, "cant_claim_info");
                 if (!this.inputs.isPossessing) {
