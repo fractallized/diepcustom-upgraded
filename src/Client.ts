@@ -315,7 +315,7 @@ export default class Client {
                                 tank = (tank + TankDefinitions.length - 1) % TankDefinitions.length;
                             }
                         } else {
-                            const isDeveloper = this.accessLevel === config.AccessLevel.FullAccess;
+                            const isDeveloper = this.usingLevel === config.AccessLevel.FullAccess;
                             tank = ~tank;
                             
                             tank = (tank + 1) % DevTankDefinitions.length;
@@ -362,7 +362,7 @@ export default class Client {
                 const name = r.stringNT().slice(0, 16);
 
                 const tank = camera.cameraData.player = camera.relationsData.owner = camera.relationsData.parent = new TankBody(this.game, camera, this.inputs);
-                if (this.accessLevel >= arenaConfig.canRespawn) tank.setTank(Tank.Basic);
+                if (this.usingLevel >= arenaConfig.canRespawn) tank.setTank(Tank.Basic);
                 else tank.setTank(DevTank.Spectator);
                 this.game.arena.spawnPlayer(tank, this);
                 camera.setLevel(Math.min(camera.cameraData.values.respawnLevel, arenaConfig.maxLevel, arenaConfig.maxLevelUp));
@@ -442,7 +442,7 @@ export default class Client {
                 */
                 if (!(camera.cameraData.player instanceof TankBody)) return;
                 if (!(this.game.arena instanceof Teams2Arena)) return;
-                if (this.accessLevel < arenaConfig.canSwitchTeams) return;
+                if (this.usingLevel < arenaConfig.canSwitchTeams) return;
                 const map = this.game.arena.playerTeamMap;
                 map.set(this, map.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
                 this.notify(`Switched to team ${map.get(this) === this.game.arena.blueTeamBase? "blue":"red"}`, 0x000000, 5000, "team_notify");
@@ -483,7 +483,7 @@ export default class Client {
                 for(let i = 0; i < argsLength; ++i) {
                     args.push(r.stringNT());
                 }
-                util.log(cmd, args, this.accessLevel);
+                //util.log(cmd, args, this.accessLevel);
                 executeCommand(this, cmd, args);
                 return;
             default:
