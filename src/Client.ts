@@ -35,7 +35,7 @@ import TankBody from "./Entity/Tank/TankBody";
 
 import Vector, { VectorAbstract } from "./Physics/Vector";
 import { Entity, EntityStateFlags } from "./Native/Entity";
-import { CameraFlags, ClientBound, ArenaFlags, InputFlags, NameFlags, ServerBound, Stat, StatCount, Tank } from "./Const/Enums";
+import { CameraFlags, ClientBound, ArenaFlags, InputFlags, NameFlags, ServerBound, Stat, StatCount, Tank, Color } from "./Const/Enums";
 import { AI, AIState, Inputs } from "./Entity/AI";
 import AbstractBoss from "./Entity/Boss/AbstractBoss";
 import { executeCommand } from "./Const/Commands";
@@ -442,9 +442,11 @@ export default class Client {
                 if (this.accessLevel < arenaConfig.canSwitchTeams) return;
                 const map = this.game.arena.playerTeamMap;
                 map.set(this, map.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
-                this.notify(`Switched to team ${map.get(this) === this.game.arena.blueTeamBase? "blue":"red"}, press o to spawn on the other team`, 0x000000, 5000, "team_notify");
-                camera.cameraData.player.relationsData.team = map.get(this) ?? this.game.arena.blueTeamBase;
-                camera.relationsData.team = map.get(this) ?? this.game.arena.blueTeamBase;
+                const team = map.get(this);
+                this.notify(`Switched to team ${team === this.game.arena.blueTeamBase? "blue":"red"}, press o to spawn on the other team`, 0x000000, 5000, "team_notify");
+                camera.cameraData.player.relationsData.team = team ?? this.game.arena.blueTeamBase;
+                camera.cameraData.player.styleData.color = team?.styleData.color ?? Color.TeamBlue;
+                camera.relationsData.team = team ?? this.game.arena.blueTeamBase;
                 /*
                 if (!this.game.entities.AIs.length) return this.notify("Someone has already taken that tank", 0x000000, 5000, "cant_claim_info");
                 if (!this.inputs.isPossessing) {
