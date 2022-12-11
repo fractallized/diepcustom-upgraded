@@ -437,11 +437,14 @@ export default class Client {
                         this.notify("Team switched to arena");
                     }
                 */
-                if (!Entity.exists(camera.cameraData.values.player)) return;
+                if (!(camera.cameraData.player instanceof TankBody)) return;
                 if (!(this.game.arena instanceof Teams2Arena)) return;
                 if (this.accessLevel < arenaConfig.canSwitchTeams) return;
-                this.game.arena.playerTeamMap.set(this, this.game.arena.playerTeamMap.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
-                this.notify("Switched teams, press o to spawn on the other team", 0x000000, 5000, "team_notify");
+                const map = this.game.arena.playerTeamMap;
+                map.set(this, map.get(this)===this.game.arena.blueTeamBase?this.game.arena.redTeamBase:this.game.arena.blueTeamBase);
+                this.notify(`Switched to team ${map.get(this) === this.game.arena.blueTeamBase? "blue":"red"}, press o to spawn on the other team`, 0x000000, 5000, "team_notify");
+                camera.cameraData.player.relationsData.team = map.get(this) ?? this.game.arena.blueTeamBase;
+                camera.relationsData.team = map.get(this) ?? this.game.arena.blueTeamBase;
                 /*
                 if (!this.game.entities.AIs.length) return this.notify("Someone has already taken that tank", 0x000000, 5000, "cant_claim_info");
                 if (!this.inputs.isPossessing) {
