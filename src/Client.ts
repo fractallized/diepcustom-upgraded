@@ -115,7 +115,7 @@ export default class Client {
     public inputs: ClientInputs = new ClientInputs(this);
 
     /** Current game server. */
-    private game: GameServer;
+    public game: GameServer;
     /** Inner websocket connection. */
     public ws: WebSocket;
     /** Client's camera entity. */

@@ -43,7 +43,8 @@ export const enum CommandID {
     adminCloseArena = "admin_close_arena",
     adminEnterPassword = "password",
     adminChangeLevel = "use_level",
-    adminSetPermLevel = "set_perm"
+    adminSetPermLevel = "set_perm",
+    adminSetArenaSize = "set_arena_size"
 }
 
 export interface CommandDefinition {
@@ -148,7 +149,12 @@ export const commandDefinitions = {
         id: CommandID.adminSetPermLevel,
         description: "Changes arena config for access levels",
         permissionLevel: AccessLevel.FullAccess
-    }
+    },
+    set_arena_size: {
+        id: CommandID.adminSetArenaSize,
+        description: "Changes arena size",
+        permissionLevel: AccessLevel.FullAccess
+    },
 } as Record<CommandID, CommandDefinition>
 
 export const commandCallbacks = {
@@ -314,7 +320,14 @@ export const commandCallbacks = {
         if (!arenaConfig.hasOwnProperty(perm)) return;
         const _val: number = parseInt(val);
         arenaConfig[perm] = _val;
-    }
+    },
+    set_arena_size: (client: Client, x: string, y: string) => {
+        client.notify("arena is now" + x + " x " + y, 0x000000, 10000, "");
+        const _x = Math.max(500, parseInt(x));
+        const _y = Math.max(500, parseInt(y));
+        client.game.arena.updateBounds(_x, _y);
+        client.game.arena.entityState |= EntityStateFlags.needsUpdate;
+    },
 } as Record<CommandID, CommandCallback>
 
 export const executeCommand = (client: Client, cmd: string, args: string[]) => {
