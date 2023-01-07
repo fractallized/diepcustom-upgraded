@@ -4396,7 +4396,7 @@ export interface TankDefinition {
                     "speed": 0.8,
                     "scatterRate": 1,
                     "lifeLength": -1,
-                    "absorbtionFactor": 1
+                    "absorbtionFactor": 0
                 }
             },
             {
@@ -4420,7 +4420,7 @@ export interface TankDefinition {
                     "speed": 0.8,
                     "scatterRate": 1,
                     "lifeLength": -1,
-                    "absorbtionFactor": 1
+                    "absorbtionFactor": 0
                 }
             },
             {
@@ -4444,7 +4444,7 @@ export interface TankDefinition {
                     "speed": 0.8,
                     "scatterRate": 1,
                     "lifeLength": -1,
-                    "absorbtionFactor": 1
+                    "absorbtionFactor": 0
                 }
             },
             {
@@ -4468,7 +4468,7 @@ export interface TankDefinition {
                     "speed": 0.8,
                     "scatterRate": 1,
                     "lifeLength": -1,
-                    "absorbtionFactor": 1
+                    "absorbtionFactor": 0
                 }
             }
         ],
