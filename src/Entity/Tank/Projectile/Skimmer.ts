@@ -34,7 +34,7 @@ const SkimmerBarrelDefinition: BarrelDefinition = {
     size: 70,
     width: 42,
     delay: 0,
-    reload: 0.35,
+    reload: 0.6,
     recoil: 0,
     isTrapezoid: false,
     trapezoidDirection: 0,
@@ -42,10 +42,10 @@ const SkimmerBarrelDefinition: BarrelDefinition = {
     bullet: {
         type: "bullet",
         health: 0.3,
-        damage: 0.7,
-        speed: 1.1,
+        damage: 0.6,
+        speed: 1,
         scatterRate: 1,
-        lifeLength: 0.5,
+        lifeLength: 0.4,
         sizeRatio: 1,
         absorbtionFactor: 1
     }
